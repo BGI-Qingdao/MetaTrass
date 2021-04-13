@@ -1,5 +1,5 @@
 # MetaTrass
- **T**axonomic **R**eads **A**ssembly **F**or a **S**ingle **S**pecies to Metagenomics
+ **TRASS:** **T**axonomic **R**eads **A**ssembly **F**or a **S**ingle **S**pecies to Metagenomics
 
 # Description
 
@@ -8,23 +8,23 @@ We developed an assembling pipeline named MetaTrass with using both high quality
 # Usage:
 
 usage: trass.py [-h] 
-               -sample SAMPLE 
-               -fq1 FQ1 
-               -fq2 FQ2 
-               -outdir OUTDIR 
-               -label LABEL 
-               -min_depth MIN_DEPTH 
-               -max_depth MAX_DEPTH 
-               -kraken_db KRAKEN_DB 
-               -kraken_fa KRAKEN_FA 
-               -genome_sz GENOME_SZ 
-               -threads THREADS 
-               -strategy STRATEGY 
-               -idba_ud IDBA_UD 
-               -supernova SUPERNOVA 
-               -quast QUAST 
-               -checkm CHECKM 
-               -IDY IDY 
+               -sample SAMPLE \
+               -fq1 FQ1 \
+               -fq2 FQ2 \
+               -outdir OUTDIR \
+               -label LABEL \
+               -min_depth MIN_DEPTH \
+               -max_depth MAX_DEPTH \
+               -kraken_db KRAKEN_DB \
+               -kraken_fa KRAKEN_FA \
+               -genome_sz GENOME_SZ \
+               -threads THREADS \
+               -strategy STRATEGY \
+               -idba_ud IDBA_UD \
+               -supernova SUPERNOVA \
+               -quast QUAST \
+               -checkm CHECKM \
+               -IDY IDY \
                -PCT PCT
 # Result:
 ## Rank-Completeness Results
