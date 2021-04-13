@@ -3,7 +3,7 @@
 
 # Description
 
-We developed an assembling pipeline named MetaTrass with using both high quality references in public databases and long-range information encoded within co-barcoded short-read sequences (Figure 1**). With great potential in genome assembly of co-barcoded library, many different co-barcoded libraries have been reported recently, but the single tube long fragment read library have been used in developing our tool. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
+We developed an assembling pipeline named MetaTrass with using both high quality references in public databases and long-range information encoded within co-barcoded short-read sequences. With great potential in genome assembly of co-barcoded library, many different co-barcoded libraries have been reported recently, but the single tube long fragment read library have been used in developing our tool. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
 
 # Usage:
 
