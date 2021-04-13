@@ -1,5 +1,5 @@
 # MetaTrass
- **TRASS:** **T**axonomic **R**eads **A**ssembly **F**or a **S**ingle **S**pecies to Metagenomics
+ **TRASS:** **T**axonomic **R**eads **A**ssembly **F**or a **S**ingle **S**pecies to **Meta**genomics
 
 # Description
 
