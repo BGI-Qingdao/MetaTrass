@@ -1,0 +1,41 @@
+work_dir: /zfsqd1/ST_OCEAN/USRS/qiyanwei/project/krakenSLR4Meta2/assembly10X/
+kraken_result: /zfsqd1/ST_OCEAN/USRS/qiyanwei/project/krakenSLR4Meta2/kraken/4771db/CL100164780_L01.kraken
+abundance:
+ ref_dir: /zfsqd1/ST_OCEAN/USRS/qiyanwei/database/kraken/4771_fa
+ taxonomy_info: /dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/zhangyue4/project/metaLFR/4771_data/taxonomy/nodes.dmp
+ select: top10
+#sample: 2292271;2293000;291644;328813
+raw_data:
+ read1: /zfsqd1/ST_OCEAN/USRS/qiyanwei/project/krakenSLR4Meta2/cleandata/CL100164780_L01/split_reads.1.fq.gz.clean.gz
+ read2: /zfsqd1/ST_OCEAN/USRS/qiyanwei/project/krakenSLR4Meta2/cleandata/CL100164780_L01/split_reads.2.fq.gz.clean.gz
+strategy: all
+script_path: /dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/zhangyue4/project/metaLFR/krakenSLR_pipeline
+seqkit_path: /zfsqd1/ST_OCEAN/USRS/zhangyue4/tools/seqtk/seqtk
+kraken:
+ path: /zfsqd1/ST_OCEAN/USRS/zhangyue4/tools/kraken2/build/kraken2
+ taxonomy_path: /zfsqd1/ST_OCEAN/USRS/qiyanwei/database/kraken/4771_db
+ thread: 4
+stLFRQC:
+ path: /zfsqd1/ST_OCEAN/USRS/qiyanwei/software/api/stLFRQC/stLFRQC0
+ bwa: /share/app/bwa-0.7.12/bwa
+ samtools: /share/app/samtools-1.9/bin/samtools
+ python3: /share/app/anaconda3/bin/python3
+ ref_dir: /zfsqd1/ST_OCEAN/USRS/qiyanwei/database/kraken/4771_fa
+ thread: 4
+ gap_threshold: 20000
+denovo: 
+ supernova:
+  path: /dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/zhangyue4/project/metaLFR/krakenSLR_pipeline/clean_stlfr2supernova.py
+  threads: 4
+  maxmem: 100 
+ idba:
+  path: /dellfsqd2/ST_OCEAN/biosoft/pipeline/meta_pipeline/Assembly/Assembly_idba/bin/idba/bin/idba_ud
+  thread: 6
+  maxmem: 50
+ quast:
+  ref_dir: /zfsqd1/ST_OCEAN/USRS/qiyanwei/database/kraken/4771_fa
+  path: /dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/xumengyang/software/quast/quast.py
+  thread: 4
+ filt:
+  object: all
+python_path: /dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/zhangyue4/python/Python-2.7.10/bin/python2
