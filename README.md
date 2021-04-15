@@ -7,7 +7,7 @@ We developed an assembling pipeline named MetaTrass with using both high quality
 
 ## Usage:
 
-usage: trass.py [-h] 
+usage: trass.py [-h]  \
                -sample SAMPLE \
                -fq1 FQ1 \
                -fq2 FQ2 \
@@ -37,7 +37,7 @@ This project exists thanks to all the people who contribute.
 
 https://github.com/QYanwei \
 https://github.com/cchd0001 \
-https://github.com/xiaoqiang435 \
+https://github.com/xiaoqiang435
 
 ## License
 GNU General Public License v3.0 © BGI-Qingdao
