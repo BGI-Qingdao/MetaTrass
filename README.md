@@ -1,9 +1,8 @@
 **MetaTrass © BGI-Qingdao**
 
-
 Description:
 ---
-MetaTrass is abbrivation to Taxonomic Reads For Assembly Single Species to Metagenomics.MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
+**MetaTrass** is abbrivation to Taxonomic Reads For Assembly Single Species to Metagenomics.MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
 
 Publication:
 ---
@@ -16,21 +15,14 @@ Change Log:
 * v1.1.0 (2021-07-09) - Fixed a few bugs
 * v1.0.0 (2021-04-13) - Initial release
 
-
 Dependencies:
 ---
 
-+ Python:
++ Python: Version >3.0.0
 
-  Version >3.0.0
++ C++ libraries: C++11 standard library
 
-+ C++ libraries:
-
-  C++11 standard library
-
-+ Third-party software:
-
-  [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
++ Third-party software:  [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
 [Kraken2](http://ccb.jhu.edu/software/kraken2/), 
 [Seqtk](https://github.com/lh3/seqtk.git), 
 [stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline) and 
