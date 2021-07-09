@@ -1,8 +1,7 @@
-MetaTrass © BGI-Qingdao
+**MetaTrass © BGI-Qingdao**
 
 
 Description:
-
 ---
 MetaTrass is abbrivation to Taxonomic Reads For Assembly Single Species to Metagenomics.MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
 
@@ -23,15 +22,15 @@ Dependencies:
 
 + Python:
 
-Version >3.0.0
+  Version >3.0.0
 
 + C++ libraries:
 
-C ++11 standard library
+  C++11 standard library
 
 + Third-party software:
 
-[stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
+  [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
 [Kraken2](http://ccb.jhu.edu/software/kraken2/), 
 [Seqtk](https://github.com/lh3/seqtk.git), 
 [stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline) and 
@@ -47,7 +46,7 @@ How to install:
         # for upgrade
         git add *
 
-1. You can either add MetaTrass's 3rd party dependencies to your system path or specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
+2. You can either add MetaTrass's 3rd party dependencies to your system path or specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
 
 Preparing before complementation:
 ---
@@ -67,7 +66,7 @@ Preparing before complementation:
 
      :warning: For a realiable construction of the species tree, the reference genomes for MetaTrass should be non-redundant genome of all single-speices.
 
-3.The reference genome for refining the contigs should be keep with the reference database.
+3. The reference genome for refining the contigs should be keep with the reference database.
      * Split library.fna to each single species fasta file
       You can use the script (MetaTrass/script/fa_split_by_taxid.py) to covert the reference.fna to single species fasta file. 
       If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa.
@@ -76,6 +75,7 @@ Preparing before complementation:
       *:warning: Get each of single species genome size as the configure file with two column:
         table example:
         first column: taxid, second column: genome size(bp)
+	
 	|1000|2176737|
 	|1001|6092914|
 	|1002|3864718|
@@ -86,17 +86,18 @@ Preparing before complementation:
 	|1010|4528241|
 	|1011|2149385|
 	|1013|2260187|
+	
        :warning: :warning: :warning: Please note that the genome size table file without any headline!
 
 How to run:
 ---
-1.Usage:
+1. Usage:
     * First step:
 	MetaTrass TR --threads --mem --ref_db --min_depth --max_depth  --input --output
     * Second step:
 	MetaTrass ASS --threads --mem --ref_fa --min_depth --max_depth --input --output 
 	
-2.Examples:
+2. Examples:
            Please refer to the  MetaTrass/bin/test.sh
 
 
