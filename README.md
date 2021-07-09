@@ -1,9 +1,11 @@
-
-
 MetaTrass © BGI-Qingdao
-Taxonomic Reads For Assembly Single Species to Metagenomics
+
+
+Description:
+
 ---
-MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
+MetaTrass is abbrivation to Taxonomic Reads For Assembly Single Species to Metagenomics.MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
+
 Publication:
 ---
 
