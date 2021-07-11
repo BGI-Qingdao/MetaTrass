@@ -68,12 +68,11 @@ Preparing before complementation:
 4. The reference genome length information :warning: .
       * Get each of single species genome size as the configure file with two column:
         table example:
-        first column: 
 	
-	|taxid	 | genome size(bp)|
-	| :----- | ----: |
-	|1000|2176737|
-	|1001|6092914|
+		|taxid	 | genome size(bp)|
+		| :----- | ----: |
+		|1000|2176737|
+		|1001|6092914|
       * Please note that the genome size table file without any headline. :warning: :warning: :warning:
 
 How to run:
