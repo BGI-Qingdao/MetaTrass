@@ -1,8 +1,9 @@
 **MetaTrass © BGI-Qingdao**
+---
 
 Description:
 ---
-**MetaTrass** is abbrivation to Taxonomic Reads For Assembly Single Species to Metagenomics.MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
+**MetaTrass** is abbrivation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy by using co-barcoding information while reduce the false positive effects of co-barcoding information by using references.
 
 Publication:
 ---
@@ -58,9 +59,9 @@ Preparing before complementation:
 
      * For a realiable construction of the species tree, the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
 
-3. The reference genome for refining the contigs should be keep with the reference database.
+3. The reference genome for refining the contigs should be kept with the reference database.
      * Split library.fna to each single species fasta file
-      You can use the script (MetaTrass/script/fa_split_by_taxid.py) to covert the reference.fna to single species fasta file. 
+      You can use the script (MetaTrass/script/fa_split_by_taxid.py) to covert the library.fna to single species fasta file. 
       
      * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa.
 
@@ -78,10 +79,32 @@ Preparing before complementation:
 How to run:
 ---
 1. Usage:
-    * First step:
-	MetaTrass TR --threads --mem --ref_db --min_depth --max_depth  --input --output
-    * Second step:
-	MetaTrass ASS --threads --mem --ref_fa --min_depth --max_depth --input --output 
+ 	* First Step: //Get CleanData 
+	```	
+	MetaTrass GC	--barcodeSplit  
+			--filtering 
+	```
+	* Second Step: //Taxonomic Reads and Co-Barcoding Enrich Reads 
+	```	
+	MetaTrass TR 	--threads  
+			--mem  
+			--ref_db   
+			--min_depth   
+			--max_depth    
+			--input   
+			--output  
+	```
+
+ 	* Third Step: //Single-species Assembly and Contigs refining  
+	```
+	MetaTrass SA 	--threads  
+			--mem  
+			--ref_fa  
+			--min_depth  
+			--max_depth  
+			--input  
+			--output  
+	```
 	
 2. Examples:
     * Please refer to the  MetaTrass/bin/test.sh
