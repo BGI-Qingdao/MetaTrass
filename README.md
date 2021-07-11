@@ -43,11 +43,11 @@ How to install:
 
 Preparing before complementation:
 ---
-1. The input files for MetaTrass include a folder that holds the sequence file of all query genomes.
+1. **The input files** for MetaTrass include a folder that holds the sequence file of all query genomes.
      * stLFR data all are welcome!
      * if you have demand of others co-barcode data analyses demand, please contact us.
 
-2. The reference database for kraken2 include a folder that holds the database. 
+2. **The reference database** for kraken2 include a folder that holds the database. 
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
      * for human gut: 
         we recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).
@@ -59,13 +59,13 @@ Preparing before complementation:
 
      * For a realiable construction of the species tree, the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
 
-3. The reference genome for refining the contigs should be kept with the reference database.
+3. **The reference genome** for refining the contigs should be kept with the reference database.
      * Split library.fna to each single species fasta file
       You can use the script (MetaTrass/script/fa_split_by_taxid.py) to covert the library.fna to single species fasta file. 
       
      * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa.
 
-4. The reference genome length information :warning: .
+4. **The reference genome** length information :warning: .
       * Get each of single species genome size as the configure file with two column:
         table example:
 	
