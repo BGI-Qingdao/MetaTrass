@@ -91,7 +91,7 @@ How to run:
 	MetaTrass GC	--barcodeSplit  
 			--filtering 
 	```
-	* Taxonomic Reads and Co-Barcoding Enrich Reads 
+	* **T**axonomic Reads **A**nd Co-**B**arcoding **Refiner** Reads 
 	```	
 	MetaTrass TR 	--threads  
 			--mem  
