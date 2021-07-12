@@ -39,7 +39,7 @@ How to install:
         # for upgrade
         git add *
 
-2. You can either add MetaTrass's 3rd party dependencies to your system path or specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
+2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
 
 Preparing before complementation:
 ---
