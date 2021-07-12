@@ -15,16 +15,14 @@ parser.add_argument('-label', help='Labels: read query with co-barcode labels', 
 
 parser.add_argument('-min_depth', help='Depth: Minium Depth ', default = 10, required=True, type=str)
 parser.add_argument('-max_depth', help='Depth: Maxium Depth ', default = 300, required=True, type=str)
+
 parser.add_argument('-kraken_db', help='DBdir: DB build on Kraken', required=True, type=str)
 parser.add_argument('-kraken_fa', help='DBdir: DB build on Kraken', required=True, type=str)
 parser.add_argument('-genome_sz', help='DBdir: Genome size data', required=True, type=str)
 
-parser.add_argument('-threads', help='Threads: maxium threads',default = 20, required=True, type=str)
-parser.add_argument('-strategy', help='Strategy: all read & all barcode', default = 'both', required=True, type=str)
-parser.add_argument('-idba_ud', help='Assembly: IDBA_UD', default = 'yes', required=True, type=str)
+parser.add_argument('-threads', help='Threads: Number',default = 20, required=True, type=str)
 parser.add_argument('-supernova', help='Assembly: Supernova', default = 'yes', required=True, type=str)
 parser.add_argument('-quast', help='Assessment: Quast launch', default = 'yes', required=True, type=str)
-parser.add_argument('-checkm', help='Assessment: CheckM launch', default = 'yes', required=True, type=str)
 
 parser.add_argument('-IDY', help='Assessment: min-identity (0.5-1)', default = 'yes', required=True, type=str)
 parser.add_argument('-PCT', help='Assessment: consensus sequence percentage %(85-100)', default = 'yes', required=True, type=str)
@@ -45,19 +43,19 @@ mkdirIfNotExists(filefold)
 commandsh_dir = filefold +  '/all_command_shell/'
 mkdirIfNotExists(commandsh_dir)
 
-cleandata_dir = filefold + '/step1_cleandata/'
+cleandata_dir = filefold + '/dir1_cleandata/'
 mkdirIfNotExists(cleandata_dir)
 
-taxonomy_dir = filefold + '/step2_taxonomy/'
+taxonomy_dir = filefold + '/dir2_taxonomy/'
 mkdirIfNotExists(taxonomy_dir)
 
-assembly_dir = filefold + '/step3_assembly/'
+assembly_dir = filefold + '/dir3_assembly/'
 mkdirIfNotExists(assembly_dir)
 
-assessment_dir = filefold + '/step4_assessment/'
+assessment_dir = filefold + '/dir4_assessment/'
 mkdirIfNotExists(assessment_dir)
 
-binfilter_dir = filefold + '/step5_binfilter/'
+binfilter_dir = filefold + '/dir5_binfilter/'
 mkdirIfNotExists(binfilter_dir)
 
 # step 0
@@ -80,9 +78,9 @@ def stlfr_data_clean_shell(shfile, barfq1, barfq2, soap_filter, soap_parameter, 
 	lane_lst.write('split_reads.1.fq.gz 0 0 10\nsplit_reads.2.fq.gz 0 0 10\n')
 	lane_lst.close()
 
-#	stat_txt = open(outdir+'stat.txt', 'w')
-#	stat_txt.write('#raw_read_id    raw_read_pair_num       raw_read_length raw_base_num    low_qual_filter(%)      adapter_filter(%)       undersize_ins_filter(%)    duplicated_filter(%)    clean_read_pair_num     clean_read_length       clean_base_num')
-#	stat_txt.close()
+	stat_txt = open(outdir+'stat.txt', 'w')
+	stat_txt.write('#raw_read_id    raw_read_pair_num       raw_read_length raw_base_num    low_qual_filter(%)      adapter_filter(%)       undersize_ins_filter(%)    duplicated_filter(%)    clean_read_pair_num     clean_read_length       clean_base_num')
+	stat_txt.close()
 
 	command1 = ' '.join(['cd', outdir])
 	command2 = ' '.join([ soap_filter, soap_parameter, 'lane.lst', 'stat.txt'  ])
@@ -246,10 +244,11 @@ def supernova_assembly_shell(shfile, python2, supernovaPY, supernova_parameter, 
 	supernova_dir = outdir + '/supernova/' + sample
 	command1 = ' '.join([ 'mkdir -p ', supernova_dir, ' && cd ', supernova_dir ])
 	command2 = ' '.join([ python2, supernovaPY, supernova_parameter, '-n', sample, '-r1', tssfq1, '-r2', tssfq2,'-o', supernova_dir ])
-	command3 = ' '.join([ 'mv', 'supernova_outs/supernova_out.mri.tgz', './' ])
-	command4 = ' '.join([ 'rf -rf', 'supernova_outs/' ])
+	command3 = ' '.join([ 'mv', supernova_dir + '/supernova_out/supernova_out.mri.tgz', supernova_dir ])
+	command4 = ' '.join([ 'rm -rf', supernova_dir + '/supernova_out/' ])
 	command5 = ' '.join([ 'gunzip -c', supernova_dir+'/'+sample+'_supernova_result.fasta.gz', '>', supernova_dir + '/scaffold.fa'])
-	command = '\n'.join([ command1, command2, command3, command4, command5 ])
+	command6 = ' '.join([ 'rm -rf', supernova_dir + '/*.fastq.gz'])
+	command = '\n'.join([ command1, command2, command3, command4, command5, command6 ])
 	create_shell_script( 'supernova_assembly_shell', shfile, command)
 
 def create_batch_supernova_assembly_sh(X10, X300, python2, indir, outdir, supernovaPY, supernova_parameter):
@@ -468,8 +467,8 @@ def create_batch_quast_binfilter_sh(X10, X300, refGenomeDir, indir, assessment_d
 		print('No species depth reach the condition!!!')
 
 ### checkM bin result
-checkm_stats_parameter = 'lineage_wf -t 20 -x fasta --nt --tab_table -f bins_qa.txt'
-MetaWRAPsourch = '/zfsqd1/ST_OCEAN/USRS/st_ocean/MetaWRAP/source.sh'
+#checkm_stats_parameter = 'lineage_wf -t 20 -x fasta --nt --tab_table -f bins_qa.txt'
+#MetaWRAPsourch = '/zfsqd1/ST_OCEAN/USRS/st_ocean/MetaWRAP/source.sh'
 def checkm_bin_for_single_fasta(shfile, MetaWRAPsource, check_parameter, intaxid_dir, outaxid_dir):
 	checkm_stats_parameter = 'lineage_wf -t 20 -x fasta --nt --tab_table -f bins_qa.txt'
 	checkm_plots_parameter = 'bin_qa_plot --image_type pdf -x fasta'
@@ -487,7 +486,7 @@ rawfq2=args.fq2
 barcode_list=dirname + '/source/barcode_list.txt'
 split_barcodePL= dirname + '/script/split_barcode.pl'
 sample=args.sample
-outdir = cleandata_dir
+outdir = cleandata_dir + 'cleandata'
 
 if os.path.exists(outdir):
 	pass
@@ -499,10 +498,10 @@ else:
 shfile=commandsh_dir + 'step1.2.stlfr_data_clean.sh'
 barfq1='split_reads.1.fq.gz'
 barfq2='split_reads.2.fq.gz'
-soap_filter='/dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/xumengyang/software/stlfr2supernova_pipeline/bin/SOAPfilter_v2.2'
+soap_filter='/ldfssz1/ST_OCEAN/USER/xumengyang/software/stlfr2supernova_pipeline/bin/SOAPfilter_v2.2'
 soap_parameter='-t 20 -y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10'
 sample=args.sample
-outdir=cleandata_dir
+outdir=cleandata_dir + '/cleandata/'
 if os.path.exists(outdir):
 	pass
 	stlfr_data_clean_shell(shfile, barfq1, barfq2, soap_filter, soap_parameter, sample, outdir)
@@ -513,7 +512,7 @@ else:
 shfile=commandsh_dir + 'step2.1.run_kraken.sh'
 cleanfq1=cleandata_dir+'/cleandata/split_reads.1.fq.gz.clean.gz'
 cleanfq2=cleandata_dir+'/cleandata/split_reads.2.fq.gz.clean.gz'
-kraken='/zfsqd1/ST_OCEAN/USRS/zhangyue4/tools/kraken2/build/kraken2'
+kraken='/hwfssz5/ST_INFECTION/AntibioticResistance/P18Z10200N0164_Resistance_PN/PMseq/User/liangtianzhu/sortware/karken2/kraken2-2.0.8-beta/k2dir/kraken2'
 kraken_parameter='--threads '+ args.threads + ' --gzip-compressed --paired --db ' + args.kraken_db
 sample=args.sample
 outdir=taxonomy_dir+'/kraken/'
@@ -560,8 +559,8 @@ create_batch_fq_convert_sh(X10, X300, seqtk, indir, id2fq_dir, cleanfq1, cleanfq
 ###
 indir=taxonomy_dir + '/id2fq/'
 outdir=assembly_dir
-fq2fa='/dellfsqd2/ST_OCEAN/biosoft/pipeline/meta_pipeline/Assembly/Assembly_idba/bin/idba/bin/fq2fa'
-idba_ud='/dellfsqd2/ST_OCEAN/biosoft/pipeline/meta_pipeline/Assembly/Assembly_idba/bin/idba/bin/idba_ud'
+fq2fa=dirname + '/tools/fq2fa'
+idba_ud=dirname + '/tools/idba_ud'
 idba_parameter='--mink 23 --maxk 83  --step 20 --num_threads 6 --pre_correction'
 
 mkdirIfNotExists(outdir)
@@ -570,10 +569,10 @@ create_batch_idba_assembly_sh(X10, X300, indir, outdir, fq2fa, idba_ud, idba_par
 ###
 indir=taxonomy_dir + '/id2fq/'
 outdir=assembly_dir
-python2='/dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/zhangyue4/python/Python-2.7.10/bin/python2'
+python2=dirname + '/tools/python2'
 supernovaPY = dirname + '/script/supernova/clean_stlfr2supernova.py'
-supernova_parameter='-f 0 -m 1 -supernova /dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/xumengyang/software/supernova4stLFR/ \
--s /dellfsqd1/ST_OCEAN/ST_OCEAN/USRS/xumengyang/software/stlfr2supernova_pipeline/clean_stLFR_data2supernova/ '
+supernova_parameter='-f 0 -m 1 -supernova /ldfssz1/ST_OCEAN/USER/xumengyang/software/supernova4stLFR/ \
+-s /ldfssz1/ST_OCEAN/USER/xumengyang/software/stlfr2supernova_pipeline/clean_stLFR_data2supernova/ '
 
 mkdirIfNotExists(outdir)
 create_batch_supernova_assembly_sh(X10, X300, python2, indir, outdir, supernovaPY, supernova_parameter)
