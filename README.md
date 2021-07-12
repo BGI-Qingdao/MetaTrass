@@ -51,8 +51,8 @@ Preparing before complementation:
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
      * For **human gut**:  
         we recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).
-     * For **Zymo 10 Mock**:  
-        You can download the reference database from [Mock Community]()
+     * For **Zymo Community Standards 10 Mock**:  
+        You can download the reference database from [Mock Community](https://github.com/LomanLab/mockcommunity/blob/master/README.md)
 
      * Or for **customized microbiome** grouping:  
         Please check the official species taxonomic ID to add into the NCBI.  
