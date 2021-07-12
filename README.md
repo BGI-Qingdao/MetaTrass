@@ -91,7 +91,7 @@ How to run:
 	MetaTrass GC	--barcodeSplit  
 			--filtering 
 	```
-	* **T**axonomic Reads **A**nd Co-**B**arcoding **Refiner** Reads 
+	* **T**axonomic Reads **A**nd Co-**B**arcoding **Refiner** Reads (TABrefiner)
 	```	
 	MetaTrass TR 	--threads  
 			--mem  
