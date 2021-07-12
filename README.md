@@ -86,12 +86,12 @@ Preparing before complementation:
 How to run:
 ---
 1. Usage:
- 	* Get CleanData 
+ 	* Getting CleanData 
 	```	
 	MetaTrass GC	--barcodeSplit  
 			--filtering 
 	```
-	* **T**axonomic Reads **A**nd Co-**B**arcoding **Refiner** Reads (TABrefiner)
+	* **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
 	```	
 	MetaTrass TR 	--threads  
 			--mem  
