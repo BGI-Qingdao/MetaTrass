@@ -73,6 +73,15 @@ Preparing before complementation:
 		| :----- | ----: |
 		|1000|2176737|
 		|1001|6092914|
+		|1002|3864718|
+		|1006|2741290|
+		|1007|3003526|
+		|1008|1739566|
+		|1009|1809170|
+		|1010|4528241|
+		|1011|2149385|
+		|1013|2260187|
+
       * Please note that the genome size table file without any headline. :warning: :warning: :warning:
 
 How to run:
