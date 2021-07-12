@@ -50,13 +50,13 @@ Preparing before complementation:
 2. **The reference database** for kraken2 include a folder that holds the database. 
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
      * For **Human Gut**:  
-        we recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).
-     * For **Zymo Community Standards 10 Mock**:  
-        You can download the reference database from [Mock Community](https://github.com/LomanLab/mockcommunity/blob/master/README.md)
+       We recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).
+     * For [**Zymo Community Standards 10 Mock**](https://github.com/LomanLab/mockcommunity):  
+       You can download the reference database from [Mock Community](https://lomanlab.github.io/mockcommunity/mc_databases.html)
 
      * Or for **Customized Microbiome** grouping:  
-        Please check the official species taxonomic ID to add into the NCBI taxonomy.  
-     	To build a realiable construction of the species tree, please remind that the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
+       Please check the official species taxonomic ID to add into the NCBI taxonomy.  
+       To build a realiable construction of the species tree, please remind that the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
 
 3. **The reference genome** for refining the contigs should be kept with the reference database.
      * Split library.fna to each single species fasta file  
