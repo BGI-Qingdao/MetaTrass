@@ -55,7 +55,7 @@ Preparing before complementation:
        You can download the reference database from [Mock Community](https://lomanlab.github.io/mockcommunity/mc_databases.html)
 
      * Or for **Customized Microbiome** grouping:  
-       Please check the official species taxonomic ID to add into the NCBI taxonomy.  
+       Please check the NCBI official species taxonomic ID to add into the NCBI taxonomy.  
        To build a realiable construction of the species tree, please remind that the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
 
 3. **The reference genome** for refining the contigs should be kept with the reference database.
