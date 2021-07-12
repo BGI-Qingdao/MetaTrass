@@ -65,7 +65,7 @@ Preparing before complementation:
       
      * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa.
 
-4. **The reference genome** length information :warning: .
+4. **The reference genome size** information. :warning:
       * Get each of single species genome size as the configure file with two column:
         table example:
 	
