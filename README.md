@@ -78,12 +78,12 @@ Preparing before complementation:
 How to run:
 ---
 1. Usage:
- 	* First Step: //Get CleanData 
+ 	* Get CleanData 
 	```	
 	MetaTrass GC	--barcodeSplit  
 			--filtering 
 	```
-	* Second Step: //Taxonomic Reads and Co-Barcoding Enrich Reads 
+	* Taxonomic Reads and Co-Barcoding Enrich Reads 
 	```	
 	MetaTrass TR 	--threads  
 			--mem  
@@ -94,7 +94,7 @@ How to run:
 			--output  
 	```
 
- 	* Third Step: //Single-species Assembly and Contigs refining  
+ 	* Single-species Assembly and Contigs refining  
 	```
 	MetaTrass SA 	--threads  
 			--mem  
@@ -113,11 +113,11 @@ Output files:
 ---
 1. Examples of output folder structure
 
-    * step1_cleandata
-    * step2_taxonomy
-    * step3_assembly
-    * step4_assessment
-    * step5_binfilter
+    * dir1_cleandata
+    * dir2_taxonomy
+    * dir3_assembly
+    * dir4_assessment
+    * dir5_binfilter
 
 
 Contributing:
