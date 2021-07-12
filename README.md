@@ -54,7 +54,7 @@ Preparing before complementation:
      * For **Zymo 10 Mock**:  
         You can download the reference database from [Mock Community]()
 
-     * Or for customized microbiome grouping:  
+     * Or for **customized microbiome** grouping:  
         Please check the official species taxonomic ID to add into the NCBI.  
      	To build a realiable construction of the species tree, please remind that the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
 
