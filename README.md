@@ -50,7 +50,24 @@ Preparing before complementation:
 2. **The reference database** for kraken2 include a folder that holds the database. 
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
      * For **Human Gut**:  
-       We recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).
+       We recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).  
+       **uhgg_kraken2-db/**  
+				├── [472K]  database100mers.kmer_distrib  
+				├── [441K]  database150mers.kmer_distrib  
+				├── [421K]  database200mers.kmer_distrib  
+				├── [403K]  database250mers.kmer_distrib  
+				├── [540K]  database50mers.kmer_distrib  
+				├── [4.0K]  library    
+				│   ├── [ 11G]  **library.fna**  
+				│   └── [ 31M]  prelim_map.txt  
+				├── [ 16G]	**hash.k2d**  
+				├── [  48]	**opts.k2d**  
+				├── [473K]	**taxo.k2d**  
+				└── [4.0K]  taxonomy  
+				    ├── [310K]  names.dmp  
+				    ├── [127K]  nodes.dmp  
+				    └── [ 31M]  prelim_map.txt  
+
      * For [**Zymo Community Standards 10 Mock**](https://github.com/LomanLab/mockcommunity):  
        You can download the reference database from [Mock Community](https://lomanlab.github.io/mockcommunity/mc_databases.html)
 
