@@ -110,7 +110,7 @@ How to run:
 	```
 	* **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
 	```	
-	MetaTrass TR 	--threads  
+	MetaTrass TB 	--threads  
 			--mem  
 			--ref_db   
 			--min_depth   
