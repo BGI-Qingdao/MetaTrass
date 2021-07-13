@@ -82,8 +82,8 @@ Preparing before complementation:
      * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa.
 
 4. **The reference genome size** information. :warning:
-      * Get each of single species genome size as the configure file with two column:
-        table example:
+      * Get each of single species genome size as the configure file with two column:  
+        table example:  
 	
 		|taxid	 | genome size(bp)|
 		| :----- | ----: |
@@ -98,7 +98,7 @@ Preparing before complementation:
 		|1011|2149385|
 		|1013|2260187|
 
-      * Please note that the genome size table file without any headline. :warning: :warning: :warning:
+      * Please note that the genome size table file without any header line. :warning: :warning: :warning:
 
 How to run:
 ---
