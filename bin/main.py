@@ -157,88 +157,6 @@ def create_batch_fq_convert_sh(X10, X300, seqtk, indir, outdir, cleanfq1, cleanf
 		print('No species depth reach the 300X condition!!!')
 
 # step 3 #################################################################################################
-##idba-ud assembly
-def idba_assembly_shell(shfile, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, sample, outdir):
-	idba_dir = outdir + '/idba-ud/' + sample
-	command0 = ' '.join([ 'mkdir -p ', idba_dir, ' && cd ', idba_dir ])
-	command1 = ' '.join([ 'gzip -dc', tssfq1, '>', idba_dir+'/idba.fq1' ])
-	command2 = ' '.join([ 'gzip -dc', tssfq2, '>', idba_dir+'/idba.fq2' ])
-	command3 = ' '.join([ fq2fa, '--merge', idba_dir+'/idba.fq1', idba_dir+'/idba.fq2', idba_dir+'/idba.merge.fq' ])
-	command4 = ' '.join([ 'rm -f', idba_dir+'/idba.fq1', idba_dir+'/idba.fq2' ])
-	command5 = ' '.join([ idba_ud, idba_parameter, '-r', idba_dir+'/idba.merge.fq', '-o', idba_dir ])
-	command6 = ' '.join([ 'rm -f', idba_dir+'/*-*', idba_dir+'/idba.merge.fq', idba_dir+'/kmer' ])
-	command = '\n'.join([ command0, command1, command2, command3, command4, command5, command6 ])
-	create_shell_script('idba_assembly_shell', shfile, command)
-
-def create_batch_idba_assembly_sh(X10, X300, indir, outdir, fq2fa, idba_ud, idba_parameter):
-	batchsh_dir = commandsh_dir + '/step3.2.batch_idba_assembly_sh/'
-	mkdirIfNotExists(batchsh_dir)
-	if len(X10) > 0:
-		for i in X10:
-			if args.strategy == 'both':
-				allreadlist = '10X.id_' + i + '.allread.txt'
-				tssfq1 = indir + allreadlist + '_list_1' + '.fq.gz'
-				tssfq2 = indir + allreadlist + '_list_2' + '.fq.gz'
-				shFileAR = batchsh_dir + 'step3.2_X10_TID' + i + '_AR.sh'
-				idba_assembly_shell(shFileAR, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, 'AR_' + i, outdir)
-
-				allbarcodelist = '10X.id_' + i + '.allbarcode.txt'
-				tssfq1 = indir + allbarcodelist + '_list_1' + '.fq.gz'
-				tssfq2 = indir + allbarcodelist + '_list_2' + '.fq.gz'
-				shFileAB = batchsh_dir + 'step3.2_X10_TID' + i + '_AB.sh'
-				idba_assembly_shell(shFileAB, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, 'AB_' + i, outdir)
-
-			elif args.strategy == 'allread':
-				allreadlist = '10X.id_' + i + '.allread.txt'
-				tssfq1 = indir + allreadlist + '_list_1' + '.fq.gz'
-				tssfq2 = indir + allreadlist + '_list_2' + '.fq.gz'
-				shFileAR = batchsh_dir + 'step3.2_X10_TID' + i + '_AR.sh'
-				idba_assembly_shell(shFileAR, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, 'AR_' + i, outdir)
-
-			elif args.strategy == 'allbarcode':
-				allbarcodelist = '10X.id_' + i + '.allbarcode.txt'
-				tssfq1 = indir + allbarcodelist + '_list_1' + '.fq.gz'
-				tssfq2 = indir + allbarcodelist + '_list_2' + '.fq.gz'
-				shFileAB = batchsh_dir + 'step3.2_X10_TID' + i + '_AB.sh'
-				idba_assembly_shell(shFileAB, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, 'AB_' + i, outdir)
-
-			else:
-				print('Please select valid reads strategy')
-	else:
-		print('No species depth reach the 10X condition!!!')
-	if len(X300) > 0:
-		for i in X300:
-			if args.strategy == 'both':
-				allreadlist = '300X.id_' + i + '.allread.txt'
-				tssfq1 = indir + allreadlist + '_list_1' + '.fq.gz'
-				tssfq2 = indir + allreadlist + '_list_2' + '.fq.gz'
-				shFileAR = batchsh_dir + 'step3.2_X300_TID' + i + '_AR.sh'
-				idba_assembly_shell(shFileAR, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, 'AR_' + i, outdir)
-
-				allbarcodelist = '300X.id_' + i + '.allbarcode.txt'
-				tssfq1 = indir + allbarcodelist + '_list_1' + '.fq.gz'
-				tssfq2 = indir + allbarcodelist + '_list_2' + '.fq.gz'
-				shFileAB = batchsh_dir + 'step3.2_X300_TID' + i + '_AB.sh'
-				idba_assembly_shell(shFileAB, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, 'AB_' + i, outdir)
-
-			elif args.strategy == 'allread':
-				allreadlist = '300X.id_' + i + '.allread.txt'
-				tssfq1 = indir + allreadlist + '_list_1' + '.fq.gz'
-				tssfq2 = indir + allreadlist + '_list_2' + '.fq.gz'
-				shFileAR = batchsh_dir + 'step3.2_X300_TID' + i + '_AR.sh'
-				idba_assembly_shell(shFileAR, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, 'AR_' + i, outdir)
-
-			elif args.strategy == 'allbarcode':
-				allbarcodelist = '300X.id_' + i + '.allbarcode.txt'
-				tssfq1 = indir + allbarcodelist + '_list_1' + '.fq.gz'
-				tssfq2 = indir + allbarcodelist + '_list_2' + '.fq.gz'
-				shFileAB = batchsh_dir + 'step3.2_X300_TID' + i + '_AB.sh'
-				idba_assembly_shell(shFileAB, fq2fa, idba_ud, idba_parameter, tssfq1, tssfq2, 'AB_' + i, outdir)
-
-			else:
-				print('Please select valid reads strategy')
-	else:
-		print('No species depth reach the 300X condition!!!')
 ### supernova assembly
 def supernova_assembly_shell(shfile, python2, supernovaPY, supernova_parameter, tssfq1, tssfq2, sample, outdir):
 	supernova_dir = outdir + '/supernova/' + sample
@@ -559,16 +477,6 @@ create_batch_fq_convert_sh(X10, X300, seqtk, indir, id2fq_dir, cleanfq1, cleanfq
 ###
 indir=taxonomy_dir + '/id2fq/'
 outdir=assembly_dir
-fq2fa=dirname + '/tools/fq2fa'
-idba_ud=dirname + '/tools/idba_ud'
-idba_parameter='--mink 23 --maxk 83  --step 20 --num_threads 6 --pre_correction'
-
-mkdirIfNotExists(outdir)
-create_batch_idba_assembly_sh(X10, X300, indir, outdir, fq2fa, idba_ud, idba_parameter)
-
-###
-indir=taxonomy_dir + '/id2fq/'
-outdir=assembly_dir
 python2=dirname + '/tools/python2'
 supernovaPY = dirname + '/script/supernova/clean_stlfr2supernova.py'
 supernova_parameter='-f 0 -m 1 -supernova /ldfssz1/ST_OCEAN/USER/xumengyang/software/supernova4stLFR/ \
@@ -588,3 +496,5 @@ mkdirIfNotExists(assessment_dir)
 binfilter_dir = filefold + '/step5_binfilter/'
 mkdirIfNotExists(binfilter_dir)
 create_batch_quast_binfilter_sh(X10, X300, refGenomeDir, indir, assessment_dir, binfilter_dir, threads, quastPY, IDY, PCT)
+
+
