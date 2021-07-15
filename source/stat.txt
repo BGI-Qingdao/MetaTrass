@@ -1,2 +1,0 @@
-#raw_read_id	raw_read_pair_num	raw_read_length	raw_base_num	low_qual_filter(%)	adapter_filter(%)	undersize_ins_filter(%)	duplicated_filter(%)	clean_read_pair_num	clean_read_length	clean_base_num
-split_reads.1.fq.gz	427476377	100_100	85495275400	5.34772	9.39324	0	15.6148	297712610	100_100	59542522000
