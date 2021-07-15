@@ -169,7 +169,7 @@ if __name__ == '__main__':
     args = None
     if (len(sys.argv) == 1) or (sys.argv[1] == '-h') or (sys.argv[1] == '-help') or (sys.argv[1] == '--help'):
         print_main_help()
-        sys.exit(0)
+        sys.exit(0)     
 
     else:
         args = vars(parser.parse_args())
@@ -180,18 +180,26 @@ if __name__ == '__main__':
     if args['subparser_name'] == 'TB':
         TB(args, MetaCHIP_config.config_dict)
 
-    if args['subparser_name'] == 'filter_HGT':
+    if args['subparser_name'] == 'AP':
         filter_HGT.filter_HGT(args)
 
-    if args['subparser_name'] == 'update_hmms':
-        update_hmms.update_hmms(args)
+    if args['subparser_name'] == 'SplitBarcode':
+        SplitBarcode.SplitBarcode(args)
 
-    if args['subparser_name'] == 'get_SCG_tree':
-        get_SCG_tree.get_SCG_tree(args, MetaCHIP_config.config_dict)
+    if args['subparser_name'] == 'GetCleandata':
+        GetCleandata.GetCleandata(args, MetaTrass_ToolConfig.config_dict)
 
-    if args['subparser_name'] == 'rename_seqs':
-        rename_seqs.rename_seqs(args)
+    if args['subparser_name'] == 'Kraken2Taxon':
+        Kraken2Taxon.Kraken2Taxon(args, MetaTrass_ToolConfig.config_dict)
 
-    # if args['subparser_name'] == 'circos_HGT':
-    #     circos_HGT.circos_HGT(args, MetaCHIP_config.config_dict)
+    if args['subparser_name'] == 'TAB_refining':
+        TAB_refining.TAB_refining(args, MetaTrass_ToolConfig.config_dict)
+
+    if args['subparser_name'] == 'MetaAssembly':
+        MetaAssembly.MetaAssembly(args, MetaTrass_ToolConfig.config_dict)
+
+    if args['subparser_name'] == 'ContigPurify':
+        ContigPurify.ContigPurify(args, MetaTrass_ToolConfig.config_dict)
+
+
 
