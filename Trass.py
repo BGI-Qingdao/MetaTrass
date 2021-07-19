@@ -52,7 +52,7 @@ def print_main_help():
        SplitBarcode    ->  Covert barcode sequences to digital code
        GetCleandata    ->  Cleandata filtered by SOAPfilter
        Kraken2Taxon    ->  Taxonomic total reads under references database by Kraken
-       TAB_refining    ->  Refining read id by using Taxonomic information and superior coBarcoding set
+       TXACBrefiner    ->  Refining read id by using Taxonomic information and superior coBarcoding set
        ReadID2Fastq    ->  Covert the refined read id from total fastq to each speices
        MetaAssembly    ->  Co-barcoding genome assembly by using SUPERNOVA
        ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
@@ -81,10 +81,10 @@ if __name__ == '__main__':
     TB_parser =              subparsers.add_parser('TB',              description='Taxnomic and Barcoding',                epilog='Example: MetaTrass TB -h')
     AP_parser =              subparsers.add_parser('AP',              description='Assembly and Purifying',                epilog='Example: MetaTrass AP -h') 
 
-    SplitBarcode_parser =    subparsers.add_parser('SplitBarcode',    description='split barcode',                                 )
+    SplitBarcode_parser =    subparsers.add_parser('SplitBarcode',    description='Split Barcode',                                  usage=SplitBarcode.SplitBarcode_usage)
     GetCleandata_parser =    subparsers.add_parser('GetCleandata',    description='Get Cleandata',                                  usage=GetCleandata.GetCleandata_usage)
     Kraken2Taxon_parser =    subparsers.add_parser('Kraken2Taxon',    description='Taxnomic reads by Kraken2',                      usage=Kraken2Taxon.Kraken2Taxon_usage)
-    TXACBrefiner_parser =    subparsers.add_parser('TXACBrefiner',    description='Refining reads set by Taxnomic and Barcode',     usage=TXACBrefiner.TXACBrefiner)
+    TXACBrefiner_parser =    subparsers.add_parser('TXACBrefiner',    description='Refining reads set by Taxnomic and Barcode',     usage=TXACBrefiner.TXACBrefiner_usage)
     ReadID2Fastq_parser =    subparsers.add_parser('ReadID2Fastq',    description='Covert Read ids to Fqstq',                       usage=ReadID2Fastq.ReadID2Fastq_usage)
     MetaAssembly_parser =    subparsers.add_parser('MetaAssembly',    description='Single-species assmebly by supernova',           usage=MetaAssembly.MetaAssembly_usage)
     ContigPurify_parser =    subparsers.add_parser('ContigPurify',    description='Purifying Contigs and Scaffolds',                usage=ContigPurify.ContigPurify_usage)
@@ -129,18 +129,21 @@ if __name__ == '__main__':
                                                          help='Default parameter : -y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10') 
 
     # add argument for Kraken2Taxon_parser 
-    Kraken2Taxon_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
-    Kraken2Taxon_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
-    Kraken2Taxon_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
-    Kraken2Taxon_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
-    Kraken2Taxon_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
-
+    Kraken2Taxon_parser.add_argument('-cleanfq1',                required=True, type=str,            help='Paired-end data: cleanfq1 fastq.gz')
+    Kraken2Taxon_parser.add_argument('-cleanfq2',                required=True, type=str,            help='Paired-end data: cleanfq2 fastq.gz')
+    Kraken2Taxon_parser.add_argument('-thread',                  required=True, type=str, default = '20',            help='Kraken parameter')
+    Kraken2Taxon_parser.add_argument('-sample',                  required=True, type=str,            help='Output FileName Prefix')
+    Kraken2Taxon_parser.add_argument('-ref_db',                  required=True, type=str,            help='Taxonomy references database' )
+    Kraken2Taxon_parser.add_argument('-outdir',                  required=True, type=str,            help='Output folder')
+    Kraken2Taxon_parser.add_argument('-runnow',                  required=True, type=str, default = 'False',         help='Run this script immediately') 
+    
     # add argument for TXACBrefiner_parser
-    TXACBrefiner_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
-    TXACBrefiner_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
-    TXACBrefiner_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
-    TXACBrefiner_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
-    TXACBrefiner_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
+    TXACBrefiner_parser.add_argument('-kraken_file',         required=True, type=str,            help='Paired-end data: raw 1 fastq.gz')
+    TXACBrefiner_parser.add_argument('-genome_size',         required=True, type=str,            help='Paired-end data: raw 2 fastq.gz')
+    TXACBrefiner_parser.add_argument('-max_depth',           required=False, type=str,  default = '300',         help='Species Maxima-Depth Required Assembly')
+    TXACBrefiner_parser.add_argument('-min_depth',           required=False, type=str,  default = '10',          help='Species Minima-Depth Required Assembly')
+    TXACBrefiner_parser.add_argument('-outdir',              required=True, type=str,            help='Output folder')
+    TXACBrefiner_parser.add_argument('-runnow',              required=False, type=str,           help='Run this script immediately') 
 
     # add argument for ReadID2Fastq_parser
     ReadID2Fastq_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')

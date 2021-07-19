@@ -1,13 +1,10 @@
 import os
 import argparse
 
-
 from MetaTrass.ToolConfig import config_dict
 from MetaTrass.ToolConfig import report_logger
 from MetaTrass.ToolConfig import create_folder
 from MetaTrass.ToolConfig import remove_folder
-
-
 
 ReadID2Fastq_usage = '''
 ====================================== filter_HGT example commands ======================================
@@ -18,6 +15,17 @@ MetaCHIP filter_HGT -i NorthSea_pcofg_detected_HGTs.txt -n 3 -plot NorthSea_pcof
 =========================================================================================================
 '''
 
+def convert_single_species_fq_gz(shfile, seqtk, indir, outdir, readlist, cleanfq1, cleanfq2):
+	fq1list	= outdir + readlist + '_list_1'
+	fq2list = outdir + readlist + '_list_2'
+	command1 = ' '.join([ 'awk', '\'{print $1"/1"}\'',  indir + readlist, '>', fq1list ])
+	command2 = ' '.join([ 'awk', '\'{print $1"/2"}\'',  indir + readlist, '>', fq2list ])
+	command3 = ' '.join([seqtk, 'subseq', cleanfq1, fq1list, '|gzip >', fq1list + '.fq.gz' ])
+	command4 = ' '.join([seqtk, 'subseq', cleanfq2, fq2list, '|gzip >', fq2list + '.fq.gz' ])
+	command5 = ' '.join([ 'rm', fq1list])
+	command6 = ' '.join([ 'rm', fq2list])
+	command = '\n'.join([ command1, command2, command3, command4, command5, command6 ])
+	create_shell_script('convert_single_species_fq_gz', shfile, command)
 
 def create_batch_fq_convert_sh(X10, X300, seqtk, indir, outdir, cleanfq1, cleanfq2):
 	batchsh_dir = commandsh_dir + '/step2.3.convert_single_species_fq_sh/'

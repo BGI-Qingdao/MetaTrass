@@ -20,6 +20,7 @@ config_dict = {
                'split_barcode'        : '%s/split_barcode.pl'      % config_tool_path,
                'SOAPfilter'           : '%s/SOAPfilter'            % config_tool_path,
                'kraken'               : '%s/kraken2'               % config_tool_path,
+               'TABrefiner'           : '%s/TABrefiner'            % config_tool_path,
                'seqtk'                : '%s/seqtk'                 % config_tool_path,
                'sflfr2supernova'      : '%s/stlfr2supernova'       % config_tool_path,
                'quast'                : '%s/quast'                 % config_tool_path,

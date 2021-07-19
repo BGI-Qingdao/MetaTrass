@@ -9,10 +9,10 @@ from MetaTrass.ToolConfig import remove_folder
 
 SplitBarcode_usage = '''
 ====================================== SplitBarcode example commands ======================================
-# 
-
-# 
-
+# Runing SplitBarcode.py
+python SplitBarcode.py -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 -outdir ~/GitHub/MetaTrass/Test/ -runnow  False
+# Runing with Main function
+python Trass.py SplitBarcode -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 -outdir ~/GitHub/MetaTrass/Test/ -runnow  False
 =========================================================================================================
 '''
 
@@ -21,23 +21,23 @@ def SplitBarcode(args):
 	rawfq1 = args['rawfq1']
 	rawfq2 = args['rawfq2']
 	outdir = args['outdir']
-	runnow = args['runnow']	
+	runnow = args['runnow']
 
 	cmddir = outdir + '/all_command_shell/'
 	create_folder(cmddir)
-	shellfile = cmddir + '/stp0.splitbarcode.sh'
+	shellfile = cmddir + '/stp1.1.splitbarcode.sh'
 	output = outdir + '/dir1_cleandata/'
 
-	with open(shellfile, 'a') as CMDFILE:
+	with open(shellfile, 'w') as CMDFILE:
 		barcode_list = config_dict['MetaTrass'] + '/config/barcode_list.txt'
 
 		CMDFILE.write('cd %s \n' % ( output ) )
 		CMDFILE.write('perl %s %s %s %s split_reads\n' % ( config_dict['split_barcode'], barcode_list, rawfq1, rawfq2 ))
 
 	if runnow is True:
-		report_logger('step1 split_barcode starting', all_command_shell+'/run.log', False)
+		report_logger('###step1.1 split_barcode starting', cmddir+'/run.log', runnow)
 		os.system('sh %s\n' % shellfile)
-		report_logger('step1 split_barcode starting', all_command_shell+'/run.log', False)
+		report_logger('###step1.1 split_barcode end', cmddir+'/run.log', runnow)
 
 if __name__ == '__main__':
 
