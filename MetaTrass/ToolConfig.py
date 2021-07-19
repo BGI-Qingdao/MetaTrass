@@ -1,25 +1,36 @@
 import os
+from time import sleep
+from datetime import datetime
 
-# extract path to this config file
+# get the path to this config file
 pwd_config_file = os.path.realpath(__file__)
-config_file_path = '/'.join(pwd_config_file.split('/')[:-1])
 
+config_file_path = '/'.join(pwd_config_file.split('/')[:-1])
+config_tool_path = '/'.join(pwd_config_file.split('/')[:-2]) + '/tools/'
+config_main_path = '/'.join(pwd_config_file.split('/')[:-2])
 
 # specify full path to corresponding executables at the right side of colon
-config_dict = {'python'               : 'python3',
+config_dict = {
+               'MetaTrass'            : '%s'                       % config_main_path,
+
+               'python3'              : 'python3',
                'perl'                 : 'perl',
-               'split_barcode'        : 'split_barcode.pl',
-               'SOAPfilter'           : 'SOAPfilter',
-               'kraken'               : 'kraken2',
-               'seqtk'                : 'seqtk',
-               'sflfr2supernova'      : 'stlfr2supernova',
-               'quast'                : 'quast',
-               'SplitBarcode'    : '%s/SplitBarcode.py'  % config_file_path,   # do not edit this line
-               'GetCleandata'    : '%s/GetCleandata.py'  % config_file_path,   # do not edit this line
-               'Kraken2Taxon'    : '%s/Kraken2Taxon.py'  % config_file_path,   # do not edit this line
-               'TAB_refining'    : '%s/TAB_refining.py'  % config_file_path,   # do not edit this line
-               'MetaAssembly'    : '%s/ReadID2Fastq.py'  % config_file_path,   # do not edit this line
-               'ContigPurify'    : '%s/ReadID2Fastq.py'  % config_file_path    # do not edit this line
+
+               # third-party tools 
+               'split_barcode'        : '%s/split_barcode.pl'      % config_tool_path,
+               'SOAPfilter'           : '%s/SOAPfilter'            % config_tool_path,
+               'kraken'               : '%s/kraken2'               % config_tool_path,
+               'seqtk'                : '%s/seqtk'                 % config_tool_path,
+               'sflfr2supernova'      : '%s/stlfr2supernova'       % config_tool_path,
+               'quast'                : '%s/quast'                 % config_tool_path,
+
+               # script
+               'SplitBarcode'         : '%s/SplitBarcode.py'       % config_file_path,   # do not edit this line
+               'GetCleandata'         : '%s/GetCleandata.py'       % config_file_path,   # do not edit this line
+               'Kraken2Taxon'         : '%s/Kraken2Taxon.py'       % config_file_path,   # do not edit this line
+               'TAB_refining'         : '%s/TAB_refining.py'       % config_file_path,   # do not edit this line
+               'MetaAssembly'         : '%s/ReadID2Fastq.py'       % config_file_path,   # do not edit this line
+               'ContigPurify'         : '%s/ReadID2Fastq.py'       % config_file_path    # do not edit this line
 
                }
 
@@ -35,15 +46,10 @@ def report_logger(message_for_report, log_file, keep_quiet):
 
 
 def create_folder(create_folder_dir):
-    if os.path.isdir(folder_to_create):
-        shutil.rmtree(folder_to_create, ignore_errors=True)
-        if os.path.isdir(folder_to_create):
-            shutil.rmtree(folder_to_create, ignore_errors=True)
-            if os.path.isdir(folder_to_create):
-                shutil.rmtree(folder_to_create, ignore_errors=True)
-                if os.path.isdir(folder_to_create):
-                    shutil.rmtree(folder_to_create, ignore_errors=True)
-    os.mkdir(folder_to_create)
+  if os.path.exists(create_folder_dir):
+    print('1')
+  else:
+    os.mkdir(create_folder_dir)
 
 
 def remove_folder(remove_folder_dir):

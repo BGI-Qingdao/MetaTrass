@@ -1,22 +1,25 @@
-import argparse
 import os
-
-parser = argparse.ArgumentParser()
-parser.add_argument('-i', help='assembly fasta [not support fasta.gz]', required=True, type=str)
-parser.add_argument('-o', help='filtered fasta ', required=True, type=str)
-parser.add_argument('-r', help='taxid genomic reference fasta', required=True, type=str)
-parser.add_argument('-q', help='all_alignments.tsv by quast', required=True, type=str) 
-parser.add_argument('-PCT', help='Threshold of contig lnegth(0-1)', required=True, type=float)
-parser.add_argument('-IDY', help='Threshold of IDY (80 - 100)', required=True, type=float)
-args = parser.parse_args()
+import argparse
 
 
-def quastAssemblyFa():
+from MetaTrass.ToolConfig import config_dict
+from MetaTrass.ToolConfig import report_logger
+from MetaTrass.ToolConfig import create_folder
+from MetaTrass.ToolConfig import remove_folder
+
+ContigPurify_usage = '''
+====================================== filter_HGT example commands ======================================
+# get HGTs detected at at least TWO levels
+MetaCHIP filter_HGT -i NorthSea_pcofg_detected_HGTs.txt -n 2
+# get HGTs detected at at least THREE levels and copy their flanking region plots into a new folder
+MetaCHIP filter_HGT -i NorthSea_pcofg_detected_HGTs.txt -n 3 -plot NorthSea_pcofg_Flanking_region_plots
+=========================================================================================================
+'''
 
 
 def quast_bin_for_single_fasta(shfile, quastPY, taxidbin, taxidref, threads, outdir, IDY):
-	command = ' '.join([ quastPY, '-r', taxidref, '-t', str(threads), '--min-identity', str(IDY), '-o', outdir, taxidbin ])
-	create_shell_script("quast_bin_for_single_fasta", shfile, command)
+    command = ' '.join([ quastPY, '-r', taxidref, '-t', str(threads), '--min-identity', str(IDY), '-o', outdir, taxidbin ])
+    create_shell_script("quast_bin_for_single_fasta", shfile, command)
 
 ### filter bin after quast
 def create_binfilter_sh(shfile, binFilterPY, assemblyFa, filteredFa, refGenomeFa, quastAlnTsv, IDY, PCT):
@@ -51,11 +54,32 @@ def filter_by_IDY_PCT(assemblyFa, filteredFa, refGenomeFa, quastAlnTsv, IDY, PCT
 						outbin.write('>' + fs[0] + '\n' + seq + '\n')
 	outbin.close()
 
-assemblyFa = args.i
-filteredFa = args.o
-refGenomeFa = args.r
-quastAlnTsv = args.q
-IDY = args.IDY
-PCT = args.PCT
+def ContigPurify(args):
+	pass
+if __name__ == '__main__':
 
-filter_by_IDY_PCT( assemblyFa, filteredFa, refGenomeFa, quastAlnTsv, IDY, PCT)
+	# arguments for ContigPurify
+	parser = argparse.ArgumentParser()
+	parser.add_argument('-i', help='assembly fasta [not support fasta.gz]', required=True, type=str)
+	parser.add_argument('-o', help='filtered fasta ', required=True, type=str)
+	parser.add_argument('-r', help='taxid genomic reference fasta', required=True, type=str)
+	parser.add_argument('-q', help='all_alignments.tsv by quast', required=True, type=str) 
+	parser.add_argument('-PCT', help='Threshold of contig lnegth(0-1)', required=True, type=float)
+	parser.add_argument('-IDY', help='Threshold of IDY (80 - 100)', required=True, type=float)
+
+	args = vars(parser.parse_args())
+	ContigPurify(args)
+
+	assemblyFa = args.i
+	filteredFa = args.o
+	refGenomeFa = args.r
+	quastAlnTsv = args.q
+	IDY = args.IDY
+	PCT = args.PCT
+
+	filter_by_IDY_PCT( assemblyFa, filteredFa, refGenomeFa, quastAlnTsv, IDY, PCT)
+
+
+
+
+

@@ -19,19 +19,19 @@
 import sys
 import argparse
 
-from MetaTrass.GC import GC
-from MetaTrass.TB import TB
-from MetaTrass.AP import AP
+from MetaTrass import GC
+from MetaTrass import TB
+from MetaTrass import AP
 
-from MetaTrass.ToolConfig import ToolConfig
+from MetaTrass import ToolConfig
 
-from MetaTrass.SplitBarcode import SplitBarcode
-from MetaTrass.GetCleandata import GetCleandata
-from MetaTrass.Kraken2Taxon import Kraken2Taxon
-from MetaTrass.TAB_refining import TAB_refining
-from MetaTrass.ReadID2Fastq import ReadID2Fastq
-from MetaTrass.MetaAssembly import MetaAssembly
-from MetaTrass.ContigPurify import ContigPurify
+from MetaTrass import SplitBarcode
+from MetaTrass import GetCleandata
+from MetaTrass import Kraken2Taxon
+from MetaTrass import TXACBrefiner
+from MetaTrass import ReadID2Fastq
+from MetaTrass import MetaAssembly
+from MetaTrass import ContigPurify
 
 def version():
     version_file = open('%s/VERSION' % MetaTrass_config.config_file_path)
@@ -72,19 +72,22 @@ if __name__ == '__main__':
 
     # initialize the options parser
     parser = argparse.ArgumentParser()
-    subparsers = parser.add_subparsers(help="--", dest='subparser_name')
+    # subparsers = parser.add_subparsers(help="--", dest='subparser_name')
+    subparsers = parser.add_subparsers(help='sub-command help', dest='subparser_name')
+    
+
 
     GC_parser =              subparsers.add_parser('GC',              description='Get stLFR Cleandata',                   epilog='Example: MetaTrass GC -h')
     TB_parser =              subparsers.add_parser('TB',              description='Taxnomic and Barcoding',                epilog='Example: MetaTrass TB -h')
     AP_parser =              subparsers.add_parser('AP',              description='Assembly and Purifying',                epilog='Example: MetaTrass AP -h') 
 
-    SplitBarcode_parser =    subparsers.add_parser('SplitBarcode',    description='split barcode',                         usage=SplitBarcode.SplitBarcode_usage)
-    GetCleandata_parser =    subparsers.add_parser('GetCleandata',    description='update hmm profiles',                   usage=GetCleandata.GetCleandata_usage)
-    Kraken2Taxon_parser =    subparsers.add_parser('Kraken2Taxon',    description='get SCG tree',                          usage=Kraken2Taxon.Kraken2Taxon_usage)
-    TAB_refining_parser =    subparsers.add_parser('TAB_refining',    description='rename sequences in a file',            usage=TAB_refining.TAB_refining_usage)
-    ReadID2Fastq_parser =    subparsers.add_parser('ReadID2Fastq',    description='rename sequences in a file',            usage=ReadID2Fastq.ReadID2Fastq_usage)
-    MetaAssembly_parser =    subparsers.add_parser('MetaAssembly',    description='rename sequences in a file',            usage=MetaAssembly.MetaAssembly_usage)
-    ContigPurify_parser =    subparsers.add_parser('ContigPurify',    description='rename sequences in a file',            usage=ContigPurify.ContigPurify_usage)
+    SplitBarcode_parser =    subparsers.add_parser('SplitBarcode',    description='split barcode',                                 )
+    GetCleandata_parser =    subparsers.add_parser('GetCleandata',    description='Get Cleandata',                                  usage=GetCleandata.GetCleandata_usage)
+    Kraken2Taxon_parser =    subparsers.add_parser('Kraken2Taxon',    description='Taxnomic reads by Kraken2',                      usage=Kraken2Taxon.Kraken2Taxon_usage)
+    TXACBrefiner_parser =    subparsers.add_parser('TXACBrefiner',    description='Refining reads set by Taxnomic and Barcode',     usage=TXACBrefiner.TXACBrefiner)
+    ReadID2Fastq_parser =    subparsers.add_parser('ReadID2Fastq',    description='Covert Read ids to Fqstq',                       usage=ReadID2Fastq.ReadID2Fastq_usage)
+    MetaAssembly_parser =    subparsers.add_parser('MetaAssembly',    description='Single-species assmebly by supernova',           usage=MetaAssembly.MetaAssembly_usage)
+    ContigPurify_parser =    subparsers.add_parser('ContigPurify',    description='Purifying Contigs and Scaffolds',                usage=ContigPurify.ContigPurify_usage)
 
     ######################################### define arguments for subparsers ##########################################
 
@@ -113,11 +116,10 @@ if __name__ == '__main__':
     AP_parser.add_argument('-ip',            required=False, type=int,     default=90,     help='identity percentile cutoff, default: 90')
 
     # add arguments for SplitBarcode_parse
-    SplitBarcode_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
-    SplitBarcode_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
-    SplitBarcode_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
-    SplitBarcode_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
-    SplitBarcode_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
+    SplitBarcode_parser.add_argument('-rawfq1',         required=True, type=str,            help='Paired-end data: raw 1 fastq.gz ')
+    SplitBarcode_parser.add_argument('-rawfq2',         required=True, type=str,            help='Paired-end data: raw 2 fastq.gz')
+    SplitBarcode_parser.add_argument('-outdir',         required=True, type=str,            help='Output folder')
+    SplitBarcode_parser.add_argument('-runnow',         required=False, type=str,           help='Run this script immediately') 
 
     # add argument for GetCleandata_parser
     GetCleandata_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
@@ -133,12 +135,12 @@ if __name__ == '__main__':
     Kraken2Taxon_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
     Kraken2Taxon_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
 
-    # add argument for TAB_refining_parser
-    TAB_refining_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
-    TAB_refining_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
-    TAB_refining_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
-    TAB_refining_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
-    TAB_refining_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
+    # add argument for TXACBrefiner_parser
+    TXACBrefiner_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
+    TXACBrefiner_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
+    TXACBrefiner_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
+    TXACBrefiner_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
+    TXACBrefiner_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
 
     # add argument for ReadID2Fastq_parser
     ReadID2Fastq_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
@@ -155,33 +157,33 @@ if __name__ == '__main__':
     MetaAssembly_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
 
     # add argument for ContigPurify_parser
-    ContigPurify_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
-    ContigPurify_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
-    ContigPurify_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
-    ContigPurify_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
-    ContigPurify_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
-
-
+    ContigPurify_parser.add_argument('-i',                required=True, type=str,                  help='assembly fasta [not support fasta.gz]')
+    ContigPurify_parser.add_argument('-o',                required=True, type=str,                  help='filtered fasta ')
+    ContigPurify_parser.add_argument('-r',                required=True, type=str,                  help='taxid genomic reference fasta')
+    ContigPurify_parser.add_argument('-q',                required=True, type=str,                  help='all_alignments.tsv by quast') 
+    ContigPurify_parser.add_argument('-PCT',              required=True, type=float,                help='Threshold of contig lnegth(0-1)')
+    ContigPurify_parser.add_argument('-IDY',              required=True, type=float,                help='Threshold of IDY (80 - 100)')  
 
     ############################## parse provided arguments and run corresponding function #############################
 
     # get and check options
-    args = None
+#    args = None
     if (len(sys.argv) == 1) or (sys.argv[1] == '-h') or (sys.argv[1] == '-help') or (sys.argv[1] == '--help'):
         print_main_help()
         sys.exit(0)     
 
     else:
         args = vars(parser.parse_args())
+    print(args)
 
     if args['subparser_name'] == 'GC':
-        GC(args, MetaTrass_config.config_dict)
+        GC.GC(args, MetaTrass_config.config_dict)
 
     if args['subparser_name'] == 'TB':
-        TB(args, MetaCHIP_config.config_dict)
+        TB.TB(args, MetaTrass_config.config_dict)
 
     if args['subparser_name'] == 'AP':
-        filter_HGT.filter_HGT(args)
+        AP.AP(args)
 
     if args['subparser_name'] == 'SplitBarcode':
         SplitBarcode.SplitBarcode(args)
@@ -191,9 +193,12 @@ if __name__ == '__main__':
 
     if args['subparser_name'] == 'Kraken2Taxon':
         Kraken2Taxon.Kraken2Taxon(args, MetaTrass_ToolConfig.config_dict)
+
+    if args['subparser_name'] == 'ReadID2Fastq':
+        ReadID2Fastq.ReadID2Fastq(args, MetaTrass_ToolConfig.config_dict)
         
-    if args['subparser_name'] == 'TAB_refining':
-        TAB_refining.TAB_refining(args, MetaTrass_ToolConfig.config_dict)
+    if args['subparser_name'] == 'TXACBrefiner':
+        TXACBrefiner.TXACBrefiner(args, MetaTrass_ToolConfig.config_dict)
 
     if args['subparser_name'] == 'MetaAssembly':
         MetaAssembly.MetaAssembly(args, MetaTrass_ToolConfig.config_dict)
