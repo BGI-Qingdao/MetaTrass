@@ -34,7 +34,7 @@ from MetaTrass import MetaAssembly
 from MetaTrass import ContigPurify
 
 def version():
-    version_file = open('%s/VERSION' % MetaTrass_config.config_file_path)
+    version_file = open('%s/VERSION' % ToolConfig.config_file_path)
     return version_file.readline().strip()
 
 
@@ -44,7 +44,7 @@ def print_main_help():
             ...:::=== MetaTrass v%s ===:::...
         
     Core modules:
-       GC              ->  Get stLFR Cleandata 
+       GC              ->  Get stLFR Cleandata
        TB              ->  Taxonomic Reads And Co-Barcoding Reads Refining (TABrefiner) 
        AP              ->  Single-species Assembly and Contigs Purifying
 
@@ -119,14 +119,14 @@ if __name__ == '__main__':
     SplitBarcode_parser.add_argument('-rawfq1',         required=True, type=str,            help='Paired-end data: raw 1 fastq.gz ')
     SplitBarcode_parser.add_argument('-rawfq2',         required=True, type=str,            help='Paired-end data: raw 2 fastq.gz')
     SplitBarcode_parser.add_argument('-outdir',         required=True, type=str,            help='Output folder')
-    SplitBarcode_parser.add_argument('-runnow',         required=False, type=str,           help='Run this script immediately') 
+    SplitBarcode_parser.add_argument('-runnow',         required=True, type=str,            help='Run this script immediately')
 
     # add argument for GetCleandata_parser
-    GetCleandata_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
-    GetCleandata_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
-    GetCleandata_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
-    GetCleandata_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
-    GetCleandata_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
+    GetCleandata_parser.add_argument('-thread',          required=True, type=str,            help='Running Thread Number')
+    GetCleandata_parser.add_argument('-outdir',          required=True, type=str,            help='Output folder')
+    GetCleandata_parser.add_argument('-runnow',          required=True, type=str,            help='Runing immediately')
+    GetCleandata_parser.add_argument('-parameter',       required=False, type=str, default='-y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10',          
+                                                         help='Default parameter : -y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10') 
 
     # add argument for Kraken2Taxon_parser 
     Kraken2Taxon_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
@@ -189,22 +189,22 @@ if __name__ == '__main__':
         SplitBarcode.SplitBarcode(args)
 
     if args['subparser_name'] == 'GetCleandata':
-        GetCleandata.GetCleandata(args, MetaTrass_ToolConfig.config_dict)
+        GetCleandata.GetCleandata(args)
 
     if args['subparser_name'] == 'Kraken2Taxon':
-        Kraken2Taxon.Kraken2Taxon(args, MetaTrass_ToolConfig.config_dict)
+        Kraken2Taxon.Kraken2Taxon(args)
 
     if args['subparser_name'] == 'ReadID2Fastq':
-        ReadID2Fastq.ReadID2Fastq(args, MetaTrass_ToolConfig.config_dict)
+        ReadID2Fastq.ReadID2Fastq(args)
         
     if args['subparser_name'] == 'TXACBrefiner':
-        TXACBrefiner.TXACBrefiner(args, MetaTrass_ToolConfig.config_dict)
+        TXACBrefiner.TXACBrefiner(args)
 
     if args['subparser_name'] == 'MetaAssembly':
-        MetaAssembly.MetaAssembly(args, MetaTrass_ToolConfig.config_dict)
+        MetaAssembly.MetaAssembly(args)
 
     if args['subparser_name'] == 'ContigPurify':
-        ContigPurify.ContigPurify(args, MetaTrass_ToolConfig.config_dict)
+        ContigPurify.ContigPurify(args)
 
 
 
