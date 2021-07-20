@@ -146,11 +146,11 @@ if __name__ == '__main__':
     TXACBrefiner_parser.add_argument('-runnow',              required=False, type=str,           help='Run this script immediately') 
 
     # add argument for ReadID2Fastq_parser
-    ReadID2Fastq_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
-    ReadID2Fastq_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
-    ReadID2Fastq_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
-    ReadID2Fastq_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
-    ReadID2Fastq_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
+    ReadID2Fastq_parser.add_argument('-cleanfq1',                required=True, type=str,            help='Paired-end data: cleanfq1 fastq.gz')
+    ReadID2Fastq_parser.add_argument('-cleanfq2',                required=True, type=str,            help='Paired-end data: cleanfq2 fastq.gz')
+    ReadID2Fastq_parser.add_argument('-thread',                  required=True, type=str, default = '10',            help='Number of Threads')
+    ReadID2Fastq_parser.add_argument('-outdir',                  required=True, type=str,            help='Output folder')
+    ReadID2Fastq_parser.add_argument('-runnow',                  required=True, type=str, default = 'False',         help='Run this script immediately')
 
     # add argument for MetaAssembly_parser
     MetaAssembly_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
