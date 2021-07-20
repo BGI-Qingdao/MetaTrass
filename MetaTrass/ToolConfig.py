@@ -45,7 +45,6 @@ def report_logger(message_for_report, log_file, keep_quiet):
     if keep_quiet is False:
         print('%s %s' % ((datetime.now().strftime(time_format)), message_for_report))
 
-
 def create_folder(create_folder_dir):
   if os.path.exists(create_folder_dir):
     print('1')

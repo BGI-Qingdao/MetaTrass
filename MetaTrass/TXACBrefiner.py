@@ -20,10 +20,12 @@ def TXACBrefiner(args):
 	genome_size = args['genome_size']
 	max_depth = args['max_depth']
 	min_depth = args['min_depth']
+	outdir = args['outdir']
 	runnow = args['runnow']
-	cmddir = args['outdir'] + '/all_command_shell/'
+	cmddir = outdir + '/all_command_shell/'
 	create_folder(cmddir)
-	output = args['outdir'] + '/dir2_taxonomy/SSRlist/'
+	create_folder(outdir + '/dir2_taxonomy')
+	output = outdir + '/dir2_taxonomy/SSRlist/'
 	create_folder(output)
 	shellfile = cmddir + '/stp2.2.TXACBrefiner.sh'
 

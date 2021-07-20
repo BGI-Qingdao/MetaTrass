@@ -54,17 +54,20 @@ def create_batch_fq_convert_sh(X10, X300, seqtk, indir, outdir, cleanfq1, cleanf
 		print('No species depth reach the 10X condition!!!')
 
 def ReadID2Fastq(args):
-	pass
+	
 
 if __name__ == '__main__':
 
 	# arguments for ReadID2Fastq
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('-rawfq1',			required=True, type=str,            help='Paired-end data: raw 1 fastq.gz')
-	parser.add_argument('-rawfq2',			required=True, type=str,            help='Paired-end data: raw 2 fastq.gz')
-	parser.add_argument('-outdir',			required=True, type=str,            help='Output folder')
-	parser.add_argument('-runnow',			required=False, type=str,           help='Run this script immediately') 
-
+	parser.add_argument('-cleanfq1',				required=True, type=str,            help='Paired-end data: cleanfq1 fastq.gz')
+	parser.add_argument('-cleanfq2',				required=True, type=str,            help='Paired-end data: cleanfq2 fastq.gz')
+	parser.add_argument('-thread',					required=True, type=str, default = '20',           	help='Kraken parameter')
+	parser.add_argument('-sample',					required=True, type=str,            help='Output FileName Prefix')
+	parser.add_argument('-ref_db',					required=True, type=str,			help='Taxonomy references database' )
+	parser.add_argument('-outdir',					required=True, type=str,            help='Output folder')
+	parser.add_argument('-runnow',					required=True, type=str, default = 'False',         help='Run this script immediately')
+	
 	args = vars(parser.parse_args())
 	ReadID2Fastq(args)
