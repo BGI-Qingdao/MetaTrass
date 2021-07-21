@@ -37,7 +37,7 @@ def lunchFunc(command):
 def ReadID2Fastq(args):
 	cleanfq1 = args['cleanfq1']
 	cleanfq2 = args['cleanfq2']
-	thread = args['thread']
+	thread = int(args['thread'])
 	outdir = args['outdir']
 	runnow = args['runnow']
 
@@ -53,16 +53,16 @@ def ReadID2Fastq(args):
 		for tax in open(taxReadDepth, 'r').readlines():
 			taxid, readnum, bareadnum, depth = tax.split()
 			if float(depth) >= 300:
-				readIdFile = indir + '300X.id_' + taxid + '.allbarcode.txt'
-				if os.path.exists(readIdFile):
+				readIdFile = '300X.id_' + taxid + '.allbarcode.txt'
+				if os.path.exists(indir + readIdFile):
 					task = convertReadName2FQGZ(outdir, readIdFile, cleanfq1, cleanfq2)
 					TaskCMD.append(task)
 					CMDFILE.write('%s\n' % ( task ) )
 				else:
 					pass
 			elif float(depth) >= 10:
-				readIdFile = indir + '10X.id_' + taxid + '.allbarcode.txt'
-				if os.path.exists(readIdFile):
+				readIdFile = '10X.id_' + taxid + '.allbarcode.txt'
+				if os.path.exists(indir + readIdFile):
 					task = convertReadName2FQGZ(outdir, readIdFile, cleanfq1, cleanfq2)
 					TaskCMD.append(task)
 					CMDFILE.write('%s\n' % ( task ) )
@@ -71,15 +71,11 @@ def ReadID2Fastq(args):
 			else:
 				pass
 
-	if runnow is True:
-		print(output)
-
-		report_logger('###step2.3 ReadID2Fastq starting', cmddir+'/run.log', runnow)
-		with Pool(tread) as p:
+	if len(runnow) == 4:
+		report_logger('###step2.3 ReadID2Fastq starting', cmddir + '/run.log', runnow)
+		with Pool(thread) as p:
 			p.map(lunchFunc, TaskCMD)
-		report_logger('###step2.3 ReadID2Fastq end', cmddir+'/run.log', runnow)
-	
-		
+		report_logger('###step2.3 ReadID2Fastq end', cmddir + '/run.log', runnow)
 
 if __name__ == '__main__':
 
@@ -88,10 +84,10 @@ if __name__ == '__main__':
 
 	parser.add_argument('-cleanfq1',				required=True, type=str,            help='Paired-end data: cleanfq1 fastq.gz')
 	parser.add_argument('-cleanfq2',				required=True, type=str,            help='Paired-end data: cleanfq2 fastq.gz')
-	parser.add_argument('-thread',					required=True, type=str, default = '10',           	help='Number of Threads')
+	parser.add_argument('-thread',					required=True, type=str, 			default = '10',           	help='Number of Threads')
 	parser.add_argument('-outdir',					required=True, type=str,            help='Output folder')
 	parser.add_argument('-runnow',					required=True, type=str,	        help='Run this script immediately')
 
 	args = vars(parser.parse_args())
 	ReadID2Fastq(args)
-	print(args['thread'])
+
