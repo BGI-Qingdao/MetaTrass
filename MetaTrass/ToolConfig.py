@@ -22,9 +22,10 @@ config_dict = {
                'kraken'               : '%s/kraken2'               % config_tool_path,
                'TABrefiner'           : '%s/TABrefiner'            % config_tool_path,
                'seqtk'                : '%s/seqtk'                 % config_tool_path,
-               'sflfr2supernova'      : '%s/stlfr2supernova'       % config_tool_path,
+               'supernova'            : '%s/supernova'             % config_tool_path,
                'quast'                : '%s/quast'                 % config_tool_path,
 
+               'sflfr2supernova'      : '%s/stlfr2supernova/clean_stlfr2supernova.py'       % config_tool_path,
                # script
                'SplitBarcode'         : '%s/SplitBarcode.py'       % config_file_path,   # do not edit this line
                'GetCleandata'         : '%s/GetCleandata.py'       % config_file_path,   # do not edit this line

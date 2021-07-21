@@ -17,10 +17,13 @@ MetaCHIP filter_HGT -i NorthSea_pcofg_detected_HGTs.txt -n 2
 '''
 
 
-def supernova_assembly(supernova_parameter, tssfq1, tssfq2, sample, outdir):
+def supernova_assembly(thread, tssfq1, tssfq2, sample, outdir):
 	output = outdir + 'dir3_assembly/supernova/' + sample
 	command1 = ' '.join([ 'mkdir -p ', output, ' && cd ', output ])
-	command2 = ' '.join([ config_dict['python'], supernovaPY, supernova_parameter, '-n', sample, '-r1', tssfq1, '-r2', tssfq2,'-o', output ])
+	command2 = ' '.join([ config_dict['python'], config_dict['sflfr2supernova'], '-fastq1', tssfq1, '-fastq2', tssfq2, 
+		'-memory', memory, '-maprate', maprate, '-threads', threads, '-maxreads', maxreads, '-pairdepth', pairdepth,
+		'-output', output, '-prefix', sample ])
+
 	command3 = ' '.join([ 'mv', output + '/supernova_out/supernova_out.mri.tgz', output ])
 	command4 = ' '.join([ 'rm -rf', output + '/supernova_out/' ])
 	command5 = ' '.join([ 'gunzip -c', output+'/'+sample+'_supernova_result.fasta.gz', '>', output + '/'+sample + '/scaffold.fa'])
@@ -76,11 +79,15 @@ if __name__ == '__main__':
 
 	# arguments for MetaAssembly
 	parser = argparse.ArgumentParser()
-	
-	parser.add_argument('-thread',			required=True, type=str, 			default = '10',           	help='Number of Threads')
-	parser.add_argument('-sample',			required=True, type=str,            help='Output FileName Prefix')
-	parser.add_argument('-outdir',			required=True, type=str,            help='Output folder')
-	parser.add_argument('-runnow',			required=False, type=str,           help='Run this script immediately') 
+
+	parser.add_argument('-pairdepth',   required=False, type=str,   default=2,          help='filter less X pair barcode reads(default = 2)')
+	parser.add_argument('-maprate',     required=False, type=str,   default=8,          help='mapping ratio (default=8)')
+	parser.add_argument('-threads',     required=False, type=str,   default=6,          help='number of threads use(default = 6)')
+	parser.add_argument('-memory',      required=False, type=str,   default=150,        help='number of memory use(GB,default = 150)',)
+	parser.add_argument('-maxreads',    required=False, type=str,   default=2140000000, help='maximumreads for supernova(default = 2140000000)')
+
+	parser.add_argument('-sample',      required=True,  type=str,                       help='output prefix')
+	parser.add_argument('-outdir',      required=False, type=str,                       help='output folder') 
 
 	args = vars(parser.parse_args())
 	MetaAssembly(args)
