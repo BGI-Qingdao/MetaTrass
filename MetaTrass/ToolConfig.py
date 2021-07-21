@@ -35,14 +35,13 @@ config_dict = {
 
                }
 
-
 def report_logger(message_for_report, log_file, keep_quiet):
 
     time_format = '[%Y-%m-%d %H:%M:%S]'
     with open(log_file, 'a') as log_handle:
         log_handle.write('%s %s\n' % ((datetime.now().strftime(time_format)), message_for_report))
 
-    if keep_quiet is False:
+    if keep_quiet:
         print('%s %s' % ((datetime.now().strftime(time_format)), message_for_report))
 
 def create_folder(create_folder_dir):

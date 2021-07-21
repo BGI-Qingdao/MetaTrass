@@ -8,10 +8,10 @@ from MetaTrass.ToolConfig import remove_folder
 
 TXACBrefiner_usage = '''
 ====================================== TXACB refining example commands =============================================================
-# Using Taxonomic and Barcode information to refining each single-species
-python TXACBrefiner.py -kraken_file kraken_result -genome_size genome_size.txt  -outdir ~/GitHub/MetaTrass/Test/ -runnow False
+
 # Using Taxonomic and Barcode information to refining each single-species with main function
 python Trass.py TXACBrefiner -kraken_file kraken_result -genome_size genome_size.txt  -outdir ~/GitHub/MetaTrass/Test/ -runnow False
+
 ====================================================================================================================================
 '''
 
@@ -34,7 +34,7 @@ def TXACBrefiner(args):
 		CMDFILE.write('cd %s \n' % ( output ) )
 		CMDFILE.write('%s -g %s -k %s -m %s -n %s\n' % ( config_dict['TABrefiner'], genome_size, kraken_file, max_depth, min_depth))
 
-	if runnow is True:
+	if runnow:
 		report_logger('###step2.2 TABrefining starting', cmddir+'/run.log', runnow)
 		os.system('sh %s\n' % shellfile)
 		report_logger('###step2.2 TABrefining end', cmddir+'/run.log', runnow)

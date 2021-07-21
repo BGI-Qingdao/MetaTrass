@@ -48,7 +48,7 @@ def Kraken2Taxon(args):
 		CMDFILE.write('cd %s \n' % ( output ) )
 		CMDFILE.write('%s --threads %s --gzip-compressed --paired --db %s --output %s --report %s %s %s\n' % ( kraken, thread, ref_db, taxresult, taxreport, cleanfq1, cleanfq2))
 
-	if runnow is True:
+	if runnow:
 		report_logger('###step2.1 kraken classfying starting', cmddir+'/run.log', runnow)
 		os.system( 'sh %s\n' % shellfile )
 		report_logger('###step2.1 kraken classfying end', cmddir+'/run.log', runnow)

@@ -34,7 +34,7 @@ def SplitBarcode(args):
 		CMDFILE.write('cd %s \n' % ( output ) )
 		CMDFILE.write('perl %s %s %s %s split_reads\n' % ( config_dict['split_barcode'], barcode_list, rawfq1, rawfq2 ))
 
-	if runnow is True:
+	if runnow:
 		report_logger('###step1.1 split_barcode starting', cmddir+'/run.log', runnow)
 		os.system('sh %s\n' % shellfile)
 		report_logger('###step1.1 split_barcode end', cmddir+'/run.log', runnow)

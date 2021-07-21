@@ -10,9 +10,9 @@ from MetaTrass.ToolConfig import remove_folder
 
 ReadID2Fastq_usage = '''
 ====================================== ReadID2Fastq example commands ======================================
-# 
 
-# 
+# Covert ReadID to the fastq format compile file with SeqTK
+python Trass.py ReadID2Fastq -cleanfq1 FQ1 -cleanfq2 FQ2 -thread 4 -outdir ~/GitHub/MetaTrass/Test/ -runnow True
 
 =========================================================================================================
 '''
@@ -71,7 +71,7 @@ def ReadID2Fastq(args):
 			else:
 				pass
 
-	if len(runnow) == 4:
+	if runnow:
 		report_logger('###step2.3 ReadID2Fastq starting', cmddir + '/run.log', runnow)
 		with Pool(thread) as p:
 			p.map(lunchFunc, TaskCMD)

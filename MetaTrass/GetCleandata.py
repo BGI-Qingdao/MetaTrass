@@ -35,7 +35,7 @@ def GetCleandata(args):
 		CMDFILE.write('cd %s \n' % ( output ) )
 		CMDFILE.write('%s -t %s %s lane.lst stat.txt\n' % (config_dict['SOAPfilter'], thread, parameter))
 
-	if runnow is True:
+	if runnow:
 		report_logger('###step1.2 split_barcode starting', cmddir+'/run.log', runnow)
 		os.system('sh %s\n' % shellfile)
 		report_logger('###step1.2 split_barcode end', cmddir+'/run.log', runnow)
