@@ -13,7 +13,7 @@ config_main_path = '/'.join(pwd_config_file.split('/')[:-2])
 config_dict = {
                'MetaTrass'            : '%s'                       % config_main_path,
 
-               'python3'              : 'python3',
+               'python'               : 'python3',
                'perl'                 : 'perl',
 
                # third-party tools 
@@ -22,10 +22,13 @@ config_dict = {
                'kraken'               : '%s/kraken2'               % config_tool_path,
                'TABrefiner'           : '%s/TABrefiner'            % config_tool_path,
                'seqtk'                : '%s/seqtk'                 % config_tool_path,
-               'supernova'            : '%s/supernova'             % config_tool_path,
-               'quast'                : '%s/quast'                 % config_tool_path,
+               'supernova'            : '%s/supernova/'            % config_tool_path,
+               'quast'                : '%s/quast.py'              % config_tool_path,
 
+               # modules
                'sflfr2supernova'      : '%s/stlfr2supernova/clean_stlfr2supernova.py'       % config_tool_path,
+               'contig_purify'        : '%s/contig_purify.py'      % config_tool_path,
+
                # script
                'SplitBarcode'         : '%s/SplitBarcode.py'       % config_file_path,   # do not edit this line
                'GetCleandata'         : '%s/GetCleandata.py'       % config_file_path,   # do not edit this line

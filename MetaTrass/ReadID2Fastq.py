@@ -82,11 +82,11 @@ if __name__ == '__main__':
 	# arguments for ReadID2Fastq
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('-cleanfq1',				required=True, type=str,            help='Paired-end data: cleanfq1 fastq.gz')
-	parser.add_argument('-cleanfq2',				required=True, type=str,            help='Paired-end data: cleanfq2 fastq.gz')
-	parser.add_argument('-thread',					required=True, type=str, 			default = '10',           	help='Number of Threads')
-	parser.add_argument('-outdir',					required=True, type=str,            help='Output folder')
-	parser.add_argument('-runnow',					required=True, type=str,	        help='Run this script immediately')
+	parser.add_argument('-cleanfq1',				required=True, 	type=str,            					help='Paired-end data: cleanfq1 fastq.gz')
+	parser.add_argument('-cleanfq2',				required=True, 	type=str,            					help='Paired-end data: cleanfq2 fastq.gz')
+	parser.add_argument('-thread',					required=False, type=str, default = '10',           	help='Number of Threads')
+	parser.add_argument('-outdir',					required=True, 	type=str,            					help='Output folder')
+	parser.add_argument('-runnow',					required=True, 	type=str,	        					help='Run this script immediately')
 
 	args = vars(parser.parse_args())
 	ReadID2Fastq(args)

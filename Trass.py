@@ -116,56 +116,58 @@ if __name__ == '__main__':
     AP_parser.add_argument('-ip',            required=False, type=int,     default=90,     help='identity percentile cutoff, default: 90')
 
     # add arguments for SplitBarcode_parse
-    SplitBarcode_parser.add_argument('-rawfq1',         required=True, type=str,            help='Paired-end data: raw 1 fastq.gz ')
-    SplitBarcode_parser.add_argument('-rawfq2',         required=True, type=str,            help='Paired-end data: raw 2 fastq.gz')
-    SplitBarcode_parser.add_argument('-outdir',         required=True, type=str,            help='Output folder')
-    SplitBarcode_parser.add_argument('-runnow',         required=True, type=str,            help='Run this script immediately')
+    SplitBarcode_parser.add_argument('-rawfq1',             required=True,  type=str,            help='Paired-end data: raw 1 fastq.gz ')
+    SplitBarcode_parser.add_argument('-rawfq2',             required=True,  type=str,            help='Paired-end data: raw 2 fastq.gz')
+    SplitBarcode_parser.add_argument('-outdir',             required=True,  type=str,            help='Output folder')
+    SplitBarcode_parser.add_argument('-runnow',             required=True,  type=str,            help='Run this script immediately')
 
     # add argument for GetCleandata_parser
-    GetCleandata_parser.add_argument('-thread',          required=True, type=str,            help='Running Thread Number')
-    GetCleandata_parser.add_argument('-outdir',          required=True, type=str,            help='Output folder')
-    GetCleandata_parser.add_argument('-runnow',          required=True, type=str,            help='Runing immediately')
-    GetCleandata_parser.add_argument('-parameter',       required=False, type=str, default='-y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10',          
+    GetCleandata_parser.add_argument('-thread',             required=True,  type=str,            help='Running Thread Number')
+    GetCleandata_parser.add_argument('-outdir',             required=True,  type=str,            help='Output folder')
+    GetCleandata_parser.add_argument('-runnow',             required=True,  type=str,            help='Runing immediately')
+    GetCleandata_parser.add_argument('-parameter',          required=False, type=str,   default='-y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10',          
                                                          help='Default parameter : -y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10') 
 
     # add argument for Kraken2Taxon_parser 
-    Kraken2Taxon_parser.add_argument('-cleanfq1',                required=True, type=str,            help='Paired-end data: cleanfq1 fastq.gz')
-    Kraken2Taxon_parser.add_argument('-cleanfq2',                required=True, type=str,            help='Paired-end data: cleanfq2 fastq.gz')
-    Kraken2Taxon_parser.add_argument('-thread',                  required=True, type=str, default = '20',            help='Kraken parameter')
-    Kraken2Taxon_parser.add_argument('-sample',                  required=True, type=str,            help='Output FileName Prefix')
-    Kraken2Taxon_parser.add_argument('-ref_db',                  required=True, type=str,            help='Taxonomy references database' )
-    Kraken2Taxon_parser.add_argument('-outdir',                  required=True, type=str,            help='Output folder')
-    Kraken2Taxon_parser.add_argument('-runnow',                  required=True, type=str, default = 'False',         help='Run this script immediately') 
+    Kraken2Taxon_parser.add_argument('-cleanfq1',           required=True,  type=str,            help='Paired-end data: cleanfq1 fastq.gz')
+    Kraken2Taxon_parser.add_argument('-cleanfq2',           required=True,  type=str,            help='Paired-end data: cleanfq2 fastq.gz')
+    Kraken2Taxon_parser.add_argument('-thread',             required=True,  type=str,   default = '20',            help='Kraken parameter')
+    Kraken2Taxon_parser.add_argument('-sample',             required=True,  type=str,            help='Output FileName Prefix')
+    Kraken2Taxon_parser.add_argument('-ref_db',             required=True,  type=str,            help='Taxonomy references database' )
+    Kraken2Taxon_parser.add_argument('-outdir',             required=True,  type=str,            help='Output folder')
+    Kraken2Taxon_parser.add_argument('-runnow',             required=True,  type=str,   default = 'False',         help='Run this script immediately') 
     
     # add argument for TXACBrefiner_parser
-    TXACBrefiner_parser.add_argument('-kraken_file',         required=True, type=str,            help='Paired-end data: raw 1 fastq.gz')
-    TXACBrefiner_parser.add_argument('-genome_size',         required=True, type=str,            help='Paired-end data: raw 2 fastq.gz')
-    TXACBrefiner_parser.add_argument('-max_depth',           required=False, type=str,  default = '300',         help='Species Maxima-Depth Required Assembly')
-    TXACBrefiner_parser.add_argument('-min_depth',           required=False, type=str,  default = '10',          help='Species Minima-Depth Required Assembly')
-    TXACBrefiner_parser.add_argument('-outdir',              required=True, type=str,            help='Output folder')
-    TXACBrefiner_parser.add_argument('-runnow',              required=False, type=str,           help='Run this script immediately') 
+    TXACBrefiner_parser.add_argument('-kraken_file',        required=True,  type=str,            help='Paired-end data: raw 1 fastq.gz')
+    TXACBrefiner_parser.add_argument('-genome_size',        required=True,  type=str,            help='Paired-end data: raw 2 fastq.gz')
+    TXACBrefiner_parser.add_argument('-max_depth',          required=False, type=str,   default = '300',         help='Species Maxima-Depth Required Assembly')
+    TXACBrefiner_parser.add_argument('-min_depth',          required=False, type=str,   default = '10',          help='Species Minima-Depth Required Assembly')
+    TXACBrefiner_parser.add_argument('-outdir',             required=True,  type=str,            help='Output folder')
+    TXACBrefiner_parser.add_argument('-runnow',             required=False, type=str,           help='Run this script immediately') 
 
     # add argument for ReadID2Fastq_parser
-    ReadID2Fastq_parser.add_argument('-cleanfq1',                required=True, type=str,            help='Paired-end data: cleanfq1 fastq.gz')
-    ReadID2Fastq_parser.add_argument('-cleanfq2',                required=True, type=str,            help='Paired-end data: cleanfq2 fastq.gz')
-    ReadID2Fastq_parser.add_argument('-thread',                  required=True, type=str, default = '10',            help='Number of Threads')
-    ReadID2Fastq_parser.add_argument('-outdir',                  required=True, type=str,            help='Output folder')
-    ReadID2Fastq_parser.add_argument('-runnow',                  required=True, type=str, default = 'False',         help='Run this script immediately')
+    ReadID2Fastq_parser.add_argument('-cleanfq1',           required=True,  type=str,            help='Paired-end data: cleanfq1 fastq.gz')
+    ReadID2Fastq_parser.add_argument('-cleanfq2',           required=True,  type=str,            help='Paired-end data: cleanfq2 fastq.gz')
+    ReadID2Fastq_parser.add_argument('-thread',             required=True,  type=str,   default = '10',            help='Number of Threads')
+    ReadID2Fastq_parser.add_argument('-outdir',             required=True,  type=str,            help='Output folder')
+    ReadID2Fastq_parser.add_argument('-runnow',             required=True,  type=str,   default = 'False',         help='Run this script immediately')
 
     # add argument for MetaAssembly_parser
-    MetaAssembly_parser.add_argument('-i',                required=True,                          help='txt file containing detected HGTs, e.g. [prefix]_[ranks]_detected_HGTs.txt ')
-    MetaAssembly_parser.add_argument('-n',                required=True, type=int,                help='HGTs detected at least n levels, 2 <= n <= 5')
-    MetaAssembly_parser.add_argument('-plot',             required=False,                         help='flanking plots folder')
-    MetaAssembly_parser.add_argument('-ffn',              required=False, default=None,           help='get nucleotide sequences for qualified HGTs')
-    MetaAssembly_parser.add_argument('-faa',              required=False, default=None,           help='get amino acid sequences for qualified HGTs')
+    MetaAssembly_parser.add_argument('-maprate',            required=False, type=str,   default='8',          help='mapping ratio (default=8)')
+    MetaAssembly_parser.add_argument('-thread',             required=False, type=str,   default='6',          help='number of threads use(default = 6)')
+    MetaAssembly_parser.add_argument('-memory',             required=False, type=str,   default='150',        help='number of memory use(GB,default = 150)',)
+    MetaAssembly_parser.add_argument('-maxreads',           required=False, type=str,   default='2140000000', help='maximumreads for supernova(default = 2140000000)')
+    MetaAssembly_parser.add_argument('-pairdepth',          required=False, type=str,   default='2',          help='filter less X pair barcode reads(default = 2)')
+    MetaAssembly_parser.add_argument('-outdir',             required=True,  type=str,                       help='output folder') 
+    MetaAssembly_parser.add_argument('-runnow',             required=False, type=str,                       help='Run this script immediately') 
 
     # add argument for ContigPurify_parser
-    ContigPurify_parser.add_argument('-i',                required=True, type=str,                  help='assembly fasta [not support fasta.gz]')
-    ContigPurify_parser.add_argument('-o',                required=True, type=str,                  help='filtered fasta ')
-    ContigPurify_parser.add_argument('-r',                required=True, type=str,                  help='taxid genomic reference fasta')
-    ContigPurify_parser.add_argument('-q',                required=True, type=str,                  help='all_alignments.tsv by quast') 
-    ContigPurify_parser.add_argument('-PCT',              required=True, type=float,                help='Threshold of contig lnegth(0-1)')
-    ContigPurify_parser.add_argument('-IDY',              required=True, type=float,                help='Threshold of IDY (80 - 100)')  
+    ContigPurify_parser.add_argument('-PCT',                required=False, type=str,   default = '50',               help='Threshold of contig lnegth(0-1)')
+    ContigPurify_parser.add_argument('-IDY',                required=False, type=str,   default = '90',               help='Threshold of IDY (80 - 100)')
+    ContigPurify_parser.add_argument('-thread',             required=False, type=str,   default = '10',               help='Number of Threads')
+    ContigPurify_parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
+    ContigPurify_parser.add_argument('-ref_fa',             required=True,  type=str,                               help='Taxonomic reference genome fasta folder')
+    ContigPurify_parser.add_argument('-runnow',             required=False, type=str,                               help='Run this script immediately')
 
     ############################## parse provided arguments and run corresponding function #############################
 

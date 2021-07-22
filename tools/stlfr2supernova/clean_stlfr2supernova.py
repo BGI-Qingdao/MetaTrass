@@ -47,5 +47,5 @@ os.system('mv read-R2_si-TTCACGCG_lane-001-chunk-001.fastq.gz ' + output + '/sam
 
 os.system('mv *.log ' + output)
 os.system('mv *.err ' + output)
-os.system(args.supernova + ' run --id=supernova_out --maxreads=' + maxreads + ' --fastqs=' + output + ' --accept-extreme-coverage --localcores=' + thread + ' --localmem=' + memory + ' --nopreflight 1>_log 2>_err')
-os.system(args.supernova + ' mkoutput --style=pseudohap --asmdir=supernova_out/outs/assembly --outprefix=' + prefix + '_supernova_result')
+os.system(args.supernova + 'supernova run --id=supernova_out --maxreads=' + maxreads + ' --fastqs=' + output + ' --accept-extreme-coverage --localcores=' + thread + ' --localmem=' + memory + ' --nopreflight 1>_log 2>_err')
+os.system(args.supernova + 'supernova mkoutput --style=pseudohap --asmdir=supernova_out/outs/assembly --outprefix=' + prefix + '_supernova_result')
