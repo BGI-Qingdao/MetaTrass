@@ -24,6 +24,7 @@ def TXACBrefiner(args):
 	runnow = args['runnow']
 	cmddir = outdir + '/all_command_shell/'
 	create_folder(cmddir)
+	kraken_file = outdir + '/dir2_taxonomy/kraken/' + 
 	create_folder(outdir + '/dir2_taxonomy')
 	output = outdir + '/dir2_taxonomy/SSRlist/'
 	create_folder(output)
@@ -44,8 +45,8 @@ if __name__ == '__main__':
 	# arguments for TXACBrefiner
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('-kraken_file',			required=True, type=str,            help='Paired-end data: raw 1 fastq.gz')
-	parser.add_argument('-genome_size',			required=True, type=str,            help='Paired-end data: raw 2 fastq.gz')
+	parser.add_argument('-sample',				required=True, type=str,            help='sample name')
+	parser.add_argument('-genome_size',			required=True, type=str,            help='reference genome size information')
 	parser.add_argument('-max_depth',			required=False, type=str,  default = '300',         help='Species Maxima-Depth Required Assembly')
 	parser.add_argument('-min_depth',			required=False, type=str,  default = '10',          help='Species Minima-Depth Required Assembly')
 	parser.add_argument('-outdir',				required=True, type=str, 			help='Output folder')

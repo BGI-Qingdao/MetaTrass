@@ -42,8 +42,6 @@ MetaCHIP filter_HGT -i NorthSea_pcofg_detected_HGTs.txt -n 3 -plot NorthSea_pcof
     ContigPurify_parser.add_argument('-runnow',             required=False, type=str,                               help='Run this script immediately')
 
 
-
-
 def AP(args):
 	
 
