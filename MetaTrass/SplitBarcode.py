@@ -1,7 +1,6 @@
 import os
 import argparse
 
-
 from MetaTrass.ToolConfig import config_dict
 from MetaTrass.ToolConfig import report_logger
 from MetaTrass.ToolConfig import create_folder
@@ -15,7 +14,6 @@ python SplitBarcode.py -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 -outdir ~/GitHub/MetaTrass/
 python Trass.py SplitBarcode -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 -outdir ~/GitHub/MetaTrass/Test/ -runnow  False
 =========================================================================================================
 '''
-
 
 def SplitBarcode(args):
 	rawfq1 = args['rawfq1']
@@ -43,10 +41,10 @@ if __name__ == '__main__':
 
 	# arguments for SplitBarcode
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-rawfq1',         required=True, type=str,            help='Paired-end data: raw 1 fastq.gz ')
-	parser.add_argument('-rawfq2',         required=True, type=str,            help='Paired-end data: raw 2 fastq.gz')
-	parser.add_argument('-outdir',         required=True, type=str,            help='Output folder')
-	parser.add_argument('-runnow',         required=True, type=str,            help='Run this script immediately')
+	parser.add_argument('-rawfq1',             required=True,  type=str,                               help='Paired-end data: raw 1 fastq.gz ')
+	parser.add_argument('-rawfq2',             required=True,  type=str,                               help='Paired-end data: raw 2 fastq.gz')
+	parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
+	parser.add_argument('-runnow',             required=True,  type=str,                               help='Run this script immediately')
 
 	args = vars(parser.parse_args())
 	SplitBarcode(args)

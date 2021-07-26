@@ -33,9 +33,10 @@ config_dict = {
                'SplitBarcode'         : '%s/SplitBarcode.py'       % config_file_path,   # do not edit this line
                'GetCleandata'         : '%s/GetCleandata.py'       % config_file_path,   # do not edit this line
                'Kraken2Taxon'         : '%s/Kraken2Taxon.py'       % config_file_path,   # do not edit this line
-               'TAB_refining'         : '%s/TAB_refining.py'       % config_file_path,   # do not edit this line
-               'MetaAssembly'         : '%s/ReadID2Fastq.py'       % config_file_path,   # do not edit this line
-               'ContigPurify'         : '%s/ReadID2Fastq.py'       % config_file_path    # do not edit this line
+               'TXACBrefiner'         : '%s/TXACBrefiner.py'       % config_file_path,   # do not edit this line
+               'ReadID2Fastq'         : '%s/ReadID2Fastq.py'       % config_file_path,   # do not edit this line
+               'MetaAssembly'         : '%s/MetaAssembly.py'       % config_file_path,   # do not edit this line
+               'ContigPurify'         : '%s/ContigPurify.py'       % config_file_path    # do not edit this line
 
                }
 

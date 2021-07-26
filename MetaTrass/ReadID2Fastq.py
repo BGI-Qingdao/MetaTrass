@@ -37,6 +37,8 @@ def lunchFunc(command):
 def ReadID2Fastq(args):
 	cleanfq1 = args['cleanfq1']
 	cleanfq2 = args['cleanfq2']
+	max_depth = int(args['max_depth'])
+	min_depth = int(args['min_depth'])
 	thread = int(args['thread'])
 	outdir = args['outdir']
 	runnow = args['runnow']
@@ -52,7 +54,7 @@ def ReadID2Fastq(args):
 	with open(shellfile, 'w') as CMDFILE:
 		for tax in open(taxReadDepth, 'r').readlines():
 			taxid, readnum, bareadnum, depth = tax.split()
-			if float(depth) >= 300:
+			if float(depth) >= max_depth:
 				readIdFile = '300X.id_' + taxid + '.allbarcode.txt'
 				if os.path.exists(indir + readIdFile):
 					task = convertReadName2FQGZ(outdir, readIdFile, cleanfq1, cleanfq2)
@@ -60,7 +62,7 @@ def ReadID2Fastq(args):
 					CMDFILE.write('%s\n' % ( task ) )
 				else:
 					pass
-			elif float(depth) >= 10:
+			elif float(depth) >= min_depth:
 				readIdFile = '10X.id_' + taxid + '.allbarcode.txt'
 				if os.path.exists(indir + readIdFile):
 					task = convertReadName2FQGZ(outdir, readIdFile, cleanfq1, cleanfq2)
@@ -82,11 +84,13 @@ if __name__ == '__main__':
 	# arguments for ReadID2Fastq
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('-cleanfq1',				required=True, 	type=str,            					help='Paired-end data: cleanfq1 fastq.gz')
-	parser.add_argument('-cleanfq2',				required=True, 	type=str,            					help='Paired-end data: cleanfq2 fastq.gz')
-	parser.add_argument('-thread',					required=False, type=str, default = '10',           	help='Number of Threads')
-	parser.add_argument('-outdir',					required=True, 	type=str,            					help='Output folder')
-	parser.add_argument('-runnow',					required=True, 	type=str,	        					help='Run this script immediately')
+	parser.add_argument('-cleanfq1',           required=True,  type=str,                               help='Paired-end data: cleanfq1 fastq.gz')
+	parser.add_argument('-cleanfq2',           required=True,  type=str,                               help='Paired-end data: cleanfq2 fastq.gz')
+	parser.add_argument('-max_depth',          required=False, type=str,  default = '300',             help='Species Maxima-Depth Required Assembly')
+	parser.add_argument('-min_depth',          required=False, type=str,  default = '10',              help='Species Minima-Depth Required Assembly')
+	parser.add_argument('-thread',             required=True,  type=str,  default = '10',              help='Number of Threads')
+	parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
+	parser.add_argument('-runnow',             required=True,  type=str,  default = 'False',           help='Run this script immediately')
 
 	args = vars(parser.parse_args())
 	ReadID2Fastq(args)

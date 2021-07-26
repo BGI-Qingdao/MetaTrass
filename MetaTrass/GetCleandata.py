@@ -44,10 +44,11 @@ if __name__ == '__main__':
 
 	# arguments for GetCleandata
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-outdir',			required=True, 	type=str,  										help='Output folder')
-	parser.add_argument('-thread',			required=True, 	type=str,  	default = '10',          			help='Running Thread Number')
-	parser.add_argument('-runnow',          required=True, 	type=str,  	default = 'False',          		help='Runing immediately')
-	parser.add_argument('-parameter',		required=False, type=str, 	default = '-y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10',          help='Run this script immediately') 
+    parser.add_argument('-thread',             required=True,  type=str,                               help='Running Thread Number')
+    parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
+    parser.add_argument('-runnow',             required=True,  type=str,                               help='Runing immediately')
+    parser.add_argument('-parameter',          required=False, type=str,  default='-y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10',         
+                                                                                                                    help='Default parameter : -y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10') 
 
 	args = vars(parser.parse_args())
 	GetCleandata(args)
