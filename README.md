@@ -12,7 +12,7 @@ Publication:
 
 Change Log:
 ---
-
+* v1.2.0 (2021-08-03) - Finished a version test!
 * v1.1.0 (2021-07-09) - Fixed a few bugs
 * v1.0.0 (2021-04-13) - Initial release
 
