@@ -15,9 +15,25 @@ AP_usage = '''
 =========================================================================================================
 '''
 
-def AP(args, MetaAssembly, ContigPurify):
-	MetaAssembly(args)
-	ContigPurify(args)
+def AP(args):
+
+
+
+	memory = args['memory']
+	thread = args['thread']
+	maprate = args['maprate']
+	maxreads = args['maxreads']
+	pairdepth = args['pairdepth']
+
+	os.system(' %s %s -thread %s -memory %s -maprate %s -maxreads %s pairdepth %s -outdir %s -runnow %s'
+		%( config_dict['python'], config_dict['MetaAssembly'] , thread, memory, maprate, maxreads, pairdepth, outdir, runnow))
+
+	IDY = args['IDY']
+	PCT = args['PCT']
+	thread = args['thread']
+	refdir = args['ref_fa']
+	os.system(' %s %s -IDY %s -PCT %s -ref_fa %s -thread %s -outdir %s -runnow %s'
+		%( config_dict['python'], config_dict['contig_purify'] ,IDY, PCT, thread, refdir, outdir, runnow))
 
 if __name__ == '__main__':
 
@@ -33,11 +49,9 @@ if __name__ == '__main__':
 	parser.add_argument('-PCT',                          required=False, type=str,   default = '50',             help='Threshold of contig lnegth(0-1)')
 	parser.add_argument('-IDY',                          required=False, type=str,   default = '90',             help='Threshold of IDY (80 - 100)')
 	parser.add_argument('-ref_fa',                       required=True,  type=str,                               help='Taxonomic reference genome fasta folder')
-	parser.add_argument('-max_depth',                    required=False, type=str,  default = '300',             help='Species Maximum-Depth Required Assembly')
-	parser.add_argument('-min_depth',                    required=False, type=str,  default = '10',              help='Species Minimum-Depth Required Assembly')
 	parser.add_argument('-thread',                       required=False, type=str,   default = '10',             help='Number of Threads')
 	parser.add_argument('-outdir',                       required=True,  type=str,                               help='Output folder')
 	parser.add_argument('-runnow',                       required=False, type=str,                               help='Run this script immediately')
 
 	args = vars(parser.parse_args())
-	AP(args, MetaAssembly, ContigPurify)
+	AP(args)

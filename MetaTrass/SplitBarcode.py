@@ -25,7 +25,6 @@ def SplitBarcode(args):
 	create_folder(cmddir)
 	shellfile = cmddir + '/stp1.1.splitbarcode.sh'
 	output = outdir + '/dir1_cleandata/'
-	create_folder(output)
 
 	with open(shellfile, 'w') as CMDFILE:
 		barcode_list = config_dict['MetaTrass'] + '/config/barcode_list.txt'
@@ -33,14 +32,10 @@ def SplitBarcode(args):
 		CMDFILE.write('cd %s \n' % ( output ) )
 		CMDFILE.write('perl %s %s %s %s split_reads\n' % ( config_dict['split_barcode'], barcode_list, rawfq1, rawfq2 ))
 
-	if runnow == 'yes':
+	if runnow:
 		report_logger('###step1.1 split_barcode starting', cmddir+'/run.log', runnow)
 		os.system('sh %s\n' % shellfile)
 		report_logger('###step1.1 split_barcode end', cmddir+'/run.log', runnow)
-	elif runnow == 'no':
-		print('this step1.1 split_barcode is skipped!\n')
-	else:
-		print('the runnow parameter is wrong with %s\n' %(runnow))
 
 if __name__ == '__main__':
 
@@ -49,7 +44,7 @@ if __name__ == '__main__':
 	parser.add_argument('-rawfq1',             required=True,  type=str,                               help='Paired-end data: raw 1 fastq.gz ')
 	parser.add_argument('-rawfq2',             required=True,  type=str,                               help='Paired-end data: raw 2 fastq.gz')
 	parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
-	parser.add_argument('-runnow',             required=True,  type=str,  default='no',                help='Set \'yes\' with launch the step immediately')
+	parser.add_argument('-runnow',             required=True,  type=str,                               help='Run this script immediately')
 
 	args = vars(parser.parse_args())
 	SplitBarcode(args)
