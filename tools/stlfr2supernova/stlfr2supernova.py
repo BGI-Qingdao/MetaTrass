@@ -2,7 +2,9 @@ import argparse
 import os
 
 config_file_pwd = os.path.realpath(__file__)
+config_file_pwd = '/'.join(config_file_pwd.split('/')[:-1]) + '/'
 
+print(config_file_pwd)
 parser = argparse.ArgumentParser()
 parser.add_argument('-fastq1',      required=True,  type=str,                       help='stlfr clean reads1')
 parser.add_argument('-fastq2',      required=True,  type=str,                       help='stlfr clean reads2')
@@ -10,7 +12,7 @@ parser.add_argument('-fastq2',      required=True,  type=str,                   
 parser.add_argument('-supernova',   required=True,  type=str,                       help='supernova path')
 parser.add_argument('-pairdepth',   required=False, type=str,   default=2,          help='filter less X pair barcode reads(default = 2)')
 parser.add_argument('-maprate',     required=False, type=str,   default=8,          help='mapping ratio (default=8)')
-parser.add_argument('-threads',     required=False, type=str,   default=6,          help='number of threads use(default = 6)')
+parser.add_argument('-thread',      required=False, type=str,   default=10,         help='number of threads use(default = 10)')
 parser.add_argument('-memory',      required=False, type=str,   default=150,        help='number of memory use(GB,default = 150)',)
 parser.add_argument('-maxreads',    required=False, type=str,   default=2140000000, help='maximumreads for supernova(default = 2140000000)')
 
@@ -23,9 +25,9 @@ fastq1 = args.fastq1
 fastq2 = args.fastq2
 
 memory = str(args.memory)
+thread = str(args.thread)
 maprate = str(args.maprate)
-threads = str(args.thread)
-maxreads =  str(args.maxread)
+maxreads =  str(args.maxreads)
 pairdepth = str(args.pairdepth)
 
 output = args.outdir

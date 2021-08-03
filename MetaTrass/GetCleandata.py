@@ -35,19 +35,23 @@ def GetCleandata(args):
 		CMDFILE.write('cd %s \n' % ( output ) )
 		CMDFILE.write('%s -t %s %s lane.lst stat.txt\n' % (config_dict['SOAPfilter'], thread, parameter))
 
-	if runnow:
+	if runnow == 'yes':
 		report_logger('###step1.2 split_barcode starting', cmddir+'/run.log', runnow)
 		os.system('sh %s\n' % shellfile)
 		report_logger('###step1.2 split_barcode end', cmddir+'/run.log', runnow)
+	elif runnow == 'no':
+		print('this step1.2 split_barcode is skipped!\n')
+	else:
+		print('the runnow parameter is wrong with %s\n' %(runnow))
 
 if __name__ == '__main__':
 
 	# arguments for GetCleandata
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-outdir',			required=True, 	type=str,  										help='Output folder')
-	parser.add_argument('-thread',			required=True, 	type=str,  	default = '10',          			help='Running Thread Number')
-	parser.add_argument('-runnow',          required=True, 	type=str,  	default = 'False',          		help='Runing immediately')
-	parser.add_argument('-parameter',		required=False, type=str, 	default = '-y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10',          help='Run this script immediately') 
-
+	parser.add_argument('-thread',             required=True,  type=str,                               help='Running Thread Number')
+	parser.add_argument('-parameter',          required=False, type=str,  default='-y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10',         
+                                                                                                                    help='Default parameter : -y -F CTGTCTCTTATACACATCTTAGGAAGACAAGCACTGACGACATGA -R TCTGCTGAGTCGAGAACGTCTCTGTGAGCCAAGGAGTTGCTCTGG -p -M 2 -f -1 -Q 10') 
+	parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
+	parser.add_argument('-runnow',             required=True,  type=str,  default='no',                help='Set \'yes\' with launch the step immediately')
 	args = vars(parser.parse_args())
 	GetCleandata(args)
