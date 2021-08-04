@@ -36,7 +36,7 @@ def lunchFunc(command):
 
 def MetaAssembly(args):
 	memory = args['memory']
-	thread = args['thread']
+	parallel = args['parallel']
 	maprate = args['maprate']
 	maxreads = args['maxreads']
 	pairdepth = args['pairdepth']
@@ -61,7 +61,7 @@ def MetaAssembly(args):
 					tssfq1 = outdir + '/dir2_taxonomy/ID2FQ/' + readIdFile + '_list_1.fq.gz'
 					tssfq2 = outdir + '/dir2_taxonomy/ID2FQ/' + readIdFile + '_list_2.fq.gz'
 					if os.path.exists(tssfq1):
-						task = supernova_assembly(tssfq1, tssfq2, memory, maprate, '20', maxreads, pairdepth, outdir, taxid)
+						task = supernova_assembly(tssfq1, tssfq2, memory, maprate, '10', maxreads, pairdepth, outdir, taxid)
 						TaskCMD.append(task)
 						CMDFILE.write('%s\n' % ( task ) )
 					else:
@@ -71,7 +71,7 @@ def MetaAssembly(args):
 					tssfq1 = outdir + '/dir2_taxonomy/ID2FQ/' + readIdFile + '_list_1.fq.gz'
 					tssfq2 = outdir + '/dir2_taxonomy/ID2FQ/' + readIdFile + '_list_2.fq.gz'
 					if os.path.exists(tssfq1):
-						task = supernova_assembly(tssfq1, tssfq2, memory, maprate, '20', maxreads, pairdepth, outdir, taxid)
+						task = supernova_assembly(tssfq1, tssfq2, memory, maprate, '10', maxreads, pairdepth, outdir, taxid)
 						TaskCMD.append(task)
 						CMDFILE.write('%s\n' % ( task ) )
 					else:
@@ -83,7 +83,7 @@ def MetaAssembly(args):
 
 	if runnow == 'yes':
 		report_logger('###step3.1 MetaAssembly starting', cmddir + '/run.log', runnow)
-		with Pool(int(thread)) as p:
+		with Pool(int(parallel)) as p:
 			p.map(lunchFunc, TaskCMD)
 		report_logger('###step3.1 MetaAssembly end', cmddir + '/run.log', runnow)
 	elif runnow == 'no':
@@ -97,14 +97,14 @@ if __name__ == '__main__':
 	# arguments for MetaAssembly
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('-thread',      required=False, type=str,   default='10',          	help='number of threads use(default = 10)')
-	parser.add_argument('-memory',      required=False, type=str,   default='150',        	help='number of memory use(GB,default = 150)')
-	parser.add_argument('-maprate',     required=False, type=str,   default='8',          	help='mapping ratio (default=8)')
-	parser.add_argument('-maxreads',    required=False, type=str,   default='2140000000', 	help='maximumreads for supernova(default = 2140000000)')
-	parser.add_argument('-pairdepth',   required=False, type=str,   default='2',          	help='filter less X pair barcode reads(default = 2)')
+	parser.add_argument('-parallel',    required=False, type=str,  default='10',          		help='number of threads use(default = 10)')
+	parser.add_argument('-memory',      required=False, type=str,  default='150',        		help='number of memory use(GB,default = 150)')
+	parser.add_argument('-maprate',     required=False, type=str,  default='8',          		help='mapping ratio (default=8)')
+	parser.add_argument('-maxreads',    required=False, type=str,  default='2140000000', 		help='maximumreads for supernova(default = 2140000000)')
+	parser.add_argument('-pairdepth',   required=False, type=str,  default='2',          		help='filter less X pair barcode reads(default = 2)')
 	parser.add_argument('-max_depth',   required=False, type=str,  default = '300',             help='Species Maximum-Depth Required Assembly')
 	parser.add_argument('-min_depth',   required=False, type=str,  default = '10',              help='Species Minimum-Depth Required Assembly')
-	parser.add_argument('-outdir',      required=True,  type=str,                       	help='output folder') 
+	parser.add_argument('-outdir',      required=True,  type=str,                       		help='output folder') 
 	parser.add_argument('-runnow',      required=True,  type=str,  default='no',                help='Set \'yes\' with launch the step immediately')
 
 	args = vars(parser.parse_args())

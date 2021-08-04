@@ -39,7 +39,7 @@ def ReadID2Fastq(args):
 	cleanfq2 = args['cleanfq2']
 	max_depth = int(args['max_depth'])
 	min_depth = int(args['min_depth'])
-	thread = int(args['thread'])
+	parallel = int(args['parallel'])
 	outdir = args['outdir']
 	runnow = args['runnow']
 
@@ -78,7 +78,7 @@ def ReadID2Fastq(args):
 
 	if runnow == 'yes':
 		report_logger('###step2.3 ReadID2Fastq starting', cmddir + '/run.log', runnow)
-		with Pool(thread) as p:
+		with Pool(int(parallel)) as p:
 			p.map(lunchFunc, TaskCMD)
 		report_logger('###step2.3 ReadID2Fastq end', cmddir + '/run.log', runnow)
 	elif runnow == 'no':
@@ -96,7 +96,7 @@ if __name__ == '__main__':
 	parser.add_argument('-cleanfq2',           required=True,  type=str,                               help='Paired-end data: cleanfq2 fastq.gz')
 	parser.add_argument('-max_depth',          required=False, type=str,  default = '300',             help='Species Maxima-Depth Required Assembly')
 	parser.add_argument('-min_depth',          required=False, type=str,  default = '10',              help='Species Minima-Depth Required Assembly')
-	parser.add_argument('-thread',             required=True,  type=str,  default = '10',              help='Number of Threads')
+	parser.add_argument('-parallel',             required=True,  type=str,  default = '10',              help='Number of Threads')
 	parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
 	parser.add_argument('-runnow',             required=True,  type=str,  default='no',                help='Set \'yes\' with launch the step immediately')
 

@@ -32,7 +32,7 @@ def lunchFunc(command):
 def ContigPurify(args):
 	IDY = args['IDY']
 	PCT = args['PCT']
-	thread = args['thread']
+	parallel = args['parallel']
 	refdir = args['ref_fa']
 	max_depth = args['max_depth']
 	min_depth = args['min_depth']
@@ -66,7 +66,7 @@ def ContigPurify(args):
 						taxid_quast_dir = outdir + 'dir3_assembly/quast/' + taxid
 						create_folder(taxid_quast_dir)
 	
-						task1 = quast_bin(rawContig, reference, thread, taxid_quast_dir, IDY)
+						task1 = quast_bin(rawContig, reference, parallel, taxid_quast_dir, IDY)
 
 						purifySeq = purify_dir + taxid + '.fa'
 						quastAlnTsv = taxid_quast_dir + '/contigs_reports/all_alignments_' + taxid + '_scaffold.tsv'
@@ -83,7 +83,7 @@ def ContigPurify(args):
 			print('!!!%s not found! Please run the step2.2 TABrefiner at first!!! ' %( taxReadDepth))
 	if runnow == 'yes':
 		report_logger('###step3.2 ContigPurify starting', cmddir + '/run.log', runnow)
-		with Pool(int(thread)) as p:
+		with Pool(int(parallel)) as p:
 			p.map(lunchFunc, TaskCMD)
 		report_logger('###step3.2 ContigPurify end', cmddir + '/run.log', runnow)
 	elif runnow == 'no':
