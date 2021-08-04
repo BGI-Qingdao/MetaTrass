@@ -97,14 +97,14 @@ if __name__ == '__main__':
 	# arguments for ContigPurify
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument('-PCT',			required=False, type=str, default = '50',		help='Threshold of contig lnegth(0-1)')
-	parser.add_argument('-IDY', 			required=False, type=str, default = '90',		help='Threshold of IDY (80 - 100)')
-	parser.add_argument('-thread',			required=False, type=str, default = '10',           	help='Number of Threads')
-	parser.add_argument('-ref_fa',			required=True, 	type=str,				help='Taxonomic reference genome fasta folder')
-	parser.add_argument('-max_depth',               required=False, type=str,  default = '300',             help='Species Maximum-Depth Required Assembly')
-	parser.add_argument('-min_depth',               required=False, type=str,  default = '10',              help='Species Minimum-Depth Required Assembly')
-	parser.add_argument('-outdir',			required=True, 	type=str,   				help='Output folder')
-	parser.add_argument('-runnow',                  required=True,  type=str,  default='no',                help='Set \'yes\' with launch the step immediately')
+	parser.add_argument('-PCT',			    required=False, type=str, default = '50',              help='Threshold of percentage of contig AF(0-1)')
+	parser.add_argument('-IDY', 			required=False, type=str, default = '90',              help='Threshold of IDY (80 - 100)')
+	parser.add_argument('-thread',			required=False, type=str, default = '10',              help='Number of Threads')
+	parser.add_argument('-ref_fa',			required=True, 	type=str,                              help='Taxonomic reference genome fasta folder')
+	parser.add_argument('-max_depth',       required=False, type=str, default = '300',             help='Species Maximum-Depth Required Assembly')
+	parser.add_argument('-min_depth',       required=False, type=str, default = '10',              help='Species Minimum-Depth Required Assembly')
+	parser.add_argument('-outdir',			required=True, 	type=str,                              help='Output folder')
+	parser.add_argument('-runnow',          required=True,  type=str, default='no',                help='Set \'yes\' with launch the step immediately')
 
 	args = vars(parser.parse_args())
 	ContigPurify(args)

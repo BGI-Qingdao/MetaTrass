@@ -20,6 +20,7 @@ def TXACBrefiner(args):
 	sample = args['sample']
 	max_depth = args['max_depth']
 	min_depth = args['min_depth']
+	pe_length = args['pe_length']
 	outdir = args['outdir']
 	runnow = args['runnow']
 	cmddir = outdir + '/all_command_shell/'
@@ -33,7 +34,7 @@ def TXACBrefiner(args):
 	with open(shellfile, 'w') as CMDFILE:
 
 		CMDFILE.write('cd %s \n' % ( output ) )
-		CMDFILE.write('%s -g %s -k %s -m %s -n %s\n' % ( config_dict['TABrefiner'], genome_size, kraken_file, max_depth, min_depth))
+		CMDFILE.write('%s -g %s -k %s -m %s -n %s -r %s\n' % ( config_dict['TABrefiner'], genome_size, kraken_file, max_depth, min_depth, pe_length))
 
 	if runnow == 'yes':
 		report_logger('###step2.2 TABrefining starting', cmddir+'/run.log', runnow)
@@ -54,6 +55,7 @@ if __name__ == '__main__':
 	parser.add_argument('-sample',             required=True,  type=str,                               help='Sample Name')
 	parser.add_argument('-max_depth',          required=False, type=str,  default = '300',             help='Species Maximum-Depth Required Assembly')
 	parser.add_argument('-min_depth',          required=False, type=str,  default = '10',              help='Species Minimum-Depth Required Assembly')
+	parser.add_argument('-pe_length',          required=False, type=str,  default = '100',             help='PE read length of sequencing data')
 	parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
 	parser.add_argument('-runnow',             required=True,  type=str,  default='no',                help='Set \'yes\' with launch the step immediately')
 

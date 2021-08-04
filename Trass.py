@@ -161,6 +161,7 @@ if __name__ == '__main__':
     TXACBrefiner_parser.add_argument('-genome_size',        required=True,  type=str,                               help='Paired-end data: raw 2 fastq.gz')
     TXACBrefiner_parser.add_argument('-max_depth',          required=False, type=str,  default='300',               help='Species Maximum-Depth Required Assembly')
     TXACBrefiner_parser.add_argument('-min_depth',          required=False, type=str,  default='10',                help='Species Minimum-Depth Required Assembly')
+    TXACBrefiner_parser.add_argument('-pe_length',          required=False, type=str,  default = '100',             help='PE read length of sequencing data')
     TXACBrefiner_parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
     TXACBrefiner_parser.add_argument('-runnow',             required=False, type=str,  default='no',                help='Run this script immediately') 
 
@@ -185,7 +186,7 @@ if __name__ == '__main__':
     MetaAssembly_parser.add_argument('-runnow',             required=False, type=str,  default='no',                help='Run this script immediately') 
 
     # add argument for ContigPurify_parser
-    ContigPurify_parser.add_argument('-PCT',                required=False, type=str,  default='50',                help='Threshold of contig lnegth(0-1)')
+    ContigPurify_parser.add_argument('-PCT',                required=False, type=str,  default='50',                help='Threshold of percentage of contig AF(0-1)')
     ContigPurify_parser.add_argument('-IDY',                required=False, type=str,  default='90',                help='Threshold of IDY (80 - 100)')
     ContigPurify_parser.add_argument('-parallel',           required=False, type=str,  default='10',                help='Number of parallel species')
     ContigPurify_parser.add_argument('-max_depth',          required=False, type=str,  default='300',               help='Species Maximum-Depth Required Assembly')
