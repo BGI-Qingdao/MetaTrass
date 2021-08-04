@@ -1,17 +1,3 @@
-optional arguments:
-  -h, --help            show this help message and exit
-  -cleanfq1 CLEANFQ1    Paired-end data: cleanfq1 fastq.gz
-  -cleanfq2 CLEANFQ2    Paired-end data: cleanfq2 fastq.gz
-  -thread THREAD        Kraken parameter
-  -sample SAMPLE        Output FileName Prefix
-  -ref_db REF_DB        Taxonomy references database
-  -genome_size GENOME_SIZE
-                        Paired-end data: raw 2 fastq.gz
-  -max_depth MAX_DEPTH  Species Maxima-Depth Required Assembly
-  -min_depth MIN_DEPTH  Species Minima-Depth Required Assembly
-  -outdir OUTDIR        Output folder
-  -runnow RUNNOW        Run this script immediately
-
 import os
 import argparse
 
