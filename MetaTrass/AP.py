@@ -9,7 +9,21 @@ from MetaTrass.ToolConfig import remove_folder
 AP_usage = '''
 ======================================  example commands ======================================
 
-# 
+# help
+optional arguments:
+  -h, --help            show this help message and exit
+  -maprate MAPRATE      mapping ratio (default=8)
+  -memory MEMORY        number of memory use(GB,default = 150)
+  -maxreads MAXREADS    maximumreads for supernova(default = 2140000000)
+  -pairdepth PAIRDEPTH  filter less X pair barcode reads(default = 2)
+  -PCT PCT              Threshold of contig lnegth(0-1)
+  -IDY IDY              Threshold of IDY (80 - 100)
+  -ref_fa REF_FA        Taxonomic reference genome fasta folder
+  -thread THREAD        Number of Threads
+  -max_depth MAX_DEPTH  Species Maxima-Depth Required Assembly
+  -min_depth MIN_DEPTH  Species Minima-Depth Required Assembly
+  -outdir OUTDIR        Output folder
+  -runnow RUNNOW        Run this script immediately
 
 
 =========================================================================================================

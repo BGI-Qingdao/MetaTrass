@@ -11,6 +11,13 @@ from MetaTrass.ToolConfig import remove_folder
 GC_usage = '''
 ====================================== Get_CleanData example commands ======================================
 # 
+optional arguments:
+  -h, --help      show this help message and exit
+  -rawfq1 RAWFQ1  Paired-end data: raw 1 fastq.gz
+  -rawfq2 RAWFQ2  Paired-end data: raw 2 fastq.gz
+  -thread THREAD  the number of threads
+  -outdir OUTDIR  Output folder
+  -runnow RUNNOW  Run this script immediately
 
 
 =========================================================================================================
