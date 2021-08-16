@@ -1,7 +1,12 @@
 import os
 import argparse
 
-def contig_purify(rawContig, purifySeq, quastAlnTsv, IDY, PCT):
+def contig_purify(args):
+	rawContig = args['rawContig']
+	purifySeq = args['purifySeq']
+	quastAlnTsv = args['quastAlnTsv']
+	IDY = args['IDY']
+	PCT = args['PCT']
 	query_list = {}
 	with open(quastAlnTsv, 'r') as file:
 		for i in file:
@@ -10,7 +15,7 @@ def contig_purify(rawContig, purifySeq, quastAlnTsv, IDY, PCT):
 				start, end = int(data[2]), int(data[3])
 				aligment_length = abs(end - start)
 				name, idy = data[5], data[6]
-				if name not in query_list.keys() and idy >= float(IDY):
+				if name not in query_list.keys() and float(idy) >= float(IDY):
 					query_list[name] = aligment_length
 				else:
 					query_list[name] += aligment_length
@@ -40,5 +45,5 @@ if __name__ == '__main__':
 
 	parser.add_argument('-PCT', 			required=False,  type=str,  default = '50',	  help='Threshold of contig lnegth(0-1)')
 	parser.add_argument('-IDY', 			required=False,  type=str, 	default = '90',   help='Threshold of IDY (80 - 100)')
-
-	contig_purify(rawContig, purifySeq, quastAlnTsv, IDY, PCT)
+	args = vars(parser.parse_args())
+	contig_purify(args)

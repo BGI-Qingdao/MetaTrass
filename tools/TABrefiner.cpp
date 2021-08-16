@@ -15,6 +15,7 @@ struct Config{
     std::string kraken_file;
     int max_depth;
     int min_depth;
+    int read_length;
     float ldensity;
 } config;
 
@@ -147,7 +148,7 @@ void ClacSpeciesDepth() {
     for(auto & one : species){
         long long sequences_size = 0 ;
         auto & one_item = one.second ;
-        sequences_size = one_item.reads.size() * 200 ;
+        sequences_size = one_item.reads.size() * (config.read_length *2) ;
         one_item.depth = float(sequences_size)/float(one_item.genome_size);
     }
 }
@@ -187,7 +188,7 @@ std::string  Print_300X(const Species & one
         std::cerr<<"failed to open "<<file_name<<" to write !! exit ..."<<std::endl;
         exit(1);
     }
-    long long read_num = (one.genome_size) * config.max_depth / 200 ;
+    long long read_num = (one.genome_size) * config.max_depth / (config.read_length *2) ;
     long long printed_num = 0 ;
     std::vector<std::string> caches;
     // first print 0_0_0
@@ -300,7 +301,7 @@ void Deal_left() {
 }
 
 void  printUsage(){
-    std::cerr<<"TABrefiner <-g genome info file> <-k kraken result> [-m max output reads depth] [-n min output reads depth] [-l marker_reads/barcode_reads threashold ]"<<std::endl;
+    std::cerr<<"TABrefiner <-g genome info file> <-k kraken result> [-r read_length default 100] [-m max output reads depth default 300 ]  [-n min output reads depth default 10 ] [-l marker_reads/barcode_reads threashold ]"<<std::endl;
     std::cerr<<std::endl;
 }
 
@@ -308,16 +309,18 @@ int main(int argc , char ** argv ) {
     config.max_depth = 300;
     config.min_depth = 10 ;
     config.ldensity = 0.1 ;
+    config.read_length=100;
     static struct option long_options[] = {
         {"genome_info",required_argument, NULL, 'g'},
         {"kraken_file",required_argument, NULL, 'k'},
         {"max_depth",required_argument,NULL, 'm'},
         {"min_depth",required_argument,NULL, 'n'},
-	{"mdensity", required_argument,NULL, 'l'},
+        {"mdensity", required_argument,NULL, 'l'},
+        {"read_length", required_argument,NULL, 'r'},
         {"help",  no_argument,       NULL, 'h'},
         {0, 0, 0, 0}
     };
-    static char optstring[] = "g:k:m:n:l:h";
+    static char optstring[] = "g:k:m:n:l:r:h";
     while(1){
         int c = getopt_long(argc, argv, optstring, long_options, NULL);
         if (c<0) break;
@@ -336,6 +339,9 @@ int main(int argc , char ** argv ) {
                 break;
             case 'n':
                 config.min_depth=atoi(optarg);               
+                break;
+            case 'r':
+                config.read_length=atoi(optarg);
                 break;
             case 'h':
                 printUsage();

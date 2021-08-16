@@ -36,9 +36,9 @@ def GetCleandata(args):
 		CMDFILE.write('%s -t %s %s lane.lst stat.txt\n' % (config_dict['SOAPfilter'], thread, parameter))
 
 	if runnow == 'yes':
-		report_logger('###step1.2 get cleandata starting', cmddir+'/run.log', runnow)
+		report_logger('###step1.2 split_barcode starting', cmddir+'/run.log', runnow)
 		os.system('sh %s\n' % shellfile)
-		report_logger('###step1.2 get_cleandata end', cmddir+'/run.log', runnow)
+		report_logger('###step1.2 split_barcode end', cmddir+'/run.log', runnow)
 	elif runnow == 'no':
 		print('this step1.2 split_barcode is skipped!\n')
 	else:
