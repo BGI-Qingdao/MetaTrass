@@ -6,27 +6,27 @@ from datetime import datetime
 pwd_config_file = os.path.realpath(__file__)
 
 config_file_path = '/'.join(pwd_config_file.split('/')[:-1])
-config_tool_path = '/'.join(pwd_config_file.split('/')[:-2]) + '/tools/'
+config_tool_path = '/'.join(pwd_config_file.split('/')[:-2]) + '/tools'
 config_main_path = '/'.join(pwd_config_file.split('/')[:-2])
 
 # specify full path to corresponding executables at the right side of colon
 config_dict = {
                'MetaTrass'            : '%s'                       % config_main_path,
 
-               'python'               : 'python3',
+               'python'               : '%s/python3'               % config_tool_path,
                'perl'                 : 'perl',
 
                # third-party tools 
                'split_barcode'        : '%s/split_barcode.pl'      % config_tool_path,
-               'SOAPfilter'           : '%s/SOAPfilter'            % config_tool_path,
+               'SOAPfilter'           : '%s/SOAPfilter_v2.2'       % config_tool_path,
                'kraken'               : '%s/kraken2'               % config_tool_path,
                'TABrefiner'           : '%s/TABrefiner'            % config_tool_path,
                'seqtk'                : '%s/seqtk'                 % config_tool_path,
                'supernova'            : '%s/supernova/'            % config_tool_path,
-               'quast'                : '%s/quast.py'              % config_tool_path,
+               'quast'                : '%s/quast/quast.py'        % config_tool_path,
 
                # modules
-               'sflfr2supernova'      : '%s/stlfr2supernova/clean_stlfr2supernova.py'       % config_tool_path,
+               'sflfr2supernova'      : '%s/stlfr2supernova/stlfr2supernova.py'       % config_tool_path,
                'contig_purify'        : '%s/contig_purify.py'      % config_tool_path,
 
                # script
@@ -40,6 +40,8 @@ config_dict = {
 
                }
 
+#print(config_dict)
+
 def report_logger(message_for_report, log_file, keep_quiet):
 
     time_format = '[%Y-%m-%d %H:%M:%S]'
@@ -51,10 +53,9 @@ def report_logger(message_for_report, log_file, keep_quiet):
 
 def create_folder(create_folder_dir):
   if os.path.exists(create_folder_dir):
-    print('1')
+    print('The folder %s has been ceated!' %(create_folder_dir))
   else:
     os.mkdir(create_folder_dir)
-
 
 def remove_folder(remove_folder_dir):
     target_list = glob.glob(target_re)

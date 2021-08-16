@@ -48,10 +48,15 @@ def Kraken2Taxon(args):
 		CMDFILE.write('cd %s \n' % ( output ) )
 		CMDFILE.write('%s --threads %s --gzip-compressed --paired --db %s --output %s --report %s %s %s\n' % ( kraken, thread, ref_db, taxresult, taxreport, cleanfq1, cleanfq2))
 
-	if runnow:
+	if runnow == 'yes':
 		report_logger('###step2.1 kraken classfying starting', cmddir+'/run.log', runnow)
 		os.system( 'sh %s\n' % shellfile )
 		report_logger('###step2.1 kraken classfying end', cmddir+'/run.log', runnow)
+	elif runnow == 'no':
+		print('this step2.1 kraken classfying is skipped!\n')
+	else:
+		print('the runnow parameter is wrong with %s\n' %(runnow))
+
 
 if __name__ == '__main__':
 
@@ -64,7 +69,7 @@ if __name__ == '__main__':
 	parser.add_argument('-sample',             required=True,  type=str,                               help='Output FileName Prefix')
 	parser.add_argument('-ref_db',             required=True,  type=str,                               help='Taxonomy references database' )
 	parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
-	parser.add_argument('-runnow',             required=True,  type=str,  default = 'False',           help='Run this script immediately') 
+	parser.add_argument('-runnow',             required=True,  type=str,  default='no',                help='Set \'yes\' with launch the step immediately')
   
 	args = vars(parser.parse_args())
 	Kraken2Taxon(args)
