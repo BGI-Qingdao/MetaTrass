@@ -119,9 +119,9 @@ How to run:
 			--output  
 	```
 
- 	* Single-species Assembly and Contigs refining  
+ 	* Single-species **Assembly** and Contigs **Purifying**  
 	```
-	MetaTrass SA 	--threads  
+	MetaTrass AP 	--threads  
 			--mem  
 			--ref_fa  
 			--min_depth  
