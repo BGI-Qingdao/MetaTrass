@@ -105,29 +105,70 @@ How to run:
 1. Usage:
  	* Getting CleanData 
 	```	
-	MetaTrass GC	--barcodeSplit  
-			--filtering 
+	> python Trass.py GC -h
+	usage: Trass.py GC [-h] -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 [-thread THREAD] -outdir OUTDIR [-runnow RUNNOW]
+
+	Get stLFR Cleandata
+
+	optional arguments:
+	  -h, --help      show this help message and exit
+	  -rawfq1 RAWFQ1  Paired-end data: raw 1 fastq.gz
+	  -rawfq2 RAWFQ2  Paired-end data: raw 2 fastq.gz
+	  -thread THREAD  the number of threads
+	  -outdir OUTDIR  Output folder
+	  -runnow RUNNOW  Run this script immediately
+
 	```
+	
 	* **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
 	```	
-	MetaTrass TB 	--threads  
-			--mem  
-			--ref_db   
-			--min_depth   
-			--max_depth    
-			--input   
-			--output  
+	> python Trass.py TB -h
+	usage: Trass.py TB [-h] -cleanfq1 CLEANFQ1 -cleanfq2 CLEANFQ2 [-thread THREAD] [-parallel PARALLEL] -sample SAMPLE -ref_db REF_DB -genome_size GENOME_SIZE [-max_depth 		MAX_DEPTH] [-min_depth MIN_DEPTH] [-pe_length PE_LENGTH] -outdir OUTDIR [-runnow RUNNOW]
+
+	Taxnomic and Barcoding
+
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  -cleanfq1 CLEANFQ1    Paired-end data: cleanfq1 fastq.gz
+	  -cleanfq2 CLEANFQ2    Paired-end data: cleanfq2 fastq.gz
+	  -thread THREAD        Kraken parameter
+	  -parallel PARALLEL    The number of parallel species
+	  -sample SAMPLE        Output FileName Prefix
+	  -ref_db REF_DB        Taxonomy references database
+	  -genome_size GENOME_SIZE
+				Reference genome size table file
+	  -max_depth MAX_DEPTH  Species Maximum-Depth Required Assembly
+	  -min_depth MIN_DEPTH  Species Minimum-Depth Required Assembly
+	  -pe_length PE_LENGTH  PE read length of sequencing data
+	  -outdir OUTDIR        Output folder
+	  -runnow RUNNOW        Run this script immediately
+  
 	```
 
  	* Single-species **Assembly** and Contigs **Purifying**  
 	```
-	MetaTrass AP 	--threads  
-			--mem  
-			--ref_fa  
-			--min_depth  
-			--max_depth  
-			--input  
-			--output  
+	> python Trass.py AP -h
+	usage: Trass.py AP [-h] [-maprate MAPRATE] [-memory MEMORY] [-maxreads MAXREADS] [-pairdepth PAIRDEPTH] [-PCT PCT] [-IDY IDY] -ref_fa REF_FA [-thread THREAD]
+	[-parallel PARALLEL] [-max_depth MAX_DEPTH] [-min_depth MIN_DEPTH] -outdir OUTDIR [-runnow RUNNOW]
+
+	Assembly and Purifying
+
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  -maprate MAPRATE      mapping ratio (default=8)
+	  -memory MEMORY        number of memory use(GB,default = 150)
+	  -maxreads MAXREADS    maximumreads for supernova(default = 2140000000)
+	  -pairdepth PAIRDEPTH  filter less X pair barcode reads(default = 2)
+	  -PCT PCT              Threshold of contig lnegth(0-1)
+	  -IDY IDY              Threshold of IDY (80 - 100)
+	  -ref_fa REF_FA        Taxonomic reference genome fasta folder
+	  -thread THREAD        The number of assembly thread of each species
+	  -parallel PARALLEL    The number of parallel assembly of single species
+	  -max_depth MAX_DEPTH  Species Maximum-depth required assembly
+	  -min_depth MIN_DEPTH  Species Minimum-depth required assembly
+	  -outdir OUTDIR        Output folder
+	  -runnow RUNNOW        Run this script immediately
+
 	```
 	
 2. Examples:
@@ -137,13 +178,31 @@ How to run:
 Output files:
 ---
 1. Examples of output folder structure
+.
+├── all_command_shell
+│   ├── run.log
+│   ├── stp2.1.kraken2taxon.sh
+│   ├── stp2.2.TXACBrefiner.sh
+│   ├── stp2.3.ReadID2Fastq.sh
+│   ├── stp3.1.MetaAssembly.sh
+│   └── stp3.2.ContigPurify.sh
+├── dir1_cleandata
+│   ├── barcode_freq.txt 
+│   ├── lane.lst 
+│   ├── split_reads.1.fq.gz.clean.gz 
+│   ├── split_reads.2.fq.gz.clean.gz 
+│   ├── split_read_stat.log 
+│   └── stat.txt 
+├── dir2_taxonomy
+│   ├── ID2FQ
+│   ├── kraken
+│   └── SSRlist
+└── dir3_assembly
+    ├── purify
+    ├── quast
+    └── supernova
 
-    * dir1_cleandata
-    * dir2_taxonomy
-    * dir3_assembly
-    * dir4_assessment
-    * dir5_binfilter
-
+10 directories, 12 files
 
 Contributing:
 ---
