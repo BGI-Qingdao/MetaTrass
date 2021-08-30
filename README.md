@@ -178,31 +178,39 @@ How to run:
 Output files:
 ---
 1. Examples of output folder structure
-.
-├── all_command_shell
-│   ├── run.log
-│   ├── stp2.1.kraken2taxon.sh
-│   ├── stp2.2.TXACBrefiner.sh
-│   ├── stp2.3.ReadID2Fastq.sh
-│   ├── stp3.1.MetaAssembly.sh
-│   └── stp3.2.ContigPurify.sh
-├── dir1_cleandata
-│   ├── barcode_freq.txt 
-│   ├── lane.lst 
-│   ├── split_reads.1.fq.gz.clean.gz 
-│   ├── split_reads.2.fq.gz.clean.gz 
-│   ├── split_read_stat.log 
-│   └── stat.txt 
-├── dir2_taxonomy
-│   ├── ID2FQ
-│   ├── kraken
-│   └── SSRlist
-└── dir3_assembly
-    ├── purify
-    ├── quast
-    └── supernova
+	.
+	├── [4.0K]  all_command_shell 
+	│   ├── [ 911]  run.log 
+	│   ├── [ 419]  stp1.1.splitbarcode.sh 
+	│   ├── [ 435]  stp1.2.getcleandata.sh 
+	│   ├── [ 631]  stp2.1.kraken2taxon.sh 
+	│   ├── [ 355]  stp2.2.TXACBrefiner.sh 
+	│   ├── [155K]  stp2.3.ReadID2Fastq.sh 
+	│   ├── [155K]  stp3.1.MetaAssembly.sh 
+	│   └── [101K]  stp3.2.ContigPurify.sh 
+	├── [4.0K]  dir1_cleandata 
+	│   ├── [ 106]  barcode_freq.txt 
+	│   ├── [  98]  lane.lst 
+	│   ├── [ 118]  split_reads.1.fq.gz.clean.gz 
+	│   ├── [ 118]  split_reads.2.fq.gz.clean.gz  
+	│   ├── [ 109]  split_read_stat.log  
+	│   └── [  98]  stat.txt  
+	├── [4.0K]  dir2_taxonomy
+	│   ├── [ 20K]  ID2FQ
+	│   ├── [4.0K]  kraken
+	│   └── [ 20K]  SSRlist
+	└── [4.0K]  dir3_assembly
+	    ├── [4.0K]  purify
+	    ├── [4.0K]  quast
+	    └── [4.0K]  supernova
 
-10 directories, 12 files
+	10 directories, 14 files
+2.Time consumption logging
+    * Step-by-step record
+    ![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
+
+    * Total CPU time record
+    ###
 
 Contributing:
 ---
