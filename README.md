@@ -52,6 +52,7 @@ Preparing before complementation:
      * For **Human Gut**:  
        We recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).  
        **uhgg_kraken2-db/**  
+	```
 				├── [472K]  database100mers.kmer_distrib  
 				├── [441K]  database150mers.kmer_distrib  
 				├── [421K]  database200mers.kmer_distrib  
@@ -67,6 +68,7 @@ Preparing before complementation:
 				    ├── [310K]  names.dmp  
 				    ├── [127K]  nodes.dmp  
 				    └── [ 31M]  prelim_map.txt  
+	```
 
      * For [**Zymo Community Standards 10 Mock**](https://github.com/LomanLab/mockcommunity):  
        You can download the reference database from [Mock Community](https://lomanlab.github.io/mockcommunity/mc_databases.html)
@@ -178,6 +180,7 @@ How to run:
 Output files:
 ---
 1. Examples of output folder structure
+```
 	.
 	├── [4.0K]  all_command_shell 
 	│   ├── [ 911]  run.log 
@@ -205,12 +208,13 @@ Output files:
 	    └── [4.0K]  supernova
 
 	10 directories, 14 files
-2.Time consumption logging
-    * Step-by-step record
-    ![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
+```
 
-    * Total CPU time record
-    ###
+2.Time consumption logging
+    * Step-by-step record  
+    ![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
+    
+
 
 Contributing:
 ---
