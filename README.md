@@ -179,7 +179,7 @@ How to run:
 
 Output files:
 ---
-1. Examples of output folder structure
+1. Examples of output folder structure:
 ```
 	.
 	├── [4.0K]  all_command_shell 
@@ -208,10 +208,9 @@ Output files:
 	    └── [4.0K]  supernova
 
 	10 directories, 14 files
-```
+```   
 
-2.Time consumption logging
-    * Step-by-step record  
+2.Time consumption record:   
     ![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
     
 
