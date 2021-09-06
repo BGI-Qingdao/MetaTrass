@@ -52,6 +52,7 @@ Preparing before complementation:
      * For **Human Gut**:  
        We recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).  
        **uhgg_kraken2-db/**  
+	```
 				├── [472K]  database100mers.kmer_distrib  
 				├── [441K]  database150mers.kmer_distrib  
 				├── [421K]  database200mers.kmer_distrib  
@@ -67,6 +68,7 @@ Preparing before complementation:
 				    ├── [310K]  names.dmp  
 				    ├── [127K]  nodes.dmp  
 				    └── [ 31M]  prelim_map.txt  
+	```
 
      * For [**Zymo Community Standards 10 Mock**](https://github.com/LomanLab/mockcommunity):  
        You can download the reference database from [Mock Community](https://lomanlab.github.io/mockcommunity/mc_databases.html)
@@ -105,29 +107,70 @@ How to run:
 1. Usage:
  	* Getting CleanData 
 	```	
-	MetaTrass GC	--barcodeSplit  
-			--filtering 
+	> python Trass.py GC -h
+	usage: Trass.py GC [-h] -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 [-thread THREAD] -outdir OUTDIR [-runnow RUNNOW]
+
+	Get stLFR Cleandata
+
+	optional arguments:
+	  -h, --help      show this help message and exit
+	  -rawfq1 RAWFQ1  Paired-end data: raw 1 fastq.gz
+	  -rawfq2 RAWFQ2  Paired-end data: raw 2 fastq.gz
+	  -thread THREAD  the number of threads
+	  -outdir OUTDIR  Output folder
+	  -runnow RUNNOW  Run this script immediately
+
 	```
+	
 	* **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
 	```	
-	MetaTrass TB 	--threads  
-			--mem  
-			--ref_db   
-			--min_depth   
-			--max_depth    
-			--input   
-			--output  
+	> python Trass.py TB -h
+	usage: Trass.py TB [-h] -cleanfq1 CLEANFQ1 -cleanfq2 CLEANFQ2 [-thread THREAD] [-parallel PARALLEL] -sample SAMPLE -ref_db REF_DB -genome_size GENOME_SIZE [-max_depth 		MAX_DEPTH] [-min_depth MIN_DEPTH] [-pe_length PE_LENGTH] -outdir OUTDIR [-runnow RUNNOW]
+
+	Taxnomic and Barcoding
+
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  -cleanfq1 CLEANFQ1    Paired-end data: cleanfq1 fastq.gz
+	  -cleanfq2 CLEANFQ2    Paired-end data: cleanfq2 fastq.gz
+	  -thread THREAD        Kraken parameter
+	  -parallel PARALLEL    The number of parallel species
+	  -sample SAMPLE        Output FileName Prefix
+	  -ref_db REF_DB        Taxonomy references database
+	  -genome_size GENOME_SIZE
+				Reference genome size table file
+	  -max_depth MAX_DEPTH  Species Maximum-Depth Required Assembly
+	  -min_depth MIN_DEPTH  Species Minimum-Depth Required Assembly
+	  -pe_length PE_LENGTH  PE read length of sequencing data
+	  -outdir OUTDIR        Output folder
+	  -runnow RUNNOW        Run this script immediately
+  
 	```
 
- 	* Single-species Assembly and Contigs refining  
+ 	* Single-species **Assembly** and Contigs **Purifying**  
 	```
-	MetaTrass SA 	--threads  
-			--mem  
-			--ref_fa  
-			--min_depth  
-			--max_depth  
-			--input  
-			--output  
+	> python Trass.py AP -h
+	usage: Trass.py AP [-h] [-maprate MAPRATE] [-memory MEMORY] [-maxreads MAXREADS] [-pairdepth PAIRDEPTH] [-PCT PCT] [-IDY IDY] -ref_fa REF_FA [-thread THREAD]
+	[-parallel PARALLEL] [-max_depth MAX_DEPTH] [-min_depth MIN_DEPTH] -outdir OUTDIR [-runnow RUNNOW]
+
+	Assembly and Purifying
+
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  -maprate MAPRATE      mapping ratio (default=8)
+	  -memory MEMORY        number of memory use(GB,default = 150)
+	  -maxreads MAXREADS    maximumreads for supernova(default = 2140000000)
+	  -pairdepth PAIRDEPTH  filter less X pair barcode reads(default = 2)
+	  -PCT PCT              Threshold of contig lnegth(0-1)
+	  -IDY IDY              Threshold of IDY (80 - 100)
+	  -ref_fa REF_FA        Taxonomic reference genome fasta folder
+	  -thread THREAD        The number of assembly thread of each species
+	  -parallel PARALLEL    The number of parallel assembly of single species
+	  -max_depth MAX_DEPTH  Species Maximum-depth required assembly
+	  -min_depth MIN_DEPTH  Species Minimum-depth required assembly
+	  -outdir OUTDIR        Output folder
+	  -runnow RUNNOW        Run this script immediately
+
 	```
 	
 2. Examples:
@@ -136,13 +179,40 @@ How to run:
 
 Output files:
 ---
-1. Examples of output folder structure
+1. Examples of output folder structure:
+```
+	.
+	├── [4.0K]  all_command_shell 
+	│   ├── [ 911]  run.log 
+	│   ├── [ 419]  stp1.1.splitbarcode.sh 
+	│   ├── [ 435]  stp1.2.getcleandata.sh 
+	│   ├── [ 631]  stp2.1.kraken2taxon.sh 
+	│   ├── [ 355]  stp2.2.TXACBrefiner.sh 
+	│   ├── [155K]  stp2.3.ReadID2Fastq.sh 
+	│   ├── [155K]  stp3.1.MetaAssembly.sh 
+	│   └── [101K]  stp3.2.ContigPurify.sh 
+	├── [4.0K]  dir1_cleandata 
+	│   ├── [ 106]  barcode_freq.txt 
+	│   ├── [  98]  lane.lst 
+	│   ├── [ 118]  split_reads.1.fq.gz.clean.gz 
+	│   ├── [ 118]  split_reads.2.fq.gz.clean.gz  
+	│   ├── [ 109]  split_read_stat.log  
+	│   └── [  98]  stat.txt  
+	├── [4.0K]  dir2_taxonomy
+	│   ├── [ 20K]  ID2FQ
+	│   ├── [4.0K]  kraken
+	│   └── [ 20K]  SSRlist
+	└── [4.0K]  dir3_assembly
+	    ├── [4.0K]  purify
+	    ├── [4.0K]  quast
+	    └── [4.0K]  supernova
 
-    * dir1_cleandata
-    * dir2_taxonomy
-    * dir3_assembly
-    * dir4_assessment
-    * dir5_binfilter
+	10 directories, 14 files
+```   
+
+2.Time consumption record:   
+    ![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
+    
 
 
 Contributing:
@@ -151,4 +221,4 @@ Contributing:
 
 License:
 ---
-* GNU General Public License v3.0 [![pypi licence](https://img.shields.io/pypi/l/MetaCHIP.svg)](https://opensource.org/licenses/gpl-3.0.html)
+* GNU General Public License v3.0 [![pypi licence       ](https://img.shields.io/pypi/l/MetaCHIP.svg)](https://opensource.org/licenses/gpl-3.0.html)
