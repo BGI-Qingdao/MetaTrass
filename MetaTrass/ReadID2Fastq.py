@@ -37,9 +37,9 @@ def lunchFunc(command):
 def ReadID2Fastq(args):
 	cleanfq1 = args['cleanfq1']
 	cleanfq2 = args['cleanfq2']
-	max_depth = int(args['max_depth'])
-	min_depth = int(args['min_depth'])
-	parallel = int(args['parallel'])
+	max_depth = args['max_depth']
+	min_depth = args['min_depth']
+	parallel = args['parallel']
 	outdir = args['outdir']
 	runnow = args['runnow']
 
@@ -55,16 +55,18 @@ def ReadID2Fastq(args):
 		if os.path.exists(taxReadDepth):
 			for tax in open(taxReadDepth, 'r').readlines():
 				taxid, readnum, bareadnum, depth = tax.split()
-				if float(depth) >= max_depth:
-					readIdFile = args['max_depth'] + 'X.id_' + taxid + '.allbarcode.txt'
+				if float(depth) >= float(max_depth):
+					readIdFile = max_depth + 'X.id_' + taxid + '.allbarcode.txt'
+#					readIdFile = args['max_depth'] + 'X.id_' + taxid + '.allbarcode.txt'
 					if os.path.exists(indir + readIdFile):
 						task = convertReadName2FQGZ(outdir, readIdFile, cleanfq1, cleanfq2)
 						TaskCMD.append(task)
 						CMDFILE.write('%s\n' % ( task ) )
 					else:
 						pass
-				elif float(depth) >= min_depth:
+				elif float(depth) >= float(min_depth):
 					readIdFile = args['min_depth'] + 'X.id_' + taxid + '.allbarcode.txt'
+#					readIdFile = min_depth + 'X.id_' + taxid + '.allbarcode.txt'
 					if os.path.exists(indir + readIdFile):
 						task = convertReadName2FQGZ(outdir, readIdFile, cleanfq1, cleanfq2)
 						TaskCMD.append(task)

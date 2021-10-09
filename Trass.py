@@ -61,17 +61,17 @@ def print_main_help():
        ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
 
     # for command specific help info
-       MetaTrass GC -h
-       MetaTrass TB -h
-       MetaTrass AP -h
+       python3 Trass.py GC -h
+       python3 Trass.py TB -h
+       python3 Trass.py AP -h
 
-       MetaTrass SplitBarcode -h
-       MetaTrass GetCleandata -h 
-       MetaTrass Kraken2Taxon -h 
-       MetaTrass TXACBrefiner -h 
-       MetaTrass ReadID2Fastq -h 
-       MetaTrass MetaAssembly -h 
-       MetaTrass ContigPurify -h
+       python3 Trass.py SplitBarcode -h
+       python3 Trass.py GetCleandata -h 
+       python3 Trass.py Kraken2Taxon -h 
+       python3 Trass.py TXACBrefiner -h 
+       python3 Trass.py ReadID2Fastq -h 
+       python3 Trass.py MetaAssembly -h 
+       python3 Trass.py ContigPurify -h
     ''' % version()
 
     print(help_message)
@@ -106,31 +106,35 @@ if __name__ == '__main__':
     GC_parser.add_argument('-rawfq2',                       required=True,  type=str,                               help='Paired-end data: raw 2 fastq.gz')
     GC_parser.add_argument('-thread',                       required=False, type=str,  default='10',                help='the number of threads')
     GC_parser.add_argument('-outdir',                       required=True,  type=str,                               help='Output folder')
-    GC_parser.add_argument('-runnow',                       required=False, type=str,                               help='Run this script immediately') 
+    GC_parser.add_argument('-runnow',                       required=False, type=str,  default='no',                help='Run this script immediately') 
 
     # add arguments for TB_parser
     TB_parser.add_argument('-cleanfq1',                     required=True,  type=str,                               help='Paired-end data: cleanfq1 fastq.gz')
     TB_parser.add_argument('-cleanfq2',                     required=True,  type=str,                               help='Paired-end data: cleanfq2 fastq.gz')
     TB_parser.add_argument('-thread',                       required=False, type=str,  default='10',                help='Kraken parameter')
+    TB_parser.add_argument('-parallel',                     required=False, type=str,  default='20',                help='The number of parallel species')
     TB_parser.add_argument('-sample',                       required=True,  type=str,                               help='Output FileName Prefix')
     TB_parser.add_argument('-ref_db',                       required=True,  type=str,                               help='Taxonomy references database' )
-    TB_parser.add_argument('-genome_size',                  required=True,  type=str,                               help='Paired-end data: raw 2 fastq.gz')
-    TB_parser.add_argument('-max_depth',                    required=False, type=str,  default='300',               help='Species Maxima-Depth Required Assembly')
-    TB_parser.add_argument('-min_depth',                    required=False, type=str,  default='10',                help='Species Minima-Depth Required Assembly')
+    TB_parser.add_argument('-genome_size',                  required=True,  type=str,                               help='Reference genome size table file')
+    TB_parser.add_argument('-max_depth',                    required=False, type=str,  default='300',               help='Species Maximum-Depth Required Assembly')
+    TB_parser.add_argument('-min_depth',                    required=False, type=str,  default='10',                help='Species Minimum-Depth Required Assembly')
+    TB_parser.add_argument('-pe_length',                    required=False, type=str,  default='100',               help='PE read length of sequencing data' )
+    TB_parser.add_argument('-tp_density',                   required=False, type=str,  default='0.1',               help='Ture positive read ratio of each barcode')
     TB_parser.add_argument('-outdir',                       required=True,  type=str,                               help='Output folder')
-    TB_parser.add_argument('-runnow',                       required=False, type=str,  default='False',             help='Run this script immediately') 
+    TB_parser.add_argument('-runnow',                       required=False, type=str,  default='no',                help='Run this script immediately') 
  
     # add arguments for AP_parser
-    AP_parser.add_argument('-maprate',                      required=False, type=str,  default='8',                help='mapping ratio (default=8)')
-    AP_parser.add_argument('-memory',                       required=False, type=str,  default='150',              help='number of memory use(GB,default = 150)',)
-    AP_parser.add_argument('-maxreads',                     required=False, type=str,  default='2140000000',       help='maximumreads for supernova(default = 2140000000)')
-    AP_parser.add_argument('-pairdepth',                    required=False, type=str,  default='2',                help='filter less X pair barcode reads(default = 2)')
-    AP_parser.add_argument('-PCT',                          required=False, type=str,  default='50',               help='Threshold of contig lnegth(0-1)')
-    AP_parser.add_argument('-IDY',                          required=False, type=str,  default='90',               help='Threshold of IDY (80 - 100)')
+    AP_parser.add_argument('-maprate',                      required=False, type=str,  default='8',                 help='mapping ratio (default=8)')
+    AP_parser.add_argument('-memory',                       required=False, type=str,  default='150',               help='number of memory use(GB,default = 150)',)
+    AP_parser.add_argument('-maxreads',                     required=False, type=str,  default='2140000000',        help='maximumreads for supernova(default = 2140000000)')
+    AP_parser.add_argument('-pairdepth',                    required=False, type=str,  default='2',                 help='filter less X pair barcode reads(default = 2)')
+    AP_parser.add_argument('-PCT',                          required=False, type=str,  default='50',                help='Threshold of contig lnegth(0-1)')
+    AP_parser.add_argument('-IDY',                          required=False, type=str,  default='90',                help='Threshold of IDY (80 - 100)')
     AP_parser.add_argument('-ref_fa',                       required=True,  type=str,                               help='Taxonomic reference genome fasta folder')
-    AP_parser.add_argument('-parallel',                     required=False, type=str,  default='10',               help='Number of Threads')
-    AP_parser.add_argument('-max_depth',                    required=False, type=str,  default='300',               help='Species Maxima-Depth Required Assembly')
-    AP_parser.add_argument('-min_depth',                    required=False, type=str,  default='10',                help='Species Minima-Depth Required Assembly')
+    AP_parser.add_argument('-thread',                       required=False, type=str,  default='5',                 help='The number of assembly thread of each species ')
+    AP_parser.add_argument('-parallel',                     required=False, type=str,  default='6',                 help='The number of parallel assembly of single species')
+    AP_parser.add_argument('-max_depth',                    required=False, type=str,  default='300',               help='Species Maximum-depth required assembly')
+    AP_parser.add_argument('-min_depth',                    required=False, type=str,  default='10',                help='Species Minimum-depth required assembly')
     AP_parser.add_argument('-outdir',                       required=True,  type=str,                               help='Output folder')
     AP_parser.add_argument('-runnow',                       required=False, type=str,                               help='Run this script immediately')
 
@@ -138,7 +142,7 @@ if __name__ == '__main__':
     SplitBarcode_parser.add_argument('-rawfq1',             required=True,  type=str,                               help='Paired-end data: raw 1 fastq.gz ')
     SplitBarcode_parser.add_argument('-rawfq2',             required=True,  type=str,                               help='Paired-end data: raw 2 fastq.gz')
     SplitBarcode_parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
-    SplitBarcode_parser.add_argument('-runnow',             required=True,  type=str,  default='no',               help='Run this script immediately')
+    SplitBarcode_parser.add_argument('-runnow',             required=True,  type=str,  default='no',                help='Run this script immediately')
 
     # add argument for GetCleandata_parser
     GetCleandata_parser.add_argument('-thread',             required=True,  type=str,                               help='Running Thread Number')
@@ -161,7 +165,8 @@ if __name__ == '__main__':
     TXACBrefiner_parser.add_argument('-genome_size',        required=True,  type=str,                               help='Paired-end data: raw 2 fastq.gz')
     TXACBrefiner_parser.add_argument('-max_depth',          required=False, type=str,  default='300',               help='Species Maximum-Depth Required Assembly')
     TXACBrefiner_parser.add_argument('-min_depth',          required=False, type=str,  default='10',                help='Species Minimum-Depth Required Assembly')
-    TXACBrefiner_parser.add_argument('-pe_length',          required=False, type=str,  default = '100',             help='PE read length of sequencing data')
+    TXACBrefiner_parser.add_argument('-pe_length',          required=False, type=str,  default='100',               help='PE read length of sequencing data')
+    TXACBrefiner_parser.add_argument('-tp_density',         required=False, type=str,  default='0.1',               help='Ture positive read ratio of each barcode')
     TXACBrefiner_parser.add_argument('-outdir',             required=True,  type=str,                               help='Output folder')
     TXACBrefiner_parser.add_argument('-runnow',             required=False, type=str,  default='no',                help='Run this script immediately') 
 
@@ -176,7 +181,8 @@ if __name__ == '__main__':
 
     # add argument for MetaAssembly_parser
     MetaAssembly_parser.add_argument('-maprate',            required=False, type=str,  default='8',                 help='mapping ratio (default=8)')
-    MetaAssembly_parser.add_argument('-parallel',           required=False, type=str,  default='6',                 help='number of parallel species(default = 6)')
+    MetaAssembly_parser.add_argument('-thread',             required=False, type=str,  default='5',                 help='The number of assembly thread of each species ')
+    MetaAssembly_parser.add_argument('-parallel',           required=False, type=str,  default='6',                 help='The number of parallel assembly of single species')
     MetaAssembly_parser.add_argument('-memory',             required=False, type=str,  default='150',               help='number of memory use(GB,default = 150)',)
     MetaAssembly_parser.add_argument('-maxreads',           required=False, type=str,  default='2140000000',        help='maximumreads for supernova(default = 2140000000)')
     MetaAssembly_parser.add_argument('-pairdepth',          required=False, type=str,  default='2',                 help='filter less X pair barcode reads(default = 2)')

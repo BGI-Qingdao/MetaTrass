@@ -15,9 +15,9 @@ MetaAssembly_usage = '''
 '''
 
 def supernova_assembly(tssfq1, tssfq2, memory, maprate, thread, maxreads, pairdepth, outdir, sample):
-	create_folder(outdir + 'dir3_assembly/')
-	create_folder(outdir + 'dir3_assembly/supernova/')
-	output = outdir + 'dir3_assembly/supernova/' + sample
+	create_folder(outdir + '/dir3_assembly/')
+	create_folder(outdir + '/dir3_assembly/supernova/')
+	output = outdir + '/dir3_assembly/supernova/' + sample
 	create_folder(output)
 
 	command1 = ' '.join([ 'mkdir -p ', output, ' && cd ', output ])
@@ -36,6 +36,7 @@ def lunchFunc(command):
 
 def MetaAssembly(args):
 	memory = args['memory']
+	thread = args['thread']
 	parallel = args['parallel']
 	maprate = args['maprate']
 	maxreads = args['maxreads']
@@ -58,20 +59,22 @@ def MetaAssembly(args):
 				taxid, readnum, bareadnum, depth = tax.split()
 				if float(depth) >= float(max_depth):
 					readIdFile = max_depth + 'X.id_' + taxid + '.allbarcode.txt'
+#					readIdFile = '300X.id_' + taxid + '.allbarcode.txt'
 					tssfq1 = outdir + '/dir2_taxonomy/ID2FQ/' + readIdFile + '_list_1.fq.gz'
 					tssfq2 = outdir + '/dir2_taxonomy/ID2FQ/' + readIdFile + '_list_2.fq.gz'
 					if os.path.exists(tssfq1):
-						task = supernova_assembly(tssfq1, tssfq2, memory, maprate, '10', maxreads, pairdepth, outdir, taxid)
+						task = supernova_assembly(tssfq1, tssfq2, memory, maprate, thread, maxreads, pairdepth, outdir, taxid)
 						TaskCMD.append(task)
 						CMDFILE.write('%s\n' % ( task ) )
 					else:
 						pass
 				elif float(depth) >= float(min_depth):
 					readIdFile = min_depth +'X.id_' + taxid + '.allbarcode.txt'
+#					readIdFile = '10X.id_' + taxid + '.allbarcode.txt'
 					tssfq1 = outdir + '/dir2_taxonomy/ID2FQ/' + readIdFile + '_list_1.fq.gz'
 					tssfq2 = outdir + '/dir2_taxonomy/ID2FQ/' + readIdFile + '_list_2.fq.gz'
 					if os.path.exists(tssfq1):
-						task = supernova_assembly(tssfq1, tssfq2, memory, maprate, '10', maxreads, pairdepth, outdir, taxid)
+						task = supernova_assembly(tssfq1, tssfq2, memory, maprate, thread, maxreads, pairdepth, outdir, taxid)
 						TaskCMD.append(task)
 						CMDFILE.write('%s\n' % ( task ) )
 					else:
@@ -96,8 +99,8 @@ if __name__ == '__main__':
 
 	# arguments for MetaAssembly
 	parser = argparse.ArgumentParser()
-
-	parser.add_argument('-parallel',    required=False, type=str,  default='10',          		help='number of threads use(default = 10)')
+	parser.add_argument('-thread',      required=False, type=str,  default='5',                 help='The number of assembly thread of each species ')
+	parser.add_argument('-parallel',    required=False, type=str,  default='6',                 help='The number of parallel assembly of single species')
 	parser.add_argument('-memory',      required=False, type=str,  default='150',        		help='number of memory use(GB,default = 150)')
 	parser.add_argument('-maprate',     required=False, type=str,  default='8',          		help='mapping ratio (default=8)')
 	parser.add_argument('-maxreads',    required=False, type=str,  default='2140000000', 		help='maximumreads for supernova(default = 2140000000)')
