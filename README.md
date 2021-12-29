@@ -39,8 +39,9 @@ How to install:
         # for upgrade
         git add *
 	
-	# recompile TABrefiner with c++11
-	cd /path/to/MetaTrass/tools/ && g++ -std=c++11 TABrefiner.cpp -o TABrefiner 
+        # recompile TABrefiner with c++11 
+        cd /path/to/MetaTrass/tools/ && g++ -std=c++11 TABrefiner.cpp -o TABrefiner 
+
 
 2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
 
