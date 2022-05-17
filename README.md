@@ -45,13 +45,9 @@ How to install:
 
 2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
 
-Preparing before complementation:
+Configuring the references and table before complementation:
 ---
-1. **The input files** for MetaTrass include a folder that holds the sequence file of all query genomes.
-     * stLFR data all are welcome!  
-     * If you have the demand of others co-barcode data analyses, please contact us.
-
-2. **The reference database** for kraken2 include a folder that holds the database. 
+1. **The reference database** for kraken2 include a folder that holds the database. 
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
      * For **Human Gut**:  
        We recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).  
@@ -81,13 +77,13 @@ Preparing before complementation:
        Please check the NCBI official species taxonomic ID to add into the NCBI taxonomy.  
        To build a realiable construction of the species tree, please remind that the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
 
-3. **The reference genome** for refining the contigs should be kept with the reference database.
+2. **The reference genome** for refining the contigs should be kept with the reference database.
      * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file  
-      You can use the script (MetaTrass/script/fa_split_by_taxid.py) to covert the library.fna to single species fasta file. 
+      You can use the script (MetaTrass/script/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
       
      * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa.
 
-4. **The reference genome size** information. :warning:
+3. **The reference genome size** information table :warning:
       * Get each of single species genome size as the configure file with two column:  
         table example:  
 	
@@ -199,7 +195,93 @@ How to run:
 		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes
 	```
 
+Input Sequencing files:
+---
+1. **stLFR sequencing data**
+     * 1. Rawdata 
+       If you use rawdata, please split the barcode first. And then, get the cleandata.
+       We offer the basic GC
+       ```
+       $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
+       ```
+	
+     * 2. Cleandata 
+        ** Please 
+2. **10X Chromium data**	
+     * 1. Cleandata Please Covert the 10X data to stLFR format.
+        Using [ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d) as an examples.
+       	**Covert 10X data**
+		- Read1 of 10X reads: SRR6760785_1.fastq.gz
+		*The barcode sequence is located on the query name within read1*
+		```
+			@SRR6760785.142 K00374:82:hkjyvbbxx:5:1113:28209:40702 length=112
+			GCCACCTCGGCGATCTCGGGATCGACATGCGCGGTCTCGATGGTGAAGTCGGGCCCTTCCGGCAGCAGGTAGCCGATCTCGCGCAGGAAGGCGGTGTACTCTCTAAGGCTCG
+			+SRR6760785.142 K00374:82:hkjyvbbxx:5:1113:28209:40702 length=112
+			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+			@SRR6760785.143 K00374:82:hkjyvbbxx:5:2220:18690:47172_AAACACCAGACAATAC length=111
+			CAAGCAAACAGAAGAATGAACAAAATGTGCCTGCTTGTCGGACAAAGGTCTCAATATGCTATTCCCTTTATCTTAAATCTATTTTATCACGGCTCCCTATGTGGCATCCAA
+			+SRR6760785.143 K00374:82:hkjyvbbxx:5:2220:18690:47172_AAACACCAGACAATAC length=111
+			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJFAJ
+			@SRR6760785.144 K00374:82:hkjyvbbxx:5:1212:15016:44078_AAACACCAGCGATATA length=111
+			TCCTCAACGAAGTGCGGGATCTGAAAGCCAAGAATTTCCGCGAGGTAACGCTGCTGGGGCAGAATGTAAACTCCTACCGATACGAACAAAACGGGCGGATCATCCGCTTCC
+			+SRR6760785.144 K00374:82:hkjyvbbxx:5:1212:15016:44078_AAACACCAGCGATATA length=111
+			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJ
+		```
+		- Read2 of 10X reads: SRR6760785_2.fastq.gz
+		*There is no barcode information within read2*
+		```
+			@SRR6760785.142 K00374:82:hkjyvbbxx:5:1113:28209:40702 length=132
+			CAGGGGTTGCAGGTGGATGTACGTCTGGCCGAGTTCGTGGCTCGCGAGGCGCTGCCGGGCACCGGTGTCAGCGAGGAAGCCTTCTGGGGAGGCCTCGCCGACACGGTGCGTACTCTCGGGCCGCGGAACCGC
+			+SRR6760785.142 K00374:82:hkjyvbbxx:5:1113:28209:40702 length=132
+			FFFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJF<FJJFJJJAJJJJFJJJJJJJJJJJFJFFJJJJJFAJJJJJJJJJJJAAFAFJFJJJJJJJFJJJJJAJFJJJJJJJJJJJ<AJJJJJJFJFFJJJJJJ
+			@SRR6760785.143 K00374:82:hkjyvbbxx:5:2220:18690:47172_AAACACCAGACAATAC length=133
+			CTGCACACGCTTTTCTATTTCCTGAAAGTTATATTCCATAATCCCTGATTTGTTCGATATATTAACTACTGTTTCTTGCCACAATATTGAAAAAAGCAGTCAGCAAACACACTAACTGCTTTATTTTCAGTTT
+			+SRR6760785.143 K00374:82:hkjyvbbxx:5:2220:18690:47172_AAACACCAGACAATAC length=133
+			FFFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJAJJJJJJJFFJJJJJJJJJJJJJJJJJFJJJJAFJJJJJJJFJFFFFJJFJJJJAA7F<AAFFFJJJFJJFJJJJ<FJJA---<FJ
+			@SRR6760785.144 K00374:82:hkjyvbbxx:5:1212:15016:44078_AAACACCAGCGATATA length=100
+			TGTCCCTCTTGTTGCTCTCCTCGCTCAGGCGATTCTGGAGGGCTATCATCCGATCCAGACGGGCGAGCTTTACCTCTTCGAGTACATCGTCCACAAGGTG
+			+SRR6760785.144 K00374:82:hkjyvbbxx:5:1212:15016:44078_AAACACCAGCGATATA length=100
+			FFFJJJJJ-FJJJJJJJFJJ7JJFFJJJJJJJJJJJJJ<JJJJJJJJ7JJJJJJJJJJFAJJFJF<JJJ7JFJJJJ<FFJJAAJJAFFJJJJJJ<AFJAJ
+		```
+	**To stLFR data**
+		- Read1 of stLFR reads: SRR6760785_1.stlfr.fastq.gz
+		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode.*
+		```
+			@SRR6760785.142#0_0_0/1
+			GCCACCTCGGCGATCTCGGGATCGACATGCGCGGTCTCGATGGTGAAGTCGGGCCCTTCCGGCAGCAGGTAGCCGATCTCGCGCAGGAAGGCGGTGTACTCTCTAAGGCTCG
+			+
+			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+			@SRR6760785.143#AAACACCAGACAATAC/1
+			CAAGCAAACAGAAGAATGAACAAAATGTGCCTGCTTGTCGGACAAAGGTCTCAATATGCTATTCCCTTTATCTTAAATCTATTTTATCACGGCTCCCTATGTGGCATCCAA
+			+
+			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJFAJ
+			@SRR6760785.144#AAACACCAGCGATATA/1
+			TCCTCAACGAAGTGCGGGATCTGAAAGCCAAGAATTTCCGCGAGGTAACGCTGCTGGGGCAGAATGTAAACTCCTACCGATACGAACAAAACGGGCGGATCATCCGCTTCC
+			+
+			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJ
+		```
 
+		- Read2 of stLFR reads: SRR6760785_2.stlfr.fastq.gz
+		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode.*
+		```
+			@SRR6760785.142#0_0_0/2
+			CAGGGGTTGCAGGTGGATGTACGTCTGGCCGAGTTCGTGGCTCGCGAGGCGCTGCCGGGCACCGGTGTCAGCGAGGAAGCCTTCTGGGGAGGCCTCGCCGACACGGTGCGTACTCTCGGGCCGCGGAACCGC
+			+
+			FFFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJF<FJJFJJJAJJJJFJJJJJJJJJJJFJFFJJJJJFAJJJJJJJJJJJAAFAFJFJJJJJJJFJJJJJAJFJJJJJJJJJJJ<AJJJJJJFJFFJJJJJJ
+			@SRR6760785.143#AAACACCAGACAATAC/2
+			CTGCACACGCTTTTCTATTTCCTGAAAGTTATATTCCATAATCCCTGATTTGTTCGATATATTAACTACTGTTTCTTGCCACAATATTGAAAAAAGCAGTCAGCAAACACACTAACTGCTTTATTTTCAGTTT
+			+
+			FFFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJAJJJJJJJFFJJJJJJJJJJJJJJJJJFJJJJAFJJJJJJJFJFFFFJJFJJJJAA7F<AAFFFJJJFJJFJJJJ<FJJA---<FJ
+			@SRR6760785.144#AAACACCAGCGATATA/2
+			TGTCCCTCTTGTTGCTCTCCTCGCTCAGGCGATTCTGGAGGGCTATCATCCGATCCAGACGGGCGAGCTTTACCTCTTCGAGTACATCGTCCACAAGGTG
+			+
+			FFFJJJJJ-FJJJJJJJFJJ7JJFFJJJJJJJJJJJJJ<JJJJJJJJ7JJJJJJJJJJFAJJFJF<JJJ7JFJJJJ<FFJJAAJJAFFJJJJJJ<AFJAJ
+		```
+		please Refering the Shell code:
+		```
+			gzip -dc  SRR6760785_1.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/1\n",$1,$3); } else {printf("%s#0_0_0/1\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_1.stlfr.fastq.gz &
+			gzip -dc  SRR6760785_2.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/2\n",$1,$3); } else {printf("%s#0_0_0/2\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_2.stlfr.fastq.gz &
+		```
 
 Output files:
 ---
