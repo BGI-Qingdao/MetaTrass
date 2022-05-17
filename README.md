@@ -197,7 +197,7 @@ How to run:
 
 Input Sequencing files:
 ---
-1. **stLFR sequencing data**
+1. **For stLFR sequencing data**
      * 1. Rawdata 
        If you use rawdata, please split the barcode first. And then, get the cleandata.
        We offer the basic GC
@@ -206,13 +206,15 @@ Input Sequencing files:
        ```
 	
      * 2. Cleandata 
-        ** Please 
-2. **10X Chromium data**	
-     * 1. Cleandata Please Covert the 10X data to stLFR format.
-        Using [ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d) as an examples.
-       	**Covert 10X data**
-		- Read1 of 10X reads: SRR6760785_1.fastq.gz
-		*The barcode sequence is located on the query name within read1*
+        ** Please run directly the MetaTrass's TB and AP steps.
+2. **For 10X Chromium sequencing data**	
+     * 1. Please Covert the 10X data to stLFR format.
+        Using Athena MOCK20 sequencing data ([ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d)) as an examples. 
+	
+        **Coverting 10X data**
+	
+		- Read1 of 10X reads: SRR6760785_1.fastq.gz 
+		*The barcode sequence is located on the query name within read1* 
 		```
 			@SRR6760785.142 K00374:82:hkjyvbbxx:5:1113:28209:40702 length=112
 			GCCACCTCGGCGATCTCGGGATCGACATGCGCGGTCTCGATGGTGAAGTCGGGCCCTTCCGGCAGCAGGTAGCCGATCTCGCGCAGGAAGGCGGTGTACTCTCTAAGGCTCG
@@ -227,9 +229,9 @@ Input Sequencing files:
 			+SRR6760785.144 K00374:82:hkjyvbbxx:5:1212:15016:44078_AAACACCAGCGATATA length=111
 			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJ
 		```
-		- Read2 of 10X reads: SRR6760785_2.fastq.gz
-		*There is no barcode information within read2*
-		```
+		- Read2 of 10X reads: SRR6760785_2.fastq.gz 
+		*There is no barcode information within read2* 
+			```
 			@SRR6760785.142 K00374:82:hkjyvbbxx:5:1113:28209:40702 length=132
 			CAGGGGTTGCAGGTGGATGTACGTCTGGCCGAGTTCGTGGCTCGCGAGGCGCTGCCGGGCACCGGTGTCAGCGAGGAAGCCTTCTGGGGAGGCCTCGCCGACACGGTGCGTACTCTCGGGCCGCGGAACCGC
 			+SRR6760785.142 K00374:82:hkjyvbbxx:5:1113:28209:40702 length=132
@@ -239,14 +241,16 @@ Input Sequencing files:
 			+SRR6760785.143 K00374:82:hkjyvbbxx:5:2220:18690:47172_AAACACCAGACAATAC length=133
 			FFFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJAJJJJJJJFFJJJJJJJJJJJJJJJJJFJJJJAFJJJJJJJFJFFFFJJFJJJJAA7F<AAFFFJJJFJJFJJJJ<FJJA---<FJ
 			@SRR6760785.144 K00374:82:hkjyvbbxx:5:1212:15016:44078_AAACACCAGCGATATA length=100
-			TGTCCCTCTTGTTGCTCTCCTCGCTCAGGCGATTCTGGAGGGCTATCATCCGATCCAGACGGGCGAGCTTTACCTCTTCGAGTACATCGTCCACAAGGTG
+			TGTCCCTCTTGTTGCTCTCCTCGCTCAGGCGATTCTGGAGGGCTATCATCCGATCCAGACGGGCGAGCTTTACCTCTTCGAGTACATCGTCCACAAGGTG 
 			+SRR6760785.144 K00374:82:hkjyvbbxx:5:1212:15016:44078_AAACACCAGCGATATA length=100
 			FFFJJJJJ-FJJJJJJJFJJ7JJFFJJJJJJJJJJJJJ<JJJJJJJJ7JJJJJJJJJJFAJJFJF<JJJ7JFJJJJ<FFJJAAJJAFFJJJJJJ<AFJAJ
-		```
-	**To stLFR data**
-		- Read1 of stLFR reads: SRR6760785_1.stlfr.fastq.gz
-		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode.* 
-		```
+			```
+        **To stLFR data** 
+	
+		- Read1 of stLFR reads: SRR6760785_1.stlfr.fastq.gz 
+		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode*
+		
+			``` 
 			@SRR6760785.142#0_0_0/1
 			GCCACCTCGGCGATCTCGGGATCGACATGCGCGGTCTCGATGGTGAAGTCGGGCCCTTCCGGCAGCAGGTAGCCGATCTCGCGCAGGAAGGCGGTGTACTCTCTAAGGCTCG
 			+
@@ -259,11 +263,12 @@ Input Sequencing files:
 			TCCTCAACGAAGTGCGGGATCTGAAAGCCAAGAATTTCCGCGAGGTAACGCTGCTGGGGCAGAATGTAAACTCCTACCGATACGAACAAAACGGGCGGATCATCCGCTTCC
 			+
 			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJ
-		``` 
+			``` 
 
 		- Read2 of stLFR reads: SRR6760785_2.stlfr.fastq.gz
-		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode.* 
-		```
+		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode* 
+
+			``` 
 			@SRR6760785.142#0_0_0/2
 			CAGGGGTTGCAGGTGGATGTACGTCTGGCCGAGTTCGTGGCTCGCGAGGCGCTGCCGGGCACCGGTGTCAGCGAGGAAGCCTTCTGGGGAGGCCTCGCCGACACGGTGCGTACTCTCGGGCCGCGGAACCGC
 			+
@@ -276,12 +281,12 @@ Input Sequencing files:
 			TGTCCCTCTTGTTGCTCTCCTCGCTCAGGCGATTCTGGAGGGCTATCATCCGATCCAGACGGGCGAGCTTTACCTCTTCGAGTACATCGTCCACAAGGTG
 			+
 			FFFJJJJJ-FJJJJJJJFJJ7JJFFJJJJJJJJJJJJJ<JJJJJJJJ7JJJJJJJJJJFAJJFJF<JJJ7JFJJJJ<FFJJAAJJAFFJJJJJJ<AFJAJ
-		```
-		please Refering the Shell code:  
-		```
+			``` 
+        **Refering the Shell code**: 
+		``` 
 			gzip -dc  SRR6760785_1.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/1\n",$1,$3); } else {printf("%s#0_0_0/1\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_1.stlfr.fastq.gz &
 			gzip -dc  SRR6760785_2.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/2\n",$1,$3); } else {printf("%s#0_0_0/2\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_2.stlfr.fastq.gz &
-		``` 
+		```  
 
 Output files:
 ---
