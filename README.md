@@ -245,7 +245,7 @@ Input Sequencing files:
 		```
 	**To stLFR data**
 		- Read1 of stLFR reads: SRR6760785_1.stlfr.fastq.gz
-		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode.*
+		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode.* 
 		```
 			@SRR6760785.142#0_0_0/1
 			GCCACCTCGGCGATCTCGGGATCGACATGCGCGGTCTCGATGGTGAAGTCGGGCCCTTCCGGCAGCAGGTAGCCGATCTCGCGCAGGAAGGCGGTGTACTCTCTAAGGCTCG
@@ -259,10 +259,10 @@ Input Sequencing files:
 			TCCTCAACGAAGTGCGGGATCTGAAAGCCAAGAATTTCCGCGAGGTAACGCTGCTGGGGCAGAATGTAAACTCCTACCGATACGAACAAAACGGGCGGATCATCCGCTTCC
 			+
 			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJ
-		```
+		``` 
 
 		- Read2 of stLFR reads: SRR6760785_2.stlfr.fastq.gz
-		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode.*
+		*The barcode information is appended at the header line. #xxx_xxx_xxx part is the barcode.* 
 		```
 			@SRR6760785.142#0_0_0/2
 			CAGGGGTTGCAGGTGGATGTACGTCTGGCCGAGTTCGTGGCTCGCGAGGCGCTGCCGGGCACCGGTGTCAGCGAGGAAGCCTTCTGGGGAGGCCTCGCCGACACGGTGCGTACTCTCGGGCCGCGGAACCGC
@@ -277,11 +277,11 @@ Input Sequencing files:
 			+
 			FFFJJJJJ-FJJJJJJJFJJ7JJFFJJJJJJJJJJJJJ<JJJJJJJJ7JJJJJJJJJJFAJJFJF<JJJ7JFJJJJ<FFJJAAJJAFFJJJJJJ<AFJAJ
 		```
-		please Refering the Shell code:
+		please Refering the Shell code:  
 		```
 			gzip -dc  SRR6760785_1.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/1\n",$1,$3); } else {printf("%s#0_0_0/1\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_1.stlfr.fastq.gz &
 			gzip -dc  SRR6760785_2.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/2\n",$1,$3); } else {printf("%s#0_0_0/2\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_2.stlfr.fastq.gz &
-		```
+		``` 
 
 Output files:
 ---
