@@ -105,7 +105,7 @@ Configuring the references and table before complementation:
 How to run:
 ---
 1. Usage:
- 	* Getting CleanData 
+ 	* **G**etting **C**leanData 
 	```	
 	> python Trass.py GC -h
 	usage: Trass.py GC [-h] -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 [-thread THREAD] -outdir OUTDIR [-runnow RUNNOW]
@@ -147,7 +147,7 @@ How to run:
   
 	```
 
- 	* Single-species **Assembly** and Contigs **Purifying**  
+ 	* Single-species **A**ssembly and Contigs **P**urifying  
 	```
 	> python Trass.py AP -h
 	usage: Trass.py AP [-h] [-maprate MAPRATE] [-memory MEMORY] [-maxreads MAXREADS] [-pairdepth PAIRDEPTH] [-PCT PCT] [-IDY IDY] -ref_fa REF_FA [-thread THREAD]
@@ -174,6 +174,7 @@ How to run:
 	```
 	
 2. Examples:
+
     * Please refer to the  MetaTrass/bin/run.sh
     	```
 		rawfq1=$1
@@ -192,7 +193,7 @@ How to run:
 		ref_gz="/path/to//MetaTrass/config/all_single_species_genome_size.uhgg.txt"
 		echo $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
 		echo $python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz -thread 30 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
-		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes
+		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
 	```
 
 
@@ -200,6 +201,7 @@ Input Sequencing files:
 ---
 1. **For stLFR sequencing data**
      * 1. Rawdata 
+     
        If you use rawdata, please split the barcode first. And then, get the cleandata.
        We offer the basic GC
        ```
@@ -207,15 +209,17 @@ Input Sequencing files:
        ```
 	
      * 2. Cleandata 
+     
         ** Please run directly the MetaTrass's TB and AP steps.
 	
 2. **For 10X Chromium sequencing data**	
      * Please Covert the 10X data to stLFR format.
      		
      * Example:
+     
      		Using Athena MOCK20 sequencing data ([ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d)) as an examples. 
 	
-        **Coverting 10X data**
+        **_Coverting_ 10X data**
 	
 		- Read1 of 10X reads: **SRR6760785_1.fastq.gz** 
 		
@@ -253,7 +257,7 @@ Input Sequencing files:
 		+SRR6760785.144 K00374:82:hkjyvbbxx:5:1212:15016:44078_AAACACCAGCGATATA length=100
 		FFFJJJJJ-FJJJJJJJFJJ7JJFFJJJJJJJJJJJJJ<JJJJJJJJ7JJJJJJJJJJFAJJFJF<JJJ7JFJJJJ<FFJJAAJJAFFJJJJJJ<AFJAJ
 		```
-        **To stLFR data** 
+        **_To_ stLFR data** 
 	
 		- Read1 of stLFR reads: **SRR6760785_1.stlfr.fastq.gz**
 		 
@@ -293,7 +297,7 @@ Input Sequencing files:
 		FFFJJJJJ-FJJJJJJJFJJ7JJFFJJJJJJJJJJJJJ<JJJJJJJJ7JJJJJJJJJJFAJJFJF<JJJ7JFJJJJ<FFJJAAJJAFFJJJJJJ<AFJAJ
 		``` 
 		
-        **Refering the shell code**: 
+        **_Refering_ the shell code**: 
 		``` 
 		gzip -dc  SRR6760785_1.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/1\n",$1,$3); } else {printf("%s#0_0_0/1\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_1.stlfr.fastq.gz &
 		gzip -dc  SRR6760785_2.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/2\n",$1,$3); } else {printf("%s#0_0_0/2\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_2.stlfr.fastq.gz &
