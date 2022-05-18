@@ -59,11 +59,11 @@ Configuring the references and table before complementation:
 				├── [403K]  database250mers.kmer_distrib  
 				├── [540K]  database50mers.kmer_distrib  
 				├── [4.0K]  library    
-				│   ├── [ 11G]  **library.fna**  
+				│   ├── [ 11G]  library.fna  
 				│   └── [ 31M]  prelim_map.txt  
-				├── [ 16G]	**hash.k2d**  
-				├── [  48]	**opts.k2d**  
-				├── [473K]	**taxo.k2d**  
+				├── [ 16G]	hash.k2d
+				├── [  48]	opts.k2d  
+				├── [473K]	taxo.k2d  
 				└── [4.0K]  taxonomy  
 				    ├── [310K]  names.dmp  
 				    ├── [127K]  nodes.dmp  
