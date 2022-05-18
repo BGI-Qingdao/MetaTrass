@@ -203,17 +203,16 @@ Input Sequencing files:
      * 1. Rawdata 
      
        If you use rawdata, please split the barcode first. And then, get the cleandata.
-       We offer the basic GC
+       We offer the _MetaTrass GC_ fuction to gain cleandata
        ```
        $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
        ```
 	
      * 2. Cleandata 
-     
-        ** Please run directly the MetaTrass's TB and AP steps.
+       If you have the resovled cleandata, please run directly the MetaTrass's TB and AP steps.
 	
 2. **For 10X Chromium sequencing data**	
-     * Please Covert the 10X data to stLFR format.
+     * If you have the 10X Chromium data, please Covert the 10X data to stLFR format.
      		
      * Example:
      
