@@ -213,7 +213,7 @@ Input Sequencing files:
        If you use rawdata, please split the barcode first. And then, get the cleandata.
        We offer the _MetaTrass GC_ fuction to gain cleandata
        ```
-       $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes 
+       python3 /path/to/MetaTrass/Trass.py GC -rawfq1 rawfq.1.fq.gz -rawfq2 rawfq.2.fq.gz -outdir /path/to/output/ -runnow yes 
        
        ```
 	
