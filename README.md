@@ -136,7 +136,7 @@ Usages:
 	       TXACBrefiner    ->  Refining read id by using Taxonomic information and superior coBarcoding set
 	       ReadID2Fastq    ->  Covert the refined read id from total fastq to each speices
 	       MetaAssembly    ->  Co-barcoding genome assembly by using SUPERNOVA
- 	      ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
+ 	       ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
 
  	   # for command specific help info
 	       python3 Trass.py GC -h
