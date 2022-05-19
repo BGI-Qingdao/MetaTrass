@@ -117,7 +117,7 @@ Usages and Parameters:
 Usages:
 
 	
-	$ python /zfsqd1/ST_OCEAN/USRS/qiyanwei/software/api/MetaTrass/Trass.py -h
+	$ python /path/to/software/MetaTrass/Trass.py -h
 
 	            ...:::=== MetaTrass v1.20.0 ===:::...
 	    =================================================
