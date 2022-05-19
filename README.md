@@ -78,14 +78,14 @@ Configuring the references and table before complementation:
        To build a realiable construction of the species tree, please remind that the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
 
 2. **The reference genome** for refining the contigs should be kept with the reference database.
-     * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file  
+     * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file.
        You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
        
      	```
 		python3 fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
 	```
-	
-    * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa. 
+     
+     * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa. 
 	
 3. **The reference genome size** information table :warning:
       * Get each of single species genome size as the configure file with two column:  
@@ -110,8 +110,9 @@ Configuring the references and table before complementation:
       
         ```
         	python3 MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
-		
 	```
+
+
 
 How to run:
 ---
