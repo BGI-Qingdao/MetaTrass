@@ -79,10 +79,10 @@ Configuring the references and table before complementation:
 
 2. **The reference genome** for refining the contigs should be kept with the reference database.
      * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file  
-      You can use the script (MetaTrass/script/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
+      You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
       
      * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa.
-
+	python3 fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/
 3. **The reference genome size** information table :warning:
       * Get each of single species genome size as the configure file with two column:  
         table example:  
@@ -101,6 +101,8 @@ Configuring the references and table before complementation:
 		|1013|2260187|
 
       * Please note that the genome size table file without any header line. :warning: :warning: :warning:
+      * You can use the script (MetaTrass/tool/ref_genome_size.py) to get all species genome size information and generate the above mentioned table.
+        python3 MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/
 
 How to run:
 ---
@@ -194,8 +196,8 @@ How to run:
 		echo $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
 		echo $python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz -thread 30 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
 		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
+		
 	```
-
 
 Input Sequencing files:
 ---
@@ -205,18 +207,21 @@ Input Sequencing files:
        If you use rawdata, please split the barcode first. And then, get the cleandata.
        We offer the _MetaTrass GC_ fuction to gain cleandata
        ```
-       $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
+       $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes 
+       
        ```
 	
      * 2. Cleandata 
+     
        If you have the resovled cleandata, please run directly the MetaTrass's TB and AP steps.
 	
 2. **For 10X Chromium sequencing data**	
-     * If you have the 10X Chromium data, please Covert the 10X data to stLFR format.
-     		
-     * Example:
+     * 1. Rawdata:
      
-     		Using Athena MOCK20 sequencing data ([ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d)) as an examples. 
+       If you have the 10X Chromium data, please Covert the 10X data to stLFR format.
+     		
+     * 2. Cleandata: like publication dataset.  
+     	Using Athena MOCK20 sequencing data ([ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d)) as an examples. 
 	
         **_Coverting_ 10X data**
 	
