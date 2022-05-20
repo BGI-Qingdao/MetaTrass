@@ -78,14 +78,17 @@ Configuring the references and table before complementation:
        To build a realiable construction of the species tree, please remind that the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
 
 2. **The reference genome** for refining the contigs should be kept with the reference database.
-     * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file  
-      You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
-      
-     * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa.
-	python3 fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/
+     * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file.
+       You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
+       
+     	```
+		python3 fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
+		```
+     
+     * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa. 
+	
 3. **The reference genome size** information table :warning:
-      * Get each of single species genome size as the configure file with two column:  
-        table example:  
+      * Get each of single species genome size as the configure file with two column, example table below:
 	
 		|taxid	 | genome size(bp)|
 		| :----- | ----: |
@@ -101,13 +104,58 @@ Configuring the references and table before complementation:
 		|1013|2260187|
 
       * Please note that the genome size table file without any header line. :warning: :warning: :warning:
-      * You can use the script (MetaTrass/tool/ref_genome_size.py) to get all species genome size information and generate the above mentioned table.
-        python3 MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/
+      * Please refering the tables in MetaTrass/Config/all_single_species_genome_size.uhgg.txt. 
+      * You can use the script (MetaTrass/tool/ref_genome_size.py) to get all species genome size information and generate the above mentioned table. 
+      
+        	python3 MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
 
-How to run:
+
+
+Usages and Parameters:
 ---
-1. Usage:
- 	* **G**etting **C**leanData 
+
+Usages:
+
+	
+	$ python /path/to/software/MetaTrass/Trass.py -h
+
+	            ...:::=== MetaTrass v1.20.0 ===:::...
+	    =================================================
+	               Metagenomic Taxonomic Reads
+	                 Assembly Single-Species
+	    =================================================
+	    Combination modules:
+	       GC              ->  Get stLFR Cleandata
+	       TB              ->  Taxonomic Reads And Co-Barcoding Reads Refining (TABrefiner)
+	       AP              ->  Single-species Assembly and Contigs Purifying
+	
+	    Independent modules:
+	       SplitBarcode    ->  Covert barcode sequences to digital code
+	       GetCleandata    ->  Cleandata filtered by SOAPfilter
+	       Kraken2Taxon    ->  Taxonomic total reads under references database by Kraken
+	       TXACBrefiner    ->  Refining read id by using Taxonomic information and superior coBarcoding set
+	       ReadID2Fastq    ->  Covert the refined read id from total fastq to each speices
+	       MetaAssembly    ->  Co-barcoding genome assembly by using SUPERNOVA
+ 	       ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
+
+ 	   # for command specific help info
+	       python3 Trass.py GC -h
+	       python3 Trass.py TB -h
+	       python3 Trass.py AP -h
+	
+	       python3 Trass.py SplitBarcode -h
+	       python3 Trass.py GetCleandata -h
+	       python3 Trass.py Kraken2Taxon -h
+	       python3 Trass.py TXACBrefiner -h
+	       python3 Trass.py ReadID2Fastq -h
+	       python3 Trass.py MetaAssembly -h
+	       python3 Trass.py ContigPurify -h
+	
+
+
+Parameters explaination:
+
+1. 	* **G**etting **C**leanData 
 	```	
 	> python Trass.py GC -h
 	usage: Trass.py GC [-h] -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 [-thread THREAD] -outdir OUTDIR [-runnow RUNNOW]
@@ -124,7 +172,7 @@ How to run:
 
 	```
 	
-	* **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
+2.	* **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
 	```	
 	> python Trass.py TB -h
 	usage: Trass.py TB [-h] -cleanfq1 CLEANFQ1 -cleanfq2 CLEANFQ2 [-thread THREAD] [-parallel PARALLEL] -sample SAMPLE -ref_db REF_DB -genome_size GENOME_SIZE [-max_depth 		MAX_DEPTH] [-min_depth MIN_DEPTH] [-pe_length PE_LENGTH] -outdir OUTDIR [-runnow RUNNOW]
@@ -149,7 +197,7 @@ How to run:
   
 	```
 
- 	* Single-species **A**ssembly and Contigs **P**urifying  
+ 3.	* Single-species **A**ssembly and Contigs **P**urifying  
 	```
 	> python Trass.py AP -h
 	usage: Trass.py AP [-h] [-maprate MAPRATE] [-memory MEMORY] [-maxreads MAXREADS] [-pairdepth PAIRDEPTH] [-PCT PCT] [-IDY IDY] -ref_fa REF_FA [-thread THREAD]
@@ -174,30 +222,6 @@ How to run:
 	  -runnow RUNNOW        Run this script immediately
 
 	```
-	
-2. Examples:
-
-    * Please refer to the  MetaTrass/bin/run.sh
-    	```
-		rawfq1=$1
-		rawfq2=$2
-		sample=$3
-		outdir=$4
-		mkdir -p $outdir 
-
-		output=$outdir/$sample
-		mkdir -p $output
-
-		python="/path/to/python3"
-		Trass="/path/to/MetaTrass/Trass.py"
-		ref_db="/path/to/uhgg_kraken2-db/"
-		ref_fa="/path/to/uhgg_kraken2-fa/"
-		ref_gz="/path/to//MetaTrass/config/all_single_species_genome_size.uhgg.txt"
-		echo $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
-		echo $python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz -thread 30 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
-		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
-		
-	```
 
 Input Sequencing files:
 ---
@@ -207,7 +231,7 @@ Input Sequencing files:
        If you use rawdata, please split the barcode first. And then, get the cleandata.
        We offer the _MetaTrass GC_ fuction to gain cleandata
        ```
-       $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes 
+       python3 /path/to/MetaTrass/Trass.py GC -rawfq1 rawfq.1.fq.gz -rawfq2 rawfq.2.fq.gz -outdir /path/to/output/ -runnow yes 
        
        ```
 	
@@ -306,6 +330,30 @@ Input Sequencing files:
 		gzip -dc  SRR6760785_1.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/1\n",$1,$3); } else {printf("%s#0_0_0/1\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_1.stlfr.fastq.gz &
 		gzip -dc  SRR6760785_2.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/2\n",$1,$3); } else {printf("%s#0_0_0/2\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_2.stlfr.fastq.gz &
 		```  
+How to run:
+---
+
+1. Examples:
+
+    * Please refer to the  MetaTrass/bin/run.sh
+    	```
+		rawfq1=$1
+		rawfq2=$2
+		sample=$3
+		outdir=$4
+		mkdir -p $outdir 
+
+		output=$outdir/$sample
+		mkdir -p $output
+
+		python="/path/to/python3"
+		Trass="/path/to/MetaTrass/Trass.py"
+		ref_db="/path/to/uhgg_kraken2-db/"
+		ref_fa="/path/to/uhgg_kraken2-fa/"
+		ref_gz="/path/to//MetaTrass/config/all_single_species_genome_size.uhgg.txt"
+		echo $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
+		echo $python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz -thread 30 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
+		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
 
 Output files:
 ---
