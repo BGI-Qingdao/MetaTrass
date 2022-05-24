@@ -333,7 +333,12 @@ Input Sequencing files:
 How to run:
 ---
 
-1. Examples:
+1. Command line guidence: 
+
+
+
+
+2. 
 
     * Please refer to the  MetaTrass/bin/run.sh
     	```
@@ -354,6 +359,7 @@ How to run:
 		echo $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
 		echo $python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz -thread 30 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
 		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
+2. Demo test
 
 Output files:
 ---
