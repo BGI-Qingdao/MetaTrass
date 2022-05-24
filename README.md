@@ -82,7 +82,7 @@ Configuring the references and table before complementation:
        You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
        
      	```
-		python3 fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
+		python3 /path/to/MetaTrass/tool/fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
 		```
      
      * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa. 
@@ -107,7 +107,7 @@ Configuring the references and table before complementation:
       * Please refering the tables in MetaTrass/Config/all_single_species_genome_size.uhgg.txt. 
       * You can use the script (MetaTrass/tool/ref_genome_size.py) to get all species genome size information and generate the above mentioned table. 
       
-        	python3 MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
+        	python3 /path/to/MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
 
 
 
