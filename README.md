@@ -406,3 +406,7 @@ Contributing:
 License:
 ---
 * GNU General Public License v3.0 [![pypi licence       ](https://img.shields.io/pypi/l/MetaCHIP.svg)](https://opensource.org/licenses/gpl-3.0.html)
+
+Issue:
+---
+* Please submit issues on the [github page for MetaTrass](https://github.com/BGI-Qingdao/MetaTrass/issues).
