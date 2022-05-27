@@ -82,7 +82,7 @@ Configuring the references and table before complementation:
        You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
        
      	```
-		python3 fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
+		python3 /path/to/MetaTrass/tool/fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
 		```
      
      * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa. 
@@ -107,7 +107,7 @@ Configuring the references and table before complementation:
       * Please refering the tables in MetaTrass/Config/all_single_species_genome_size.uhgg.txt. 
       * You can use the script (MetaTrass/tool/ref_genome_size.py) to get all species genome size information and generate the above mentioned table. 
       
-        	python3 MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
+        	python3 /path/to/MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
 
 
 
@@ -333,7 +333,12 @@ Input Sequencing files:
 How to run:
 ---
 
-1. Examples:
+1. Command line guidence: 
+
+
+
+
+2. 
 
     * Please refer to the  MetaTrass/bin/run.sh
     	```
@@ -354,6 +359,7 @@ How to run:
 		echo $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
 		echo $python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz -thread 30 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
 		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
+2. Demo test
 
 Output files:
 ---
@@ -400,3 +406,7 @@ Contributing:
 License:
 ---
 * GNU General Public License v3.0 [![pypi licence       ](https://img.shields.io/pypi/l/MetaCHIP.svg)](https://opensource.org/licenses/gpl-3.0.html)
+
+Issue:
+---
+* Please submit issues on the [github page for MetaTrass](https://github.com/BGI-Qingdao/MetaTrass/issues).
