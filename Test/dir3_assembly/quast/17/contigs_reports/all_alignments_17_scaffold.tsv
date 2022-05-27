@@ -1,0 +1,1130 @@
+S1	E1	S2	E2	Reference	Contig	IDY	Ambiguous	Best_group
+40514	41517	1224	221	kraken_taxid_17_MGYG_HGUT_02448_17	205	96.91		True
+CONTIG	205	1224	correct
+32774	34187	1	1414	kraken_taxid_17_MGYG_HGUT_02448_8	206	98.59		True
+CONTIG	206	1414	correct
+44968	46023	1056	1	kraken_taxid_17_MGYG_HGUT_02448_5	207	99.72		True
+CONTIG	207	1056	correct
+12137	13333	1	1197	kraken_taxid_17_MGYG_HGUT_02448_14	208	99.92		True
+CONTIG	208	1197	correct
+6009	7598	1	1590	kraken_taxid_17_MGYG_HGUT_02448_3	209	99.62		True
+CONTIG	209	1590	correct
+117641	118734	1	1095	kraken_taxid_17_MGYG_HGUT_02448_6	210	95.91		True
+CONTIG	210	1100	correct
+48320	49381	1	1062	kraken_taxid_17_MGYG_HGUT_02448_14	211	99.44		True
+CONTIG	211	1062	correct
+33981	35298	1	1318	kraken_taxid_17_MGYG_HGUT_02448_17	212	99.47		True
+CONTIG	212	1318	correct
+43525	44653	1130	1	kraken_taxid_17_MGYG_HGUT_02448_16	213	98.94		True
+CONTIG	213	1130	correct
+39898	40916	1	1019	kraken_taxid_17_MGYG_HGUT_02448_8	214	99.61		True
+CONTIG	214	1019	correct
+39018	40032	1015	1	kraken_taxid_17_MGYG_HGUT_02448_5	215	98.23		True
+CONTIG	215	1015	correct
+170286	171287	1002	1	kraken_taxid_17_MGYG_HGUT_02448_1	216	99.3		True
+CONTIG	216	1002	correct
+6408	7616	1214	4	kraken_taxid_17_MGYG_HGUT_02448_29	632	99.34		True
+CONTIG	632	1214	correct
+10744	11086	1	343	kraken_taxid_17_MGYG_HGUT_02448_18	635	99.71		True
+local misassembly
+11558	13194	794	2423	kraken_taxid_17_MGYG_HGUT_02448_18	635	98.53		True
+CONTIG	635	2423	correct
+18042	20003	1961	1	kraken_taxid_17_MGYG_HGUT_02448_8	636	99.64		True
+CONTIG	636	1961	correct
+5101	6832	1732	1	kraken_taxid_17_MGYG_HGUT_02448_18	637	99.71		True
+CONTIG	637	1732	correct
+180353	183356	3004	1	kraken_taxid_17_MGYG_HGUT_02448_4	638	99.53		True
+CONTIG	638	3004	correct
+18205	19737	3	1535	kraken_taxid_17_MGYG_HGUT_02448_11	639	99.09		True
+CONTIG	639	1535	correct
+224827	226272	1	1446	kraken_taxid_17_MGYG_HGUT_02448_1	640	99.52		True
+CONTIG	640	1446	correct
+3150	5095	44	1986	kraken_taxid_17_MGYG_HGUT_02448_48	641	96.67		True
+CONTIG	641	1986	correct
+151934	153821	1888	1	kraken_taxid_17_MGYG_HGUT_02448_4	642	99.52		True
+CONTIG	642	1888	correct
+55697	56907	1	1211	kraken_taxid_17_MGYG_HGUT_02448_9	643	99.09		True
+local misassembly
+57027	57397	1331	1701	kraken_taxid_17_MGYG_HGUT_02448_9	643	97.84		True
+CONTIG	643	1701	correct
+69080	70220	1	1141	kraken_taxid_17_MGYG_HGUT_02448_7	644	99.91		True
+CONTIG	644	1141	correct
+5837	7191	1	1355	kraken_taxid_17_MGYG_HGUT_02448_5	645	100.0		True
+CONTIG	645	1355	correct
+79792	81148	1357	1	kraken_taxid_17_MGYG_HGUT_02448_8	646	99.63		True
+CONTIG	646	1357	correct
+135334	136665	1332	1	kraken_taxid_17_MGYG_HGUT_02448_4	648	99.32		True
+CONTIG	648	1332	correct
+16320	17422	1	1103	kraken_taxid_17_MGYG_HGUT_02448_14	649	99.46		True
+CONTIG	649	1103	correct
+55784	56829	1	1046	kraken_taxid_17_MGYG_HGUT_02448_8	651	99.52		True
+CONTIG	651	1046	correct
+5671	6753	1	1083	kraken_taxid_17_MGYG_HGUT_02448_15	652	99.82		True
+CONTIG	652	1083	correct
+13952	15322	1	1365	kraken_taxid_17_MGYG_HGUT_02448_28	653	94.38		True
+CONTIG	653	1365	correct
+27360	29709	2350	1	kraken_taxid_17_MGYG_HGUT_02448_14	655	99.66		True
+CONTIG	655	2350	correct
+81936	83147	1212	1	kraken_taxid_17_MGYG_HGUT_02448_9	656	99.67		True
+CONTIG	656	1212	correct
+25537	26553	1017	1	kraken_taxid_17_MGYG_HGUT_02448_6	657	99.8		True
+CONTIG	657	1017	correct
+3163	4639	1	1477	kraken_taxid_17_MGYG_HGUT_02448_39	658	98.92		True
+CONTIG	658	1477	correct
+21364	22426	1069	7	kraken_taxid_17_MGYG_HGUT_02448_18	659	99.53		True
+CONTIG	659	1069	correct
+275450	276581	1132	1	kraken_taxid_17_MGYG_HGUT_02448_1	661	93.63		True
+CONTIG	661	1132	correct
+8452	9878	1427	1	kraken_taxid_17_MGYG_HGUT_02448_4	663	98.74		True
+CONTIG	663	1427	correct
+26107	27690	1584	1	kraken_taxid_17_MGYG_HGUT_02448_13	664	98.24		True
+CONTIG	664	1584	correct
+8496	9111	1105	1729	kraken_taxid_17_MGYG_HGUT_02448_41	665	95.68		True
+CONTIG	665	1729	correct_unaligned
+12137	13609	1473	1	kraken_taxid_17_MGYG_HGUT_02448_1	666	98.51		True
+CONTIG	666	1473	correct
+22987	25319	1	2333	kraken_taxid_17_MGYG_HGUT_02448_18	667	99.66		True
+CONTIG	667	2333	correct
+143467	144812	1	1346	kraken_taxid_17_MGYG_HGUT_02448_1	668	99.93		True
+CONTIG	668	1346	correct
+19240	20243	1	1004	kraken_taxid_17_MGYG_HGUT_02448_29	669	99.7		True
+CONTIG	669	1004	correct
+44671	46261	1	1591	kraken_taxid_17_MGYG_HGUT_02448_15	670	98.93		True
+CONTIG	670	1591	correct
+35327	36431	1	1105	kraken_taxid_17_MGYG_HGUT_02448_14	671	99.82		True
+CONTIG	671	1105	correct
+88986	90203	1218	1	kraken_taxid_17_MGYG_HGUT_02448_2	673	99.43		True
+CONTIG	673	1218	correct
+1588	2812	1225	1	kraken_taxid_17_MGYG_HGUT_02448_2	674	99.67		True
+CONTIG	674	1225	correct
+37670	38778	1109	1	kraken_taxid_17_MGYG_HGUT_02448_11	675	99.55		True
+CONTIG	675	1109	correct
+57379	58795	5	1421	kraken_taxid_17_MGYG_HGUT_02448_9	676	95.98		True
+CONTIG	676	1445	correct
+5312	6378	1	1067	kraken_taxid_17_MGYG_HGUT_02448_17	677	99.06		True
+CONTIG	677	1067	correct
+78561	80575	1	2015	kraken_taxid_17_MGYG_HGUT_02448_1	678	99.95		True
+CONTIG	678	2015	correct
+246	1521	40	1315	kraken_taxid_17_MGYG_HGUT_02448_41	679	99.06		True
+CONTIG	679	1315	correct
+139464	140813	1	1350	kraken_taxid_17_MGYG_HGUT_02448_4	680	98.81		True
+CONTIG	680	1350	correct
+1831	3106	1	1276	kraken_taxid_17_MGYG_HGUT_02448_25	682	99.92		True
+CONTIG	682	1276	correct
+6491	7491	1001	1	kraken_taxid_17_MGYG_HGUT_02448_23	683	99.1		True
+CONTIG	683	1001	correct
+24751	26742	1992	1	kraken_taxid_17_MGYG_HGUT_02448_15	684	99.75		True
+CONTIG	684	1992	correct
+53713	55026	1314	1	kraken_taxid_17_MGYG_HGUT_02448_2	685	99.62		True
+CONTIG	685	1314	correct
+18604	19889	1286	1	kraken_taxid_17_MGYG_HGUT_02448_17	686	99.46		True
+CONTIG	686	1286	correct
+76346	77486	1	1141	kraken_taxid_17_MGYG_HGUT_02448_2	687	99.82		True
+CONTIG	687	1141	correct
+80102	81308	1207	1	kraken_taxid_17_MGYG_HGUT_02448_2	688	100.0		True
+CONTIG	688	1207	correct
+25	1244	1	1220	kraken_taxid_17_MGYG_HGUT_02448_29	689	99.59		True
+CONTIG	689	1220	correct
+124878	126032	1	1155	kraken_taxid_17_MGYG_HGUT_02448_1	690	99.91		True
+CONTIG	690	1155	correct
+38659	39841	1183	1	kraken_taxid_17_MGYG_HGUT_02448_17	691	99.58		True
+CONTIG	691	1183	correct
+277675	279017	1343	1	kraken_taxid_17_MGYG_HGUT_02448_1	693	99.33		True
+CONTIG	693	1343	correct
+339485	340564	1080	1	kraken_taxid_17_MGYG_HGUT_02448_1	695	99.44		True
+CONTIG	695	1080	correct
+14167	15529	1	1363	kraken_taxid_17_MGYG_HGUT_02448_19	696	99.12		True
+CONTIG	696	1363	correct
+260043	263215	1	3173	kraken_taxid_17_MGYG_HGUT_02448_1	697	99.56		True
+CONTIG	697	3173	correct
+136489	138700	2211	1	kraken_taxid_17_MGYG_HGUT_02448_1	698	99.68		True
+CONTIG	698	2211	correct
+1051	2117	1110	44	kraken_taxid_17_MGYG_HGUT_02448_17	699	99.53		True
+CONTIG	699	1110	correct
+31206	33155	1	1949	kraken_taxid_17_MGYG_HGUT_02448_13	700	99.33		True
+CONTIG	700	1949	correct
+5404	6587	1184	1	kraken_taxid_17_MGYG_HGUT_02448_6	701	98.82		True
+CONTIG	701	1184	correct
+728	1788	1061	1	kraken_taxid_17_MGYG_HGUT_02448_38	702	98.4		True
+CONTIG	702	1061	correct
+183128	184190	1	1063	kraken_taxid_17_MGYG_HGUT_02448_2	703	98.87		True
+CONTIG	703	1063	correct
+6534	7739	1206	1	kraken_taxid_17_MGYG_HGUT_02448_13	704	100.0		True
+CONTIG	704	1206	correct
+193942	196343	1	2402	kraken_taxid_17_MGYG_HGUT_02448_4	705	97.08		True
+CONTIG	705	2402	correct
+141455	142691	1	1237	kraken_taxid_17_MGYG_HGUT_02448_1	706	99.35		True
+CONTIG	706	1237	correct
+111612	112957	1	1346	kraken_taxid_17_MGYG_HGUT_02448_5	707	99.93		True
+relocation, inconsistency = 5673
+118631	118930	1347	1646	kraken_taxid_17_MGYG_HGUT_02448_5	707	98.68		True
+CONTIG	707	1646	misassembled
+85378	87172	1	1795	kraken_taxid_17_MGYG_HGUT_02448_8	708	99.11		True
+CONTIG	708	1795	correct
+57170	59044	1875	1	kraken_taxid_17_MGYG_HGUT_02448_11	709	99.47		True
+CONTIG	709	1875	correct
+15576	17565	1990	1	kraken_taxid_17_MGYG_HGUT_02448_28	710	97.46		True
+CONTIG	710	1990	correct
+106147	107234	1088	1	kraken_taxid_17_MGYG_HGUT_02448_1	712	99.91		True
+CONTIG	712	1088	correct
+83842	86128	2287	1	kraken_taxid_17_MGYG_HGUT_02448_2	713	99.69		True
+CONTIG	713	2287	correct
+50180	52100	1921	1	kraken_taxid_17_MGYG_HGUT_02448_14	714	99.79		True
+CONTIG	714	1921	correct
+167614	168621	1	1008	kraken_taxid_17_MGYG_HGUT_02448_1	715	99.4		True
+CONTIG	715	1008	correct
+2537	4083	1520	1	kraken_taxid_17_MGYG_HGUT_02448_24	716	96.13		True
+CONTIG	716	1520	correct
+6062	7797	1736	1	kraken_taxid_17_MGYG_HGUT_02448_38	717	99.14		True
+CONTIG	717	1739	correct
+1	434	434	1	kraken_taxid_17_MGYG_HGUT_02448_6	718	99.54		True
+translocation
+4950	6533	485	2068	kraken_taxid_17_MGYG_HGUT_02448_28	718	97.8		True
+CONTIG	718	3229	misassembled
+1110	1585	476	1	kraken_taxid_17_MGYG_HGUT_02448_50	720	99.79		True
+fake: scaffold gap size wrong estimation (local)
+21	996	1552	577	kraken_taxid_17_MGYG_HGUT_02448_50	720	100.0		True
+translocation
+1	1627	1553	3179	kraken_taxid_17_MGYG_HGUT_02448_27	720	99.94		True
+CONTIG	720	3179	misassembled
+3308	4526	1219	1	kraken_taxid_17_MGYG_HGUT_02448_28	721	99.59		True
+fake: scaffold gap size wrong estimation (local)
+2461	2964	1829	1326	kraken_taxid_17_MGYG_HGUT_02448_28	721	98.61		True
+CONTIG	721	1829	correct
+903	1769	1	867	kraken_taxid_17_MGYG_HGUT_02448_49	722	97.58		True
+fake: scaffold gap size wrong estimation (local)
+2278	3464	1468	2649	kraken_taxid_17_MGYG_HGUT_02448_49	722	93.89		True
+CONTIG	722	2649	correct
+290960	292980	1	2077	kraken_taxid_17_MGYG_HGUT_02448_1	723	99.75		True
+CONTIG	723	2077	correct
+301079	301379	301	1	kraken_taxid_17_MGYG_HGUT_02448_1	724	100.0		True
+fake: scaffold gap size wrong estimation (local)
+299346	300926	1982	402	kraken_taxid_17_MGYG_HGUT_02448_1	724	98.92		True
+CONTIG	724	1982	correct
+47222	47514	1	293	kraken_taxid_17_MGYG_HGUT_02448_6	725	94.88		True
+fake: scaffold gap size wrong estimation (local)
+47745	49543	394	2192	kraken_taxid_17_MGYG_HGUT_02448_6	725	99.06		True
+CONTIG	725	2192	correct
+195466	196922	1493	1	kraken_taxid_17_MGYG_HGUT_02448_1	726	99.64		True
+CONTIG	726	1493	correct
+153467	154758	1	1369	kraken_taxid_17_MGYG_HGUT_02448_1	727	99.21		True
+CONTIG	727	1369	correct
+51192	51972	781	1	kraken_taxid_17_MGYG_HGUT_02448_9	728	99.23		True
+fake: scaffold gap size wrong estimation (local)
+50738	50992	1136	882	kraken_taxid_17_MGYG_HGUT_02448_9	728	100.0		True
+CONTIG	728	1136	correct
+28060	28816	757	1	kraken_taxid_17_MGYG_HGUT_02448_18	729	99.47		True
+fake: scaffold gap size wrong estimation (local)
+27598	27926	1186	858	kraken_taxid_17_MGYG_HGUT_02448_18	729	99.39		True
+CONTIG	729	1186	correct
+114331	115042	1	712	kraken_taxid_17_MGYG_HGUT_02448_6	730	99.72		True
+fake: scaffold gap size wrong estimation (extensive)
+116406	116984	851	1429	kraken_taxid_17_MGYG_HGUT_02448_6	730	97.75		True
+CONTIG	730	1429	correct
+10767	11463	7	703	kraken_taxid_17_MGYG_HGUT_02448_3	731	99.14		True
+fake: scaffold gap size wrong estimation (local)
+11700	11962	804	1066	kraken_taxid_17_MGYG_HGUT_02448_3	731	99.62		True
+CONTIG	731	1066	correct
+187725	188389	1	665	kraken_taxid_17_MGYG_HGUT_02448_4	732	99.7		True
+fake: scaffold gap size wrong estimation (local)
+188542	188929	766	1180	kraken_taxid_17_MGYG_HGUT_02448_4	732	93.49		True
+CONTIG	732	1180	correct
+6211	6835	665	47	kraken_taxid_17_MGYG_HGUT_02448_46	733	93.97		True
+fake: scaffold gap size wrong estimation (local)
+5605	5907	1068	766	kraken_taxid_17_MGYG_HGUT_02448_46	733	96.37		True
+local misassembly
+5082	5441	1597	1238	kraken_taxid_17_MGYG_HGUT_02448_46	733	94.44		True
+CONTIG	733	1597	correct
+311632	312295	1	664	kraken_taxid_17_MGYG_HGUT_02448_1	734	99.4		True
+fake: scaffold gap size wrong estimation (local)
+312554	313130	765	1341	kraken_taxid_17_MGYG_HGUT_02448_1	734	99.65		True
+CONTIG	734	1341	correct
+49005	49900	1	896	kraken_taxid_17_MGYG_HGUT_02448_11	735	99.67		True
+fake: scaffold gap size wrong estimation (local)
+49912	50266	997	1351	kraken_taxid_17_MGYG_HGUT_02448_11	735	99.72		True
+CONTIG	735	1351	correct
+102174	103716	1543	1	kraken_taxid_17_MGYG_HGUT_02448_8	736	99.03		True
+CONTIG	736	1543	correct
+162262	162891	1	629	kraken_taxid_17_MGYG_HGUT_02448_4	737	97.95		True
+inversion, scaffold gap is present
+161964	162249	1015	730	kraken_taxid_17_MGYG_HGUT_02448_4	737	99.65		True
+CONTIG	737	1015	misassembled
+164041	164654	614	1	kraken_taxid_17_MGYG_HGUT_02448_1	738	98.37		True
+fake: scaffold gap size wrong estimation (local)
+163234	163927	1408	715	kraken_taxid_17_MGYG_HGUT_02448_1	738	98.7		True
+CONTIG	738	1408	correct
+11057	11666	1	610	kraken_taxid_17_MGYG_HGUT_02448_9	739	98.36		True
+fake: scaffold gap size wrong estimation (local)
+11840	11994	711	865	kraken_taxid_17_MGYG_HGUT_02448_9	739	96.68		True
+local misassembly
+12692	13369	866	1543	kraken_taxid_17_MGYG_HGUT_02448_9	739	96.76		True
+CONTIG	739	1786	correct
+298169	298755	587	1	kraken_taxid_17_MGYG_HGUT_02448_1	740	99.83		True
+fake: scaffold gap size wrong estimation (local)
+296848	297811	1653	690	kraken_taxid_17_MGYG_HGUT_02448_1	740	99.59		True
+CONTIG	740	1653	correct
+53945	55111	1240	1	kraken_taxid_17_MGYG_HGUT_02448_9	741	99.82		True
+CONTIG	741	1240	correct
+133456	133959	504	1	kraken_taxid_17_MGYG_HGUT_02448_1	742	99.8		True
+fake: scaffold gap size wrong estimation (local)
+130795	133074	2888	609	kraken_taxid_17_MGYG_HGUT_02448_1	742	99.39		True
+CONTIG	742	2888	correct
+27555	28141	4	590	kraken_taxid_17_MGYG_HGUT_02448_9	743	99.66		True
+fake: scaffold gap size wrong estimation (local)
+28264	28724	691	1151	kraken_taxid_17_MGYG_HGUT_02448_9	743	99.57		True
+CONTIG	743	1151	correct
+30802	31197	1	396	kraken_taxid_17_MGYG_HGUT_02448_17	747	99.49		True
+fake: scaffold gap size wrong estimation (local)
+31309	32114	497	1302	kraken_taxid_17_MGYG_HGUT_02448_17	747	98.51		True
+CONTIG	747	1302	correct
+325746	326115	1	370	kraken_taxid_17_MGYG_HGUT_02448_1	749	99.73		True
+fake: scaffold gap size wrong estimation (local)
+326224	327422	471	1669	kraken_taxid_17_MGYG_HGUT_02448_1	749	99.5		True
+CONTIG	749	1669	correct
+9004	10560	1649	1	kraken_taxid_17_MGYG_HGUT_02448_18	750	98.65		True
+CONTIG	750	1649	correct
+26068	26387	320	1	kraken_taxid_17_MGYG_HGUT_02448_11	751	98.75		True
+unknown
+25806	25878	1365	1293	kraken_taxid_17_MGYG_HGUT_02448_11	751	100.0		True
+unknown
+CONTIG	751	1365	mis_unaligned
+66625	66941	317	1	kraken_taxid_17_MGYG_HGUT_02448_5	752	99.68		True
+fake: scaffold gap size wrong estimation (local)
+65725	66497	1190	418	kraken_taxid_17_MGYG_HGUT_02448_5	752	100.0		True
+CONTIG	752	1190	correct
+10132	10447	316	1	kraken_taxid_17_MGYG_HGUT_02448_25	753	99.68		True
+fake: scaffold gap size wrong estimation (local)
+9343	9969	1043	417	kraken_taxid_17_MGYG_HGUT_02448_25	753	100.0		True
+CONTIG	753	1043	correct
+101978	102277	300	1	kraken_taxid_17_MGYG_HGUT_02448_1	756	99.33		True
+fake: scaffold gap size wrong estimation (local)
+100999	101846	1248	401	kraken_taxid_17_MGYG_HGUT_02448_1	756	99.53		True
+CONTIG	756	1248	correct
+24178	24473	1	296	kraken_taxid_17_MGYG_HGUT_02448_13	757	99.66		True
+fake: scaffold gap size wrong estimation (local)
+24663	25637	397	1371	kraken_taxid_17_MGYG_HGUT_02448_13	757	99.08		True
+CONTIG	757	1371	correct
+63368	63658	1	291	kraken_taxid_17_MGYG_HGUT_02448_1	758	100.0		True
+fake: scaffold gap size wrong estimation (local)
+63812	64493	392	1073	kraken_taxid_17_MGYG_HGUT_02448_1	758	100.0		True
+CONTIG	758	1073	correct
+3116	3382	2	268	kraken_taxid_17_MGYG_HGUT_02448_38	759	98.5		True
+fake: scaffold gap size wrong estimation (local)
+3609	4660	388	1439	kraken_taxid_17_MGYG_HGUT_02448_38	759	95.8		True
+CONTIG	759	1439	correct
+49341	49626	286	1	kraken_taxid_17_MGYG_HGUT_02448_9	760	98.95		True
+fake: scaffold gap size wrong estimation (local)
+47705	49192	1874	387	kraken_taxid_17_MGYG_HGUT_02448_9	760	99.19		True
+CONTIG	760	1874	correct
+11576	11858	283	1	kraken_taxid_17_MGYG_HGUT_02448_14	761	99.65		True
+fake: scaffold gap size wrong estimation (local)
+10608	11474	1250	384	kraken_taxid_17_MGYG_HGUT_02448_14	761	99.77		True
+CONTIG	761	1250	correct
+77013	77292	1	280	kraken_taxid_17_MGYG_HGUT_02448_9	762	100.0		True
+fake: scaffold gap size wrong estimation (local)
+77307	78851	381	1925	kraken_taxid_17_MGYG_HGUT_02448_9	762	99.55		True
+CONTIG	762	1925	correct
+62253	64330	2141	1	kraken_taxid_17_MGYG_HGUT_02448_6	764	96.86		True
+CONTIG	764	2141	correct
+16033	16280	256	7	kraken_taxid_17_MGYG_HGUT_02448_20	765	98.4		True
+fake: scaffold gap size wrong estimation (local)
+15071	15879	1165	357	kraken_taxid_17_MGYG_HGUT_02448_20	765	99.63		True
+CONTIG	765	1165	correct
+15088	16229	1169	1	kraken_taxid_17_MGYG_HGUT_02448_6	766	99.25		True
+CONTIG	766	1169	correct
+40103	41682	1	1642	kraken_taxid_17_MGYG_HGUT_02448_10	767	99.42		True
+CONTIG	767	1642	correct
+110729	111978	1	1334	kraken_taxid_17_MGYG_HGUT_02448_1	769	99.43		True
+CONTIG	769	1334	correct
+125441	126125	685	1	kraken_taxid_17_MGYG_HGUT_02448_2	770	99.27		True
+fake: scaffold gap size wrong estimation (local)
+124701	125163	1248	786	kraken_taxid_17_MGYG_HGUT_02448_2	770	98.92		True
+CONTIG	770	1248	correct
+66452	67045	594	1	kraken_taxid_17_MGYG_HGUT_02448_2	771	99.83		True
+unknown
+66218	66401	2586	2403	kraken_taxid_17_MGYG_HGUT_02448_2	771	99.46		True
+unknown
+CONTIG	771	2586	mis_unaligned
+42420	42694	294	568	kraken_taxid_17_MGYG_HGUT_02448_5	772	98.55		True
+fake: scaffold gap size wrong estimation (local)
+43110	44312	669	1871	kraken_taxid_17_MGYG_HGUT_02448_5	772	98.67		True
+CONTIG	772	1875	correct
+13992	14476	1	485	kraken_taxid_17_MGYG_HGUT_02448_18	773	100.0		True
+fake: scaffold gap size wrong estimation (local)
+14489	15082	586	1179	kraken_taxid_17_MGYG_HGUT_02448_18	773	97.81		True
+CONTIG	773	1179	correct
+1887	2247	1	361	kraken_taxid_17_MGYG_HGUT_02448_30	774	99.45		True
+fake: scaffold gap size wrong estimation (local)
+2537	3685	462	1610	kraken_taxid_17_MGYG_HGUT_02448_30	774	99.39		True
+CONTIG	774	1610	correct
+3739	4081	1	343	kraken_taxid_17_MGYG_HGUT_02448_1	775	99.13		True
+fake: scaffold gap size wrong estimation (local)
+4340	5379	445	1484	kraken_taxid_17_MGYG_HGUT_02448_1	775	99.9		True
+CONTIG	775	1484	correct
+136652	138233	1	1608	kraken_taxid_17_MGYG_HGUT_02448_5	776	97.82		True
+CONTIG	776	1608	correct
+34263	34470	44	251	kraken_taxid_17_MGYG_HGUT_02448_11	777	99.52		True
+fake: scaffold gap size wrong estimation (local)
+34575	35745	352	1522	kraken_taxid_17_MGYG_HGUT_02448_11	777	99.4		True
+CONTIG	777	1572	correct
+14954	15600	1	647	kraken_taxid_17_MGYG_HGUT_02448_1	778	97.68		True
+translocation, scaffold gap is present
+60286	60709	748	1171	kraken_taxid_17_MGYG_HGUT_02448_9	778	98.35		True
+CONTIG	778	1171	misassembled
+19677	21611	1940	1	kraken_taxid_17_MGYG_HGUT_02448_13	779	99.23		True
+fake: scaffold gap size wrong estimation (local)
+18811	19487	2717	2041	kraken_taxid_17_MGYG_HGUT_02448_13	779	99.11		True
+CONTIG	779	2720	correct
+35890	36987	1	1098	kraken_taxid_17_MGYG_HGUT_02448_13	780	99.0		True
+fake: scaffold gap size wrong estimation (local)
+37374	38417	1348	2389	kraken_taxid_17_MGYG_HGUT_02448_13	780	91.33		True
+CONTIG	780	2389	correct
+14269	15079	811	1	kraken_taxid_17_MGYG_HGUT_02448_1	781	99.38		True
+fake: scaffold gap size wrong estimation (local)
+14269	15079	1632	822	kraken_taxid_17_MGYG_HGUT_02448_1	781	99.38		True
+CONTIG	781	1632	correct
+134201	135103	1	903	kraken_taxid_17_MGYG_HGUT_02448_4	782	99.67		True
+local misassembly
+134201	135103	914	1816	kraken_taxid_17_MGYG_HGUT_02448_4	782	99.67		True
+CONTIG	782	1816	correct
+128432	129426	1	995	kraken_taxid_17_MGYG_HGUT_02448_2	783	99.9		True
+relocation, scaffold gap is present, inconsistency = -1005
+128432	129426	1006	2000	kraken_taxid_17_MGYG_HGUT_02448_2	783	99.9		True
+CONTIG	783	2000	misassembled
+141167	142000	1	834	kraken_taxid_17_MGYG_HGUT_02448_4	784	99.76		True
+local misassembly
+141167	142000	845	1678	kraken_taxid_17_MGYG_HGUT_02448_4	784	99.76		True
+CONTIG	784	1678	correct
+9438	10300	1	863	kraken_taxid_17_MGYG_HGUT_02448_38	785	99.3		True
+local misassembly
+9438	10300	874	1736	kraken_taxid_17_MGYG_HGUT_02448_38	785	99.3		True
+CONTIG	785	1736	correct
+295183	296018	836	1	kraken_taxid_17_MGYG_HGUT_02448_1	786	98.92		True
+fake: scaffold gap size wrong estimation (local)
+295183	296018	1682	847	kraken_taxid_17_MGYG_HGUT_02448_1	786	98.92		True
+CONTIG	786	1682	correct
+17086	17942	857	1	kraken_taxid_17_MGYG_HGUT_02448_11	787	98.72		True
+fake: scaffold gap size wrong estimation (local)
+17086	17942	1724	868	kraken_taxid_17_MGYG_HGUT_02448_11	787	98.72		True
+CONTIG	787	1724	correct
+10841	11631	791	1	kraken_taxid_17_MGYG_HGUT_02448_17	788	99.49		True
+fake: scaffold gap size wrong estimation (local)
+10841	11631	1592	802	kraken_taxid_17_MGYG_HGUT_02448_17	788	99.49		True
+CONTIG	788	1592	correct
+67365	67755	1	391	kraken_taxid_17_MGYG_HGUT_02448_3	789	98.98		True
+unknown
+67365	67755	869	1259	kraken_taxid_17_MGYG_HGUT_02448_3	789	98.98		True
+unknown
+CONTIG	789	1726	mis_unaligned
+91485	92338	1	854	kraken_taxid_17_MGYG_HGUT_02448_1	790	98.48		True
+local misassembly
+91485	92338	865	1718	kraken_taxid_17_MGYG_HGUT_02448_1	790	98.48		True
+CONTIG	790	1718	correct
+172480	173262	1	783	kraken_taxid_17_MGYG_HGUT_02448_2	791	98.98		True
+local misassembly
+172480	173262	794	1576	kraken_taxid_17_MGYG_HGUT_02448_2	791	98.98		True
+CONTIG	791	1576	correct
+193784	194689	1	906	kraken_taxid_17_MGYG_HGUT_02448_2	792	98.9		True
+local misassembly
+193784	194689	917	1822	kraken_taxid_17_MGYG_HGUT_02448_2	792	98.9		True
+CONTIG	792	1822	correct
+287725	288468	1	744	kraken_taxid_17_MGYG_HGUT_02448_1	793	99.87		True
+local misassembly
+287725	288468	755	1498	kraken_taxid_17_MGYG_HGUT_02448_1	793	99.87		True
+CONTIG	793	1498	correct
+21311	22098	1	788	kraken_taxid_17_MGYG_HGUT_02448_15	794	99.49		True
+local misassembly
+21311	22098	799	1586	kraken_taxid_17_MGYG_HGUT_02448_15	794	99.49		True
+CONTIG	794	1586	correct
+91135	92008	1	874	kraken_taxid_17_MGYG_HGUT_02448_9	795	99.43		True
+local misassembly
+91135	92008	885	1758	kraken_taxid_17_MGYG_HGUT_02448_9	795	99.43		True
+CONTIG	795	1758	correct
+94548	96432	1919	1	kraken_taxid_17_MGYG_HGUT_02448_7	796	99.51		True
+CONTIG	796	1919	correct
+2948	3699	752	1	kraken_taxid_17_MGYG_HGUT_02448_19	797	99.73		True
+fake: scaffold gap size wrong estimation (local)
+2948	3699	1514	763	kraken_taxid_17_MGYG_HGUT_02448_19	797	99.73		True
+CONTIG	797	1514	correct
+2120	2327	657	450	kraken_taxid_17_MGYG_HGUT_02448_38	798	98.56		True
+unknown
+2120	2327	1324	1117	kraken_taxid_17_MGYG_HGUT_02448_38	798	98.56		True
+unknown
+CONTIG	798	1324	mis_unaligned
+61088	61770	683	1	kraken_taxid_17_MGYG_HGUT_02448_7	799	99.85		True
+fake: scaffold gap size wrong estimation (local)
+61088	61770	1376	694	kraken_taxid_17_MGYG_HGUT_02448_7	799	99.85		True
+CONTIG	799	1376	correct
+29726	30430	705	1	kraken_taxid_17_MGYG_HGUT_02448_4	800	99.72		True
+fake: scaffold gap size wrong estimation (local)
+29726	30430	1420	716	kraken_taxid_17_MGYG_HGUT_02448_4	800	99.72		True
+CONTIG	800	1420	correct
+1538	2286	749	1	kraken_taxid_17_MGYG_HGUT_02448_43	801	99.87		True
+fake: scaffold gap size wrong estimation (local)
+1538	2286	1508	760	kraken_taxid_17_MGYG_HGUT_02448_43	801	99.87		True
+CONTIG	801	1508	correct
+92539	93446	1	908	kraken_taxid_17_MGYG_HGUT_02448_9	802	99.45		True
+local misassembly
+92539	93446	919	1826	kraken_taxid_17_MGYG_HGUT_02448_9	802	99.45		True
+CONTIG	802	1826	correct
+81184	82294	1111	1	kraken_taxid_17_MGYG_HGUT_02448_5	803	98.92		True
+fake: scaffold gap size wrong estimation (local)
+80524	81071	1759	1212	kraken_taxid_17_MGYG_HGUT_02448_5	803	98.0		True
+CONTIG	803	1759	correct
+15676	16314	1	634	kraken_taxid_17_MGYG_HGUT_02448_4	804	96.09		True
+local misassembly
+15676	16314	645	1278	kraken_taxid_17_MGYG_HGUT_02448_4	804	96.09		True
+CONTIG	804	1278	correct
+58602	59352	751	1	kraken_taxid_17_MGYG_HGUT_02448_5	805	92.92		True
+fake: scaffold gap size wrong estimation (local)
+58602	59352	1512	762	kraken_taxid_17_MGYG_HGUT_02448_5	805	92.92		True
+CONTIG	805	1512	correct
+10291	11220	930	1	kraken_taxid_17_MGYG_HGUT_02448_15	806	99.46		True
+fake: scaffold gap size wrong estimation (local)
+10291	11220	1870	941	kraken_taxid_17_MGYG_HGUT_02448_15	806	99.46		True
+CONTIG	806	1870	correct
+19617	20330	1	714	kraken_taxid_17_MGYG_HGUT_02448_9	807	99.72		True
+local misassembly
+19617	20330	725	1438	kraken_taxid_17_MGYG_HGUT_02448_9	807	99.72		True
+CONTIG	807	1438	correct
+999	1730	732	1	kraken_taxid_17_MGYG_HGUT_02448_34	808	99.32		True
+fake: scaffold gap size wrong estimation (local)
+999	1730	1474	743	kraken_taxid_17_MGYG_HGUT_02448_34	808	99.32		True
+CONTIG	808	1474	correct
+35216	36227	1012	1	kraken_taxid_17_MGYG_HGUT_02448_10	809	99.11		True
+fake: scaffold gap size wrong estimation (extensive)
+35216	36227	2034	1023	kraken_taxid_17_MGYG_HGUT_02448_10	809	99.11		True
+CONTIG	809	2034	correct
+74654	75392	1	739	kraken_taxid_17_MGYG_HGUT_02448_5	810	99.86		True
+local misassembly
+74654	75392	750	1488	kraken_taxid_17_MGYG_HGUT_02448_5	810	99.86		True
+CONTIG	810	1488	correct
+25382	26375	994	1	kraken_taxid_17_MGYG_HGUT_02448_17	811	99.4		True
+fake: scaffold gap size wrong estimation (extensive)
+25382	26375	1998	1005	kraken_taxid_17_MGYG_HGUT_02448_17	811	99.4		True
+CONTIG	811	1998	correct
+34458	35145	692	5	kraken_taxid_17_MGYG_HGUT_02448_6	812	99.13		True
+fake: scaffold gap size wrong estimation (local)
+34458	35145	1394	707	kraken_taxid_17_MGYG_HGUT_02448_6	812	99.13		True
+CONTIG	812	1394	correct
+90679	91316	638	1	kraken_taxid_17_MGYG_HGUT_02448_4	813	99.84		True
+fake: scaffold gap size wrong estimation (local)
+90679	91316	1295	658	kraken_taxid_17_MGYG_HGUT_02448_4	813	99.84		True
+CONTIG	813	1304	correct
+243106	243721	1	616	kraken_taxid_17_MGYG_HGUT_02448_1	814	100.0		True
+local misassembly
+243106	243721	627	1242	kraken_taxid_17_MGYG_HGUT_02448_1	814	100.0		True
+CONTIG	814	1242	correct
+181356	182040	685	1	kraken_taxid_17_MGYG_HGUT_02448_2	815	98.39		True
+fake: scaffold gap size wrong estimation (local)
+181356	182040	1380	696	kraken_taxid_17_MGYG_HGUT_02448_2	815	98.39		True
+CONTIG	815	1380	correct
+338242	338975	1	734	kraken_taxid_17_MGYG_HGUT_02448_1	816	99.73		True
+local misassembly
+338242	338975	745	1478	kraken_taxid_17_MGYG_HGUT_02448_1	816	99.73		True
+CONTIG	816	1478	correct
+37527	38313	6	792	kraken_taxid_17_MGYG_HGUT_02448_6	817	99.75		True
+local misassembly
+37527	38313	808	1594	kraken_taxid_17_MGYG_HGUT_02448_6	817	99.75		True
+CONTIG	817	1594	correct
+654	1613	1	960	kraken_taxid_17_MGYG_HGUT_02448_8	818	98.96		True
+local misassembly
+654	1613	971	1930	kraken_taxid_17_MGYG_HGUT_02448_8	818	98.96		True
+CONTIG	818	1930	correct
+160634	161516	883	1	kraken_taxid_17_MGYG_HGUT_02448_2	819	100.0		True
+fake: scaffold gap size wrong estimation (local)
+160634	161516	1776	894	kraken_taxid_17_MGYG_HGUT_02448_2	819	100.0		True
+CONTIG	819	1776	correct
+153914	154510	597	1	kraken_taxid_17_MGYG_HGUT_02448_4	820	100.0		True
+fake: scaffold gap size wrong estimation (local)
+153914	154510	1204	608	kraken_taxid_17_MGYG_HGUT_02448_4	820	100.0		True
+CONTIG	820	1204	correct
+68119	68806	688	1	kraken_taxid_17_MGYG_HGUT_02448_8	821	99.13		True
+fake: scaffold gap size wrong estimation (local)
+68119	68806	1386	699	kraken_taxid_17_MGYG_HGUT_02448_8	821	99.13		True
+CONTIG	821	1386	correct
+332833	333453	1	621	kraken_taxid_17_MGYG_HGUT_02448_1	822	98.39		True
+local misassembly
+332833	333453	632	1252	kraken_taxid_17_MGYG_HGUT_02448_1	822	98.39		True
+CONTIG	822	1252	correct
+23161	23959	799	1	kraken_taxid_17_MGYG_HGUT_02448_17	823	97.62		True
+fake: scaffold gap size wrong estimation (local)
+23161	23959	1608	810	kraken_taxid_17_MGYG_HGUT_02448_17	823	97.62		True
+CONTIG	823	1608	correct
+15885	16611	1	727	kraken_taxid_17_MGYG_HGUT_02448_17	824	99.17		True
+local misassembly
+15885	16611	738	1464	kraken_taxid_17_MGYG_HGUT_02448_17	824	99.17		True
+CONTIG	824	1464	correct
+17535	18435	1	901	kraken_taxid_17_MGYG_HGUT_02448_27	825	99.0		True
+local misassembly
+17535	18435	912	1812	kraken_taxid_17_MGYG_HGUT_02448_27	825	99.0		True
+CONTIG	825	1812	correct
+100270	100813	544	1	kraken_taxid_17_MGYG_HGUT_02448_4	826	99.45		True
+fake: scaffold gap size wrong estimation (local)
+100270	100813	1188	645	kraken_taxid_17_MGYG_HGUT_02448_4	826	99.45		True
+CONTIG	826	1188	correct
+12818	13480	663	1	kraken_taxid_17_MGYG_HGUT_02448_25	827	99.55		True
+fake: scaffold gap size wrong estimation (local)
+12818	13480	1336	674	kraken_taxid_17_MGYG_HGUT_02448_25	827	99.55		True
+CONTIG	827	1336	correct
+13479	14168	1	690	kraken_taxid_17_MGYG_HGUT_02448_17	828	99.13		True
+local misassembly
+13479	14168	701	1390	kraken_taxid_17_MGYG_HGUT_02448_17	828	99.13		True
+CONTIG	828	1390	correct
+40675	41697	1023	1	kraken_taxid_17_MGYG_HGUT_02448_4	829	99.12		True
+fake: scaffold gap size wrong estimation (local)
+39783	40333	1674	1124	kraken_taxid_17_MGYG_HGUT_02448_4	829	98.55		True
+CONTIG	829	1674	correct
+22681	23382	1	702	kraken_taxid_17_MGYG_HGUT_02448_3	830	99.72		True
+local misassembly
+22681	23382	713	1414	kraken_taxid_17_MGYG_HGUT_02448_3	830	99.72		True
+CONTIG	830	1414	correct
+182638	183196	1	559	kraken_taxid_17_MGYG_HGUT_02448_1	831	99.64		True
+local misassembly
+182638	183196	570	1128	kraken_taxid_17_MGYG_HGUT_02448_1	831	99.64		True
+CONTIG	831	1128	correct
+26524	27340	1	817	kraken_taxid_17_MGYG_HGUT_02448_18	832	99.27		True
+local misassembly
+26524	27340	828	1644	kraken_taxid_17_MGYG_HGUT_02448_18	832	99.27		True
+CONTIG	832	1644	correct
+58557	59217	1	661	kraken_taxid_17_MGYG_HGUT_02448_4	833	99.85		True
+local misassembly
+58557	59217	672	1332	kraken_taxid_17_MGYG_HGUT_02448_4	833	99.85		True
+CONTIG	833	1332	correct
+9375	10072	698	1	kraken_taxid_17_MGYG_HGUT_02448_24	834	99.57		True
+fake: scaffold gap size wrong estimation (local)
+9375	10072	1406	709	kraken_taxid_17_MGYG_HGUT_02448_24	834	99.57		True
+CONTIG	834	1406	correct
+9505	10112	610	3	kraken_taxid_17_MGYG_HGUT_02448_20	835	99.01		True
+fake: scaffold gap size wrong estimation (local)
+9505	10112	1230	623	kraken_taxid_17_MGYG_HGUT_02448_20	835	99.01		True
+CONTIG	835	1230	correct
+80819	81481	663	1	kraken_taxid_17_MGYG_HGUT_02448_1	836	99.1		True
+fake: scaffold gap size wrong estimation (local)
+80819	81481	1336	674	kraken_taxid_17_MGYG_HGUT_02448_1	836	99.1		True
+CONTIG	836	1336	correct
+13833	14532	1	700	kraken_taxid_17_MGYG_HGUT_02448_27	837	99.29		True
+local misassembly
+13833	14532	711	1410	kraken_taxid_17_MGYG_HGUT_02448_27	837	99.29		True
+CONTIG	837	1410	correct
+24083	24605	1	523	kraken_taxid_17_MGYG_HGUT_02448_3	838	99.43		True
+local misassembly
+24083	24605	624	1146	kraken_taxid_17_MGYG_HGUT_02448_3	838	99.43		True
+CONTIG	838	1146	correct
+20697	21627	931	1	kraken_taxid_17_MGYG_HGUT_02448_17	839	99.57		True
+fake: scaffold gap size wrong estimation (local)
+20697	21627	1872	942	kraken_taxid_17_MGYG_HGUT_02448_17	839	99.57		True
+CONTIG	839	1872	correct
+124030	124616	1	587	kraken_taxid_17_MGYG_HGUT_02448_1	840	99.15		True
+local misassembly
+124030	124616	598	1184	kraken_taxid_17_MGYG_HGUT_02448_1	840	99.15		True
+CONTIG	840	1184	correct
+21530	22362	1	833	kraken_taxid_17_MGYG_HGUT_02448_24	841	99.76		True
+local misassembly
+21530	22362	847	1679	kraken_taxid_17_MGYG_HGUT_02448_24	841	99.76		True
+CONTIG	841	1682	correct
+133822	134373	1	552	kraken_taxid_17_MGYG_HGUT_02448_3	842	98.19		True
+fake: scaffold gap size wrong estimation (local)
+134561	135626	653	1718	kraken_taxid_17_MGYG_HGUT_02448_3	842	99.44		True
+translocation
+59264	59666	1719	2121	kraken_taxid_17_MGYG_HGUT_02448_7	842	99.76		True
+CONTIG	842	2121	misassembled
+49704	50460	1	757	kraken_taxid_17_MGYG_HGUT_02448_13	843	99.21		True
+local misassembly
+49704	50460	768	1524	kraken_taxid_17_MGYG_HGUT_02448_13	843	99.21		True
+CONTIG	843	1524	correct
+50421	51002	2	583	kraken_taxid_17_MGYG_HGUT_02448_8	844	99.48		True
+local misassembly
+50421	51002	595	1176	kraken_taxid_17_MGYG_HGUT_02448_8	844	99.48		True
+CONTIG	844	1176	correct
+16	609	594	1	kraken_taxid_17_MGYG_HGUT_02448_11	845	99.49		True
+fake: scaffold gap size wrong estimation (local)
+16	609	1352	759	kraken_taxid_17_MGYG_HGUT_02448_11	845	99.49		True
+translocation
+14	159	1361	1506	kraken_taxid_17_MGYG_HGUT_02448_35	845	99.32		True
+CONTIG	845	1506	misassembled
+253796	254391	1	596	kraken_taxid_17_MGYG_HGUT_02448_1	846	98.15		True
+local misassembly
+253796	254391	607	1202	kraken_taxid_17_MGYG_HGUT_02448_1	846	98.15		True
+CONTIG	846	1202	correct
+12749	13326	1	578	kraken_taxid_17_MGYG_HGUT_02448_4	847	98.96		True
+local misassembly
+12749	13326	589	1166	kraken_taxid_17_MGYG_HGUT_02448_4	847	98.96		True
+CONTIG	847	1166	correct
+102641	103535	1	895	kraken_taxid_17_MGYG_HGUT_02448_1	848	98.77		True
+local misassembly
+102641	103535	908	1802	kraken_taxid_17_MGYG_HGUT_02448_1	848	98.77		True
+CONTIG	848	1804	correct
+281502	282359	858	1	kraken_taxid_17_MGYG_HGUT_02448_1	849	99.53		True
+fake: scaffold gap size wrong estimation (local)
+280386	281193	1766	959	kraken_taxid_17_MGYG_HGUT_02448_1	849	97.4		True
+CONTIG	849	1766	correct
+6306	7272	1	967	kraken_taxid_17_MGYG_HGUT_02448_48	850	99.28		True
+local misassembly
+6306	7272	978	1944	kraken_taxid_17_MGYG_HGUT_02448_48	850	99.28		True
+CONTIG	850	1944	correct
+27632	28478	847	1	kraken_taxid_17_MGYG_HGUT_02448_12	851	99.88		True
+fake: scaffold gap size wrong estimation (local)
+27632	28478	1704	858	kraken_taxid_17_MGYG_HGUT_02448_12	851	99.88		True
+CONTIG	851	1704	correct
+108703	109542	1	840	kraken_taxid_17_MGYG_HGUT_02448_6	852	99.64		True
+local misassembly
+108703	109542	851	1690	kraken_taxid_17_MGYG_HGUT_02448_6	852	99.64		True
+CONTIG	852	1690	correct
+70204	70913	710	1	kraken_taxid_17_MGYG_HGUT_02448_9	853	99.72		True
+fake: scaffold gap size wrong estimation (local)
+70204	70913	1430	721	kraken_taxid_17_MGYG_HGUT_02448_9	853	99.72		True
+CONTIG	853	1430	correct
+104879	105674	1	796	kraken_taxid_17_MGYG_HGUT_02448_7	854	99.62		True
+local misassembly
+104879	105674	807	1602	kraken_taxid_17_MGYG_HGUT_02448_7	854	99.62		True
+CONTIG	854	1602	correct
+226912	227908	997	1	kraken_taxid_17_MGYG_HGUT_02448_1	855	99.1		True
+fake: scaffold gap size wrong estimation (extensive)
+226912	227908	2004	1008	kraken_taxid_17_MGYG_HGUT_02448_1	855	99.1		True
+CONTIG	855	2004	correct
+19665	20398	734	1	kraken_taxid_17_MGYG_HGUT_02448_22	856	99.46		True
+fake: scaffold gap size wrong estimation (local)
+19665	20398	1478	745	kraken_taxid_17_MGYG_HGUT_02448_22	856	99.46		True
+CONTIG	856	1478	correct
+10580	11398	819	1	kraken_taxid_17_MGYG_HGUT_02448_29	857	99.51		True
+fake: scaffold gap size wrong estimation (local)
+10580	11398	1648	830	kraken_taxid_17_MGYG_HGUT_02448_29	857	99.51		True
+CONTIG	857	1648	correct
+4835	5531	697	1	kraken_taxid_17_MGYG_HGUT_02448_38	858	99.14		True
+fake: scaffold gap size wrong estimation (local)
+4835	5531	1404	708	kraken_taxid_17_MGYG_HGUT_02448_38	858	99.14		True
+CONTIG	858	1404	correct
+32572	33442	1	871	kraken_taxid_17_MGYG_HGUT_02448_10	859	99.54		True
+local misassembly
+32572	33442	882	1752	kraken_taxid_17_MGYG_HGUT_02448_10	859	99.54		True
+CONTIG	859	1752	correct
+63406	64230	1	825	kraken_taxid_17_MGYG_HGUT_02448_7	860	99.52		True
+local misassembly
+63406	64230	836	1660	kraken_taxid_17_MGYG_HGUT_02448_7	860	99.52		True
+CONTIG	860	1660	correct
+18488	19595	1108	1	kraken_taxid_17_MGYG_HGUT_02448_1	861	99.82		True
+fake: scaffold gap size wrong estimation (extensive)
+18488	19595	2226	1119	kraken_taxid_17_MGYG_HGUT_02448_1	861	99.82		True
+CONTIG	861	2226	correct
+148844	149981	1138	1	kraken_taxid_17_MGYG_HGUT_02448_1	862	99.3		True
+fake: scaffold gap size wrong estimation (extensive)
+148844	149981	2286	1149	kraken_taxid_17_MGYG_HGUT_02448_1	862	99.3		True
+CONTIG	862	2286	correct
+CONTIG	863	1304	unaligned
+490	1086	1	597	kraken_taxid_17_MGYG_HGUT_02448_35	864	99.66		True
+local misassembly
+490	1086	608	1204	kraken_taxid_17_MGYG_HGUT_02448_35	864	99.66		True
+CONTIG	864	1204	correct
+26347	27058	712	1	kraken_taxid_17_MGYG_HGUT_02448_16	865	99.16		True
+fake: scaffold gap size wrong estimation (local)
+26347	27058	1434	723	kraken_taxid_17_MGYG_HGUT_02448_16	865	99.16		True
+CONTIG	865	1434	correct
+8730	9418	689	1	kraken_taxid_17_MGYG_HGUT_02448_3	866	99.85		True
+fake: scaffold gap size wrong estimation (local)
+8730	9418	1388	700	kraken_taxid_17_MGYG_HGUT_02448_3	866	99.85		True
+CONTIG	866	1388	correct
+14717	15369	1	653	kraken_taxid_17_MGYG_HGUT_02448_3	867	99.54		True
+local misassembly
+14717	15369	664	1316	kraken_taxid_17_MGYG_HGUT_02448_3	867	99.54		True
+CONTIG	867	1316	correct
+209801	210600	800	1	kraken_taxid_17_MGYG_HGUT_02448_1	868	99.0		True
+fake: scaffold gap size wrong estimation (local)
+209801	210600	1610	811	kraken_taxid_17_MGYG_HGUT_02448_1	868	99.0		True
+CONTIG	868	1610	correct
+330812	331619	808	1	kraken_taxid_17_MGYG_HGUT_02448_1	869	99.5		True
+fake: scaffold gap size wrong estimation (local)
+330812	331619	1626	819	kraken_taxid_17_MGYG_HGUT_02448_1	869	99.5		True
+CONTIG	869	1626	correct
+23146	23943	798	1	kraken_taxid_17_MGYG_HGUT_02448_14	870	99.5		True
+fake: scaffold gap size wrong estimation (local)
+23146	23943	1606	809	kraken_taxid_17_MGYG_HGUT_02448_14	870	99.5		True
+CONTIG	870	1606	correct
+49558	50476	1	919	kraken_taxid_17_MGYG_HGUT_02448_16	871	99.35		True
+local misassembly
+49558	50476	930	1848	kraken_taxid_17_MGYG_HGUT_02448_16	871	99.35		True
+CONTIG	871	1848	correct
+4293	4966	1	674	kraken_taxid_17_MGYG_HGUT_02448_21	872	99.26		True
+local misassembly
+4293	4966	685	1358	kraken_taxid_17_MGYG_HGUT_02448_21	872	99.26		True
+CONTIG	872	1358	correct
+78217	79002	1	786	kraken_taxid_17_MGYG_HGUT_02448_2	873	100.0		True
+local misassembly
+78217	79002	797	1582	kraken_taxid_17_MGYG_HGUT_02448_2	873	100.0		True
+CONTIG	873	1582	correct
+272672	273352	681	1	kraken_taxid_17_MGYG_HGUT_02448_1	874	99.71		True
+fake: scaffold gap size wrong estimation (local)
+272672	273352	1372	692	kraken_taxid_17_MGYG_HGUT_02448_1	874	99.71		True
+CONTIG	874	1372	correct
+3101	3972	1	872	kraken_taxid_17_MGYG_HGUT_02448_23	875	99.31		True
+local misassembly
+3101	3972	883	1754	kraken_taxid_17_MGYG_HGUT_02448_23	875	99.31		True
+CONTIG	875	1754	correct
+8080	9011	1	932	kraken_taxid_17_MGYG_HGUT_02448_13	876	100.0		True
+local misassembly
+8080	9011	943	1874	kraken_taxid_17_MGYG_HGUT_02448_13	876	100.0		True
+CONTIG	876	1874	correct
+39384	40074	691	1	kraken_taxid_17_MGYG_HGUT_02448_2	877	99.86		True
+fake: scaffold gap size wrong estimation (local)
+39384	40074	1392	702	kraken_taxid_17_MGYG_HGUT_02448_2	877	99.86		True
+CONTIG	877	1392	correct
+92863	93660	6	803	kraken_taxid_17_MGYG_HGUT_02448_2	878	99.25		True
+local misassembly
+92863	93660	819	1616	kraken_taxid_17_MGYG_HGUT_02448_2	878	99.25		True
+CONTIG	878	1616	correct
+68705	69441	1	737	kraken_taxid_17_MGYG_HGUT_02448_6	879	98.1		True
+local misassembly
+68705	69441	748	1484	kraken_taxid_17_MGYG_HGUT_02448_6	879	98.1		True
+CONTIG	879	1484	correct
+6075	6920	1	846	kraken_taxid_17_MGYG_HGUT_02448_27	880	99.88		True
+local misassembly
+6075	6920	857	1702	kraken_taxid_17_MGYG_HGUT_02448_27	880	99.88		True
+CONTIG	880	1702	correct
+1384	1932	1	549	kraken_taxid_17_MGYG_HGUT_02448_32	881	98.91		True
+local misassembly
+1384	1932	560	1108	kraken_taxid_17_MGYG_HGUT_02448_32	881	98.91		True
+CONTIG	881	1108	correct
+33258	33970	713	1	kraken_taxid_17_MGYG_HGUT_02448_9	882	99.72		True
+fake: scaffold gap size wrong estimation (local)
+32522	33082	1374	814	kraken_taxid_17_MGYG_HGUT_02448_9	882	99.47		True
+CONTIG	882	1374	correct
+68385	68892	508	1	kraken_taxid_17_MGYG_HGUT_02448_10	883	99.02		True
+fake: scaffold gap size wrong estimation (local)
+68385	68892	1116	609	kraken_taxid_17_MGYG_HGUT_02448_10	883	99.02		True
+CONTIG	883	1116	correct
+3127	4198	1072	1	kraken_taxid_17_MGYG_HGUT_02448_4	884	98.04		True
+fake: scaffold gap size wrong estimation (extensive)
+3127	4198	2154	1083	kraken_taxid_17_MGYG_HGUT_02448_4	884	98.04		True
+CONTIG	884	2154	correct
+11088	11660	1	573	kraken_taxid_17_MGYG_HGUT_02448_31	885	99.48		True
+local misassembly
+11088	11660	584	1156	kraken_taxid_17_MGYG_HGUT_02448_31	885	99.48		True
+CONTIG	885	1156	correct
+41092	41960	869	1	kraken_taxid_17_MGYG_HGUT_02448_6	886	99.08		True
+fake: scaffold gap size wrong estimation (local)
+41092	41960	1758	890	kraken_taxid_17_MGYG_HGUT_02448_6	886	99.08		True
+CONTIG	886	1768	correct
+381	1065	1	685	kraken_taxid_17_MGYG_HGUT_02448_43	887	99.56		True
+local misassembly
+381	1065	696	1380	kraken_taxid_17_MGYG_HGUT_02448_43	887	99.56		True
+CONTIG	887	1380	correct
+29160	29821	1	656	kraken_taxid_17_MGYG_HGUT_02448_5	888	98.79		True
+local misassembly
+29160	29821	667	1322	kraken_taxid_17_MGYG_HGUT_02448_5	888	98.79		True
+CONTIG	888	1322	correct
+76581	77304	6	729	kraken_taxid_17_MGYG_HGUT_02448_6	889	99.59		True
+local misassembly
+76581	77304	745	1468	kraken_taxid_17_MGYG_HGUT_02448_6	889	99.59		True
+CONTIG	889	1468	correct
+103622	104460	839	1	kraken_taxid_17_MGYG_HGUT_02448_5	890	99.05		True
+fake: scaffold gap size wrong estimation (local)
+103622	104460	1688	850	kraken_taxid_17_MGYG_HGUT_02448_5	890	99.05		True
+CONTIG	890	1688	correct
+46774	47283	1	510	kraken_taxid_17_MGYG_HGUT_02448_13	891	99.61		True
+local misassembly
+46774	47283	611	1120	kraken_taxid_17_MGYG_HGUT_02448_13	891	99.61		True
+CONTIG	891	1120	correct
+16914	17447	534	1	kraken_taxid_17_MGYG_HGUT_02448_1	892	99.81		True
+fake: scaffold gap size wrong estimation (local)
+16914	17447	1168	635	kraken_taxid_17_MGYG_HGUT_02448_1	892	99.81		True
+CONTIG	892	1168	correct
+119858	120393	1	536	kraken_taxid_17_MGYG_HGUT_02448_2	893	99.81		True
+local misassembly
+119858	120393	637	1172	kraken_taxid_17_MGYG_HGUT_02448_2	893	99.81		True
+CONTIG	893	1172	correct
+1922	2521	600	1	kraken_taxid_17_MGYG_HGUT_02448_14	894	99.83		True
+fake: scaffold gap size wrong estimation (local)
+1922	2521	1210	611	kraken_taxid_17_MGYG_HGUT_02448_14	894	99.83		True
+CONTIG	894	1210	correct
+27156	27793	1	638	kraken_taxid_17_MGYG_HGUT_02448_3	895	99.22		True
+local misassembly
+27156	27793	649	1286	kraken_taxid_17_MGYG_HGUT_02448_3	895	99.22		True
+CONTIG	895	1286	correct
+83847	84419	573	1	kraken_taxid_17_MGYG_HGUT_02448_5	896	99.65		True
+fake: scaffold gap size wrong estimation (local)
+83847	84419	1156	584	kraken_taxid_17_MGYG_HGUT_02448_5	896	99.65		True
+CONTIG	896	1156	correct
+21788	22259	472	1	kraken_taxid_17_MGYG_HGUT_02448_8	898	99.79		True
+fake: scaffold gap size wrong estimation (local)
+21788	22259	1044	573	kraken_taxid_17_MGYG_HGUT_02448_8	898	99.79		True
+CONTIG	898	1044	correct
+129843	130096	1	254	kraken_taxid_17_MGYG_HGUT_02448_5	899	98.43		True
+fake: scaffold gap size wrong estimation (local)
+130332	132055	355	2087	kraken_taxid_17_MGYG_HGUT_02448_5	899	98.9		True
+CONTIG	899	2087	correct
+57703	58161	1	459	kraken_taxid_17_MGYG_HGUT_02448_16	900	99.13		True
+fake: scaffold gap size wrong estimation (local)
+58213	58475	678	940	kraken_taxid_17_MGYG_HGUT_02448_16	900	100.0		True
+local misassembly
+57703	58161	1041	1499	kraken_taxid_17_MGYG_HGUT_02448_16	900	99.13		True
+CONTIG	900	1617	correct
+2131	2877	828	1	kraken_taxid_17_MGYG_HGUT_02448_48	901	99.73		True
+local misassembly
+2305	2877	1611	1039	kraken_taxid_17_MGYG_HGUT_02448_48	901	99.83		True
+CONTIG	901	1611	correct
+15458	16014	557	1	kraken_taxid_17_MGYG_HGUT_02448_14	902	99.46		True
+fake: scaffold gap size wrong estimation (local)
+14910	15187	935	658	kraken_taxid_17_MGYG_HGUT_02448_14	902	98.92		True
+relocation, scaffold gap is present, inconsistency = -1205
+15458	16014	1592	1036	kraken_taxid_17_MGYG_HGUT_02448_14	902	99.46		True
+CONTIG	902	1592	misassembled
+64979	65529	1	551	kraken_taxid_17_MGYG_HGUT_02448_1	903	98.91		True
+fake: scaffold gap size wrong estimation (local)
+65874	66155	652	933	kraken_taxid_17_MGYG_HGUT_02448_1	903	98.94		True
+relocation, scaffold gap is present, inconsistency = -1277
+64979	65529	1034	1584	kraken_taxid_17_MGYG_HGUT_02448_1	903	98.91		True
+CONTIG	903	1584	misassembled
+233412	233958	547	1	kraken_taxid_17_MGYG_HGUT_02448_1	904	100.0		True
+fake: scaffold gap size wrong estimation (local)
+232976	233239	911	648	kraken_taxid_17_MGYG_HGUT_02448_1	904	100.0		True
+relocation, scaffold gap is present, inconsistency = -1083
+233412	233958	1558	1012	kraken_taxid_17_MGYG_HGUT_02448_1	904	100.0		True
+CONTIG	904	1558	misassembled
+17691	18236	546	1	kraken_taxid_17_MGYG_HGUT_02448_3	905	99.27		True
+fake: scaffold gap size wrong estimation (local)
+16324	17503	1826	647	kraken_taxid_17_MGYG_HGUT_02448_3	905	99.07		True
+fake: scaffold gap size wrong estimation (local)
+15777	16205	2355	1927	kraken_taxid_17_MGYG_HGUT_02448_3	905	99.53		True
+CONTIG	905	2356	correct
+212155	212685	1	531	kraken_taxid_17_MGYG_HGUT_02448_1	906	99.62		True
+fake: scaffold gap size wrong estimation (local)
+213033	213944	632	1543	kraken_taxid_17_MGYG_HGUT_02448_1	906	97.7		True
+fake: scaffold gap size wrong estimation (local)
+213939	214253	1644	1958	kraken_taxid_17_MGYG_HGUT_02448_1	906	99.37		True
+CONTIG	906	1958	correct
+1628	2146	520	1	kraken_taxid_17_MGYG_HGUT_02448_46	907	99.23		True
+relocation, scaffold gap is present, inconsistency = -1047
+2302	2574	893	621	kraken_taxid_17_MGYG_HGUT_02448_46	907	99.63		True
+fake: scaffold gap size wrong estimation (local)
+1628	2146	1513	994	kraken_taxid_17_MGYG_HGUT_02448_46	907	99.23		True
+CONTIG	907	1513	misassembled
+8585	9060	476	1	kraken_taxid_17_MGYG_HGUT_02448_28	908	99.79		True
+relocation, scaffold gap is present, inconsistency = -1068
+9268	9552	861	577	kraken_taxid_17_MGYG_HGUT_02448_28	908	99.65		True
+fake: scaffold gap size wrong estimation (local)
+8585	9060	1437	962	kraken_taxid_17_MGYG_HGUT_02448_28	908	99.79		True
+CONTIG	908	1437	misassembled
+145588	146057	1	470	kraken_taxid_17_MGYG_HGUT_02448_1	909	99.15		True
+relocation, scaffold gap is present, inconsistency = -1105
+145053	145375	571	893	kraken_taxid_17_MGYG_HGUT_02448_1	909	98.76		True
+fake: scaffold gap size wrong estimation (local)
+145588	146057	999	1468	kraken_taxid_17_MGYG_HGUT_02448_1	909	99.15		True
+CONTIG	909	1468	misassembled
+327982	328434	1	453	kraken_taxid_17_MGYG_HGUT_02448_1	910	99.78		True
+fake: scaffold gap size wrong estimation (local)
+328760	329012	554	806	kraken_taxid_17_MGYG_HGUT_02448_1	910	100.0		True
+relocation, scaffold gap is present, inconsistency = -1131
+327982	328434	907	1359	kraken_taxid_17_MGYG_HGUT_02448_1	910	99.78		True
+CONTIG	910	1359	misassembled
+19418	19860	444	1	kraken_taxid_17_MGYG_HGUT_02448_4	911	99.55		True
+fake: scaffold gap size wrong estimation (local)
+18904	19190	836	550	kraken_taxid_17_MGYG_HGUT_02448_4	911	100.0		True
+relocation, scaffold gap is present, inconsistency = -1057
+19418	19860	1380	937	kraken_taxid_17_MGYG_HGUT_02448_4	911	99.55		True
+CONTIG	911	1380	misassembled
+169698	170134	437	1	kraken_taxid_17_MGYG_HGUT_02448_4	912	100.0		True
+fake: scaffold gap size wrong estimation (local)
+169183	169469	829	543	kraken_taxid_17_MGYG_HGUT_02448_4	912	98.95		True
+relocation, scaffold gap is present, inconsistency = -1052
+169698	170134	1366	930	kraken_taxid_17_MGYG_HGUT_02448_4	912	100.0		True
+CONTIG	912	1371	misassembled
+25864	26287	425	1	kraken_taxid_17_MGYG_HGUT_02448_9	913	99.29		True
+fake: scaffold gap size wrong estimation (local)
+25288	25604	842	526	kraken_taxid_17_MGYG_HGUT_02448_9	913	99.68		True
+relocation, scaffold gap is present, inconsistency = -1100
+25864	26287	1367	943	kraken_taxid_17_MGYG_HGUT_02448_9	913	99.29		True
+CONTIG	913	1367	misassembled
+1329	1752	424	1	kraken_taxid_17_MGYG_HGUT_02448_4	914	98.11		True
+fake: scaffold gap size wrong estimation (local)
+1329	2145	1371	525	kraken_taxid_17_MGYG_HGUT_02448_4	914	98.8		True
+CONTIG	914	1371	correct
+101846	102604	763	2	kraken_taxid_17_MGYG_HGUT_02448_4	915	99.4		True
+local misassembly
+102193	102604	1276	865	kraken_taxid_17_MGYG_HGUT_02448_4	915	99.27		True
+CONTIG	915	1276	correct
+325036	325448	413	1	kraken_taxid_17_MGYG_HGUT_02448_1	916	99.03		True
+fake: scaffold gap size wrong estimation (local)
+324375	324692	831	514	kraken_taxid_17_MGYG_HGUT_02448_1	916	99.69		True
+relocation, scaffold gap is present, inconsistency = -1174
+325036	325448	1344	932	kraken_taxid_17_MGYG_HGUT_02448_1	916	99.03		True
+CONTIG	916	1344	misassembled
+85164	85567	1	404	kraken_taxid_17_MGYG_HGUT_02448_5	917	99.75		True
+fake: scaffold gap size wrong estimation (local)
+85697	85952	505	760	kraken_taxid_17_MGYG_HGUT_02448_5	917	99.61		True
+local misassembly
+85164	85567	861	1264	kraken_taxid_17_MGYG_HGUT_02448_5	917	99.75		True
+CONTIG	917	1264	correct
+122236	122627	392	1	kraken_taxid_17_MGYG_HGUT_02448_2	918	100.0		True
+fake: scaffold gap size wrong estimation (local)
+121720	122053	826	493	kraken_taxid_17_MGYG_HGUT_02448_2	918	99.4		True
+relocation, scaffold gap is present, inconsistency = -1008
+122236	122627	1318	927	kraken_taxid_17_MGYG_HGUT_02448_2	918	100.0		True
+CONTIG	918	1318	misassembled
+65878	66263	1	386	kraken_taxid_17_MGYG_HGUT_02448_3	919	99.48		True
+local misassembly
+65518	66263	487	1274	kraken_taxid_17_MGYG_HGUT_02448_3	919	99.56		True
+CONTIG	919	1274	correct
+51642	52423	787	1	kraken_taxid_17_MGYG_HGUT_02448_4	920	99.85		True
+local misassembly
+52046	52423	1265	888	kraken_taxid_17_MGYG_HGUT_02448_4	920	100.0		True
+CONTIG	920	1265	correct
+93458	93827	370	1	kraken_taxid_17_MGYG_HGUT_02448_7	921	100.0		True
+fake: scaffold gap size wrong estimation (local)
+92955	93247	763	471	kraken_taxid_17_MGYG_HGUT_02448_7	921	97.27		True
+local misassembly
+93458	93827	1233	864	kraken_taxid_17_MGYG_HGUT_02448_7	921	100.0		True
+CONTIG	921	1233	correct
+50570	50937	1	368	kraken_taxid_17_MGYG_HGUT_02448_6	922	100.0		True
+fake: scaffold gap size wrong estimation (local)
+51064	51421	472	829	kraken_taxid_17_MGYG_HGUT_02448_6	922	99.44		True
+local misassembly
+50570	50937	930	1297	kraken_taxid_17_MGYG_HGUT_02448_6	922	100.0		True
+CONTIG	922	1297	correct
+4049	4720	724	1	kraken_taxid_17_MGYG_HGUT_02448_16	923	100.0		True
+local misassembly
+4358	4720	1187	825	kraken_taxid_17_MGYG_HGUT_02448_16	923	100.0		True
+CONTIG	923	1187	correct
+24474	24835	1	362	kraken_taxid_17_MGYG_HGUT_02448_19	924	97.79		True
+local misassembly
+24043	24835	463	1267	kraken_taxid_17_MGYG_HGUT_02448_19	924	98.72		True
+CONTIG	924	1267	correct
+177320	177670	1	351	kraken_taxid_17_MGYG_HGUT_02448_4	925	98.29		True
+local misassembly
+176910	177158	452	700	kraken_taxid_17_MGYG_HGUT_02448_4	925	98.8		True
+fake: scaffold gap size wrong estimation (local)
+177320	177670	801	1151	kraken_taxid_17_MGYG_HGUT_02448_4	925	98.29		True
+CONTIG	925	1151	correct
+268214	268560	347	1	kraken_taxid_17_MGYG_HGUT_02448_1	926	95.39		True
+fake: scaffold gap size wrong estimation (local)
+267745	268014	717	448	kraken_taxid_17_MGYG_HGUT_02448_1	926	98.15		True
+local misassembly
+268214	268560	1164	818	kraken_taxid_17_MGYG_HGUT_02448_1	926	95.39		True
+CONTIG	926	1164	correct
+167485	167826	1	342	kraken_taxid_17_MGYG_HGUT_02448_2	927	92.42		True
+fake: scaffold gap size wrong estimation (local)
+167941	168201	443	703	kraken_taxid_17_MGYG_HGUT_02448_2	927	100.0		True
+local misassembly
+167485	167826	804	1145	kraken_taxid_17_MGYG_HGUT_02448_2	927	92.42		True
+CONTIG	927	1145	correct
+63041	63656	698	1	kraken_taxid_17_MGYG_HGUT_02448_2	928	99.0		True
+local misassembly
+63329	63656	1126	799	kraken_taxid_17_MGYG_HGUT_02448_2	928	99.09		True
+CONTIG	928	1126	correct
+18447	18769	323	1	kraken_taxid_17_MGYG_HGUT_02448_26	929	99.69		True
+fake: scaffold gap size wrong estimation (local)
+18447	19157	1161	424	kraken_taxid_17_MGYG_HGUT_02448_26	929	96.72		True
+CONTIG	929	1161	correct
+122231	122550	1	320	kraken_taxid_17_MGYG_HGUT_02448_5	930	99.69		True
+fake: scaffold gap size wrong estimation (local)
+122694	122946	421	673	kraken_taxid_17_MGYG_HGUT_02448_5	930	99.6		True
+local misassembly
+122231	122550	774	1093	kraken_taxid_17_MGYG_HGUT_02448_5	930	99.69		True
+CONTIG	930	1093	correct
+44503	44809	1	307	kraken_taxid_17_MGYG_HGUT_02448_17	931	97.39		True
+local misassembly
+44162	44809	429	1108	kraken_taxid_17_MGYG_HGUT_02448_17	931	97.07		True
+CONTIG	931	1108	correct
+71048	71353	306	1	kraken_taxid_17_MGYG_HGUT_02448_8	932	99.67		True
+fake: scaffold gap size wrong estimation (local)
+70592	70850	665	407	kraken_taxid_17_MGYG_HGUT_02448_8	932	98.84		True
+local misassembly
+71048	71353	1076	771	kraken_taxid_17_MGYG_HGUT_02448_8	932	99.67		True
+CONTIG	932	1076	correct
+203564	203867	304	1	kraken_taxid_17_MGYG_HGUT_02448_1	933	98.68		True
+fake: scaffold gap size wrong estimation (local)
+203143	203409	671	405	kraken_taxid_17_MGYG_HGUT_02448_1	933	98.88		True
+local misassembly
+203564	203867	1075	772	kraken_taxid_17_MGYG_HGUT_02448_1	933	98.68		True
+CONTIG	933	1075	correct
+119838	120441	1	666	kraken_taxid_17_MGYG_HGUT_02448_5	934	100.0		True
+local misassembly
+119838	120140	767	1069	kraken_taxid_17_MGYG_HGUT_02448_5	934	100.0		True
+CONTIG	934	1069	correct
+76462	76763	302	1	kraken_taxid_17_MGYG_HGUT_02448_4	935	99.67		True
+fake: scaffold gap size wrong estimation (local)
+76030	76277	650	403	kraken_taxid_17_MGYG_HGUT_02448_4	935	97.2		True
+local misassembly
+76462	76763	1052	751	kraken_taxid_17_MGYG_HGUT_02448_4	935	99.67		True
+CONTIG	935	1052	correct
+20788	21089	302	1	kraken_taxid_17_MGYG_HGUT_02448_11	936	98.34		True
+fake: scaffold gap size wrong estimation (local)
+20296	20581	688	403	kraken_taxid_17_MGYG_HGUT_02448_11	936	99.65		True
+local misassembly
+20788	21089	1090	789	kraken_taxid_17_MGYG_HGUT_02448_11	936	98.34		True
+CONTIG	936	1090	correct
+48564	48859	296	1	kraken_taxid_17_MGYG_HGUT_02448_2	937	100.0		True
+local misassembly
+49123	49399	673	397	kraken_taxid_17_MGYG_HGUT_02448_2	937	98.92		True
+fake: scaffold gap size wrong estimation (local)
+48564	48859	1069	774	kraken_taxid_17_MGYG_HGUT_02448_2	937	100.0		True
+CONTIG	937	1069	correct
+33393	33672	280	1	kraken_taxid_17_MGYG_HGUT_02448_11	938	100.0		True
+fake: scaffold gap size wrong estimation (local)
+32313	33257	1404	381	kraken_taxid_17_MGYG_HGUT_02448_11	938	99.89		True
+CONTIG	938	1404	correct
+31234	31508	1	275	kraken_taxid_17_MGYG_HGUT_02448_3	939	98.91		True
+local misassembly
+30912	31508	376	1007	kraken_taxid_17_MGYG_HGUT_02448_3	939	98.87		True
+CONTIG	939	1007	correct
+2057	2665	2	628	kraken_taxid_17_MGYG_HGUT_02448_5	940	99.24		True
+local misassembly
+2057	2329	730	1002	kraken_taxid_17_MGYG_HGUT_02448_5	940	99.27		True
+CONTIG	940	1002	correct
+15807	16060	254	1	kraken_taxid_17_MGYG_HGUT_02448_15	941	98.82		True
+fake: scaffold gap size wrong estimation (local)
+15807	16440	1021	355	kraken_taxid_17_MGYG_HGUT_02448_15	941	98.94		True
+CONTIG	941	1021	correct
+101631	101881	1	251	kraken_taxid_17_MGYG_HGUT_02448_5	942	100.0		True
+relocation, scaffold gap is present, inconsistency = -1031
+100951	101436	352	837	kraken_taxid_17_MGYG_HGUT_02448_5	942	99.59		True
+fake: scaffold gap size wrong estimation (local)
+101631	101881	938	1188	kraken_taxid_17_MGYG_HGUT_02448_5	942	100.0		True
+CONTIG	942	1188	misassembled
+43414	44069	656	1	kraken_taxid_17_MGYG_HGUT_02448_11	943	99.7		True
+fake: scaffold gap size wrong estimation (local)
+42910	43200	1047	757	kraken_taxid_17_MGYG_HGUT_02448_11	943	99.31		True
+fake: scaffold gap size wrong estimation (local)
+41464	42800	2484	1148	kraken_taxid_17_MGYG_HGUT_02448_11	943	99.4		True
+CONTIG	943	2484	correct
+34945	35401	1	457	kraken_taxid_17_MGYG_HGUT_02448_5	944	99.78		True
+fake: scaffold gap size wrong estimation (local)
+35590	36837	558	1831	kraken_taxid_17_MGYG_HGUT_02448_5	944	99.06		True
+CONTIG	944	1831	correct
+60099	60453	355	1	kraken_taxid_17_MGYG_HGUT_02448_8	945	99.72		True
+fake: scaffold gap size wrong estimation (local)
+59438	59945	963	456	kraken_taxid_17_MGYG_HGUT_02448_8	945	99.8		True
+fake: scaffold gap size wrong estimation (local)
+57370	59149	2843	1064	kraken_taxid_17_MGYG_HGUT_02448_8	945	99.89		True
+CONTIG	945	2843	correct
+53009	54489	1560	1	kraken_taxid_17_MGYG_HGUT_02448_16	946	99.45		True
+fake: scaffold gap size wrong estimation (local)
+52408	52663	1916	1661	kraken_taxid_17_MGYG_HGUT_02448_16	946	99.22		True
+CONTIG	946	1916	correct
+3893	5916	2024	1	kraken_taxid_17_MGYG_HGUT_02448_49	947	98.72		True
+CONTIG	947	2024	correct
+9520	10956	1560	124	kraken_taxid_17_MGYG_HGUT_02448_39	948	99.03		True
+CONTIG	948	1560	correct
+16304	18519	146	2361	kraken_taxid_17_MGYG_HGUT_02448_20	949	97.83		True
+CONTIG	949	2361	correct
+18312	19990	1	1679	kraken_taxid_17_MGYG_HGUT_02448_18	951	99.29		True
+CONTIG	951	1679	correct
+316328	317419	10	1100	kraken_taxid_17_MGYG_HGUT_02448_1	952	98.35		True
+CONTIG	952	1100	correct
+105410	106942	1533	1	kraken_taxid_17_MGYG_HGUT_02448_6	953	98.04		True
+fake: scaffold gap size wrong estimation (local)
+105115	105395	1914	1634	kraken_taxid_17_MGYG_HGUT_02448_6	953	100.0		True
+CONTIG	953	1914	correct
+68773	69904	1132	1	kraken_taxid_17_MGYG_HGUT_02448_9	956	98.76		True
+fake: scaffold gap size wrong estimation (local)
+66967	68504	2770	1233	kraken_taxid_17_MGYG_HGUT_02448_9	956	99.74		True
+fake: scaffold gap size wrong estimation (local)
+65826	66814	3859	2871	kraken_taxid_17_MGYG_HGUT_02448_9	956	99.7		True
+CONTIG	956	3859	correct
+46563	47840	1	1278	kraken_taxid_17_MGYG_HGUT_02448_17	957	99.93		True
+translocation
+1	2522	1279	3845	kraken_taxid_17_MGYG_HGUT_02448_55	957	97.05		True
+translocation
+197398	198576	5055	3877	kraken_taxid_17_MGYG_HGUT_02448_4	957	99.58		True
+CONTIG	957	5059	misassembled
+77533	82617	5176	138	kraken_taxid_17_MGYG_HGUT_02448_3	958	93.02		True
+CONTIG	958	5468	correct
