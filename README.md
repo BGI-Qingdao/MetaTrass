@@ -5,10 +5,7 @@ Description:
 ---
 **MetaTrass** is abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy to assembly high-quality metagenomes from the sequencing data.
 
-Publication:
----
 
-First Look:  [bioRxiv Preprint](https://www.biorxiv.org/content/10.1101/2021.09.13.459686v1)
 
 Change Log:
 ---
@@ -19,15 +16,18 @@ Change Log:
 Dependencies:
 ---
 
-+ Python: Version >3.0.0
+System requirement:
 
-+ C++ libraries: C++11 standard library
++ Python3 (version >3.0.0)
 
-+ Third-party software:  [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
-[Kraken2](https://github.com/DerrickWood/kraken2), 
-[Seqtk](https://github.com/lh3/seqtk.git), 
-[stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline) and 
-[Quast](http://quast.sourceforge.net/quast.html)
++ GCC (version >3.8.0)
+
++ Third-party software: 
+	+ [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
+	+ [Kraken2](https://github.com/DerrickWood/kraken2), 
+	+ [Seqtk](https://github.com/lh3/seqtk.git), 
+	+ [stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline) and 
+	+ [Quast](http://quast.sourceforge.net/quast.html)
 
 How to install:
 ---
@@ -401,7 +401,7 @@ Output files:
 
 Contributing:
 ---
-* Author: [Yanwei Qi](https://github.com/QYanwei), [Lidong Guo](https://github.com/cchd0001).
+* Author: dengli1@genomics.cn; qiyanwei1@genomics.cn; guolidong@genomics.cn;
 
 License:
 ---
@@ -410,3 +410,8 @@ License:
 Issue:
 ---
 * Please submit issues on the [github page for MetaTrass](https://github.com/BGI-Qingdao/MetaTrass/issues).
+
+Publication:
+---
+
+First Look:  [bioRxiv Preprint](https://www.biorxiv.org/content/10.1101/2021.09.13.459686v1)
