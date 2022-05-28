@@ -39,7 +39,44 @@ cd  ./MetaTrass/tools/  && g++ -std=c++11 TABrefiner.cpp -o TABrefiner
 
 2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
 
-Configuring the references and table before complementation:
+Fast usage by demo dateset
+---
+
+Get the final assemblies by demo dataset  :
+```
+python="/path-to-your/python3"
+
+# download the UHGG kraken dataset 
+wget -r -np -nH -erobots=off http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/ 
+# configuring the references database
+$python ./MetaTrass/tool/fa_split_by_taxid.py -reffna ./kraken2-db/library/library*.fna -outdir ./uhgg_kraken2-fa/
+$python ./MetaTrass/tool/ref_genome_size.py -refdir ./uhgg_kraken2-fa/
+# Assembly all species
+rawfq1=./MetaTrass/Test/dir1_cleandata/split_reads.1.fq.gz.clean.gz
+rawfq2=./MetaTrass/Test/dir1_cleandata/split_reads.2.fq.gz.clean.gz
+
+sample=demo_dataset
+outdir=test_run
+mkdir -p $outdir 
+output=$outdir/$sample
+mkdir -p $output
+
+Trass="./MetaTrass/Trass.py"
+ref_db="./uhgg_kraken2-db/"
+ref_fa="./uhgg_kraken2-fa/"
+ref_gz="./uhgg_kraken2-fa/ref_genome_size.txt"
+
+$python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
+$python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz \
+                  -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz \
+		   -thread 10 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
+$python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
+```
+
+
+
+
+Usage 0.1:  Configuring the references database:
 ---
 1. **The reference database** for kraken2 include a folder that holds the database. 
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
@@ -104,10 +141,9 @@ Configuring the references and table before complementation:
         	python3 /path/to/MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
 
 
-
-Usages and Parameters:
+Usages 0.2: Assembly all species.
 ---
-
+We provide flexible commands and detailed usage for users.  
 Usages:
 
 	
@@ -119,11 +155,14 @@ Usages:
 	                 Assembly Single-Species
 	    =================================================
 	    Combination modules:
-	       GC              ->  Get stLFR Cleandata
+	       GC              ->  Get stLFR Cleandata. 
+	                           GC is the combination of SplitBarcode and GetCleandata commands.
 	       TB              ->  Taxonomic Reads And Co-Barcoding Reads Refining (TABrefiner)
+	       			   TB is the combination of Kraken2Taxon, TXACBrefiner and ReadID2Fastq commands.
 	       AP              ->  Single-species Assembly and Contigs Purifying
+	                           AP is the combination of MetaAssembly and ContigPurify commands
 	
-	    Independent modules:
+	    Independent command :
 	       SplitBarcode    ->  Covert barcode sequences to digital code
 	       GetCleandata    ->  Cleandata filtered by SOAPfilter
 	       Kraken2Taxon    ->  Taxonomic total reads under references database by Kraken
@@ -147,7 +186,7 @@ Usages:
 	
 
 
-Parameters explaination:
+Usage for each combination module:
 
 1. 	* **G**etting **C**leanData 
 	```	
@@ -216,6 +255,7 @@ Parameters explaination:
 	  -runnow RUNNOW        Run this script immediately
 
 	```
+
 
 Input Sequencing files:
 ---
