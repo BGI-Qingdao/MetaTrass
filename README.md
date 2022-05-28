@@ -23,25 +23,19 @@ System requirement:
 + GCC (version >3.8.0)
 
 Third-party software: 
-+ [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
-+ [Kraken2](https://github.com/DerrickWood/kraken2), 
-+ [Seqtk](https://github.com/lh3/seqtk.git), 
++ [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git)
++ [Kraken2](https://github.com/DerrickWood/kraken2)
++ [Seqtk](https://github.com/lh3/seqtk.git)
 + [stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline)  
 + [Quast](http://quast.sourceforge.net/quast.html)
 
 How to install:
 ---
 1. MetaTrass can be installed via git channel:
-
-        # First-time installation
-        git clone https://github.com/BGI-Qingdao/MetaTrass.git
-
-        # for upgrade
-        git add *
-	
-        # recompile TABrefiner with c++11 
-        cd /path/to/MetaTrass/tools/ && g++ -std=c++11 TABrefiner.cpp -o TABrefiner 
-
+```
+git clone https://github.com/BGI-Qingdao/MetaTrass.git
+cd  ./MetaTrass/tools/  && g++ -std=c++11 TABrefiner.cpp -o TABrefiner
+```     
 
 2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
 
