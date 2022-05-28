@@ -22,12 +22,12 @@ System requirement:
 
 + GCC (version >3.8.0)
 
-+ Third-party software: 
-	+ [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
-	+ [Kraken2](https://github.com/DerrickWood/kraken2), 
-	+ [Seqtk](https://github.com/lh3/seqtk.git), 
-	+ [stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline) and 
-	+ [Quast](http://quast.sourceforge.net/quast.html)
+Third-party software: 
++ [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
++ [Kraken2](https://github.com/DerrickWood/kraken2), 
++ [Seqtk](https://github.com/lh3/seqtk.git), 
++ [stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline)  
++ [Quast](http://quast.sourceforge.net/quast.html)
 
 How to install:
 ---
