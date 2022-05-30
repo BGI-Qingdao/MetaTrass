@@ -163,7 +163,7 @@ Usages:
 	                           AP is the combination of MetaAssembly and ContigPurify commands
 	
 	    Independent command :
-	       SplitBarcode    ->  Covert barcode sequences to digital code
+	       SplitBarcode    ->  Convert barcode sequences to digital code
 	       GetCleandata    ->  Cleandata filtered by SOAPfilter
 	       Kraken2Taxon    ->  Taxonomic total reads under references database by Kraken
 	       TXACBrefiner    ->  Refining read id by using Taxonomic information and superior coBarcoding set
