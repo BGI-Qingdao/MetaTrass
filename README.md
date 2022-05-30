@@ -188,7 +188,8 @@ Usages:
 
 Usage for each combination module:
 
-	* 1. **G**etting **C**leanData 
+* 1. **G**etting **C**leanData 
+	
 	```	
 	> python Trass.py GC -h
 	usage: Trass.py GC [-h] -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 [-thread THREAD] -outdir OUTDIR [-runnow RUNNOW]
@@ -205,7 +206,8 @@ Usage for each combination module:
 
 	```
 	
-	* 2. **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
+* 2. **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
+	
 	```	
 	> python Trass.py TB -h
 	usage: Trass.py TB [-h] -cleanfq1 CLEANFQ1 -cleanfq2 CLEANFQ2 [-thread THREAD] [-parallel PARALLEL] -sample SAMPLE -ref_db REF_DB -genome_size GENOME_SIZE [-max_depth 		MAX_DEPTH] [-min_depth MIN_DEPTH] [-pe_length PE_LENGTH] -outdir OUTDIR [-runnow RUNNOW]
@@ -230,7 +232,8 @@ Usage for each combination module:
   
 	```
 
- 	* 3. Single-species **A**ssembly and Contigs **P**urifying  
+* 3. Single-species **A**ssembly and Contigs **P**urifying  
+	
 	```
 	> python Trass.py AP -h
 	usage: Trass.py AP [-h] [-maprate MAPRATE] [-memory MEMORY] [-maxreads MAXREADS] [-pairdepth PAIRDEPTH] [-PCT PCT] [-IDY IDY] -ref_fa REF_FA [-thread THREAD]
@@ -407,7 +410,7 @@ Output files:
 
 Contributing:
 ---
-* Author: dengli1@genomics.cn; qiyanwei1@genomics.cn; guolidong@genomics.cn;
+* Author Contact: dengli1@genomics.cn; qiyanwei1@genomics.cn; guolidong@genomics.cn;
 
 License:
 ---
