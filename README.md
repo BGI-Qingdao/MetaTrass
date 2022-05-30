@@ -110,7 +110,7 @@ Usage 0.1:  Configuring the references database:
 
 2. **The reference genome** for refining the contigs should be kept with the reference database.
      * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file.
-       You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
+       You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to convert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
        
      	```
 		python3 /path/to/MetaTrass/tool/fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
@@ -167,7 +167,7 @@ Usages:
 	       GetCleandata    ->  Cleandata filtered by SOAPfilter
 	       Kraken2Taxon    ->  Taxonomic total reads under references database by Kraken
 	       TXACBrefiner    ->  Refining read id by using Taxonomic information and superior coBarcoding set
-	       ReadID2Fastq    ->  Covert the refined read id from total fastq to each speices
+	       ReadID2Fastq    ->  Convert the refined read id from total fastq to each speices
 	       MetaAssembly    ->  Co-barcoding genome assembly by using SUPERNOVA
  	       ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
 
@@ -279,12 +279,12 @@ Input Sequencing files:
 2. **For 10X Chromium sequencing data**	
      * 1. Rawdata:
      
-       If you have the 10X Chromium data, please Covert the 10X data to stLFR format.
+       If you have the 10X Chromium data, please convert the 10X data to stLFR format.
      		
      * 2. Cleandata: like publication dataset.  
      	Using Athena MOCK20 sequencing data ([ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d)) as an examples. 
 	
-        **_Coverting_ 10X data**
+        **_Converting_ 10X data**
 	
 		- Read1 of 10X reads: **SRR6760785_1.fastq.gz** 
 		
