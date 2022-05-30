@@ -55,10 +55,7 @@ $python ./MetaTrass/tool/ref_genome_size.py -refdir ./uhgg_kraken2-fa/
 rawfq1=./MetaTrass/Test/dir1_cleandata/split_reads.1.fq.gz.clean.gz
 rawfq2=./MetaTrass/Test/dir1_cleandata/split_reads.2.fq.gz.clean.gz
 
-sample=demo_dataset
-outdir=test_run
-mkdir -p $outdir 
-output=$outdir/$sample
+output=$outdir/Demo
 mkdir -p $output
 
 Trass="./MetaTrass/Trass.py"
@@ -66,14 +63,14 @@ ref_db="./uhgg_kraken2-db/"
 ref_fa="./uhgg_kraken2-fa/"
 ref_gz="./uhgg_kraken2-fa/ref_genome_size.txt"
 
-$python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
+$python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow no
+
 $python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz \
                   -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz \
 		   -thread 10 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
+		   
 $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
 ```
-
-
 
 
 Usage 0.1:  Configuring the references database:
