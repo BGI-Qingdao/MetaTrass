@@ -405,7 +405,12 @@ Output files:
     
 3. Memory and time consumption
 
-![image](https://user-images.githubusercontent.com/13197453/171098503-342779a3-92ab-46f6-9bdd-e5dec0cf1c98.png)
+|Sample	|Base number (Gb)	|Peak RAM usage (Gb)|CPU max (thread)|Time (min)|
+| :----- | ----: | :----- | ----: | :----- |
+|H_Gut_Meta01	|32.11 	|50.2 	|16 	|5,145 |
+|H_Gut_Meta02	|32.90 	|55.1 	|16 	|2,631 |
+|H_Gut_Meta03	|35.28 	|55.5 	|16 	|3,147 |
+|P_Gut_Meta01	|90.53 	|71.0 	|16 	|8,363 |
 
 
 Contributing:
