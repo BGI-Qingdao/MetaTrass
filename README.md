@@ -403,6 +403,13 @@ Output files:
 
 ![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
     
+Sample	MEM max(KB)	CPU max(thread)	TIME Usage(min)
+H_Gut_Meta01	52,612,608 	16 	5145
+H_Gut_Meta02	57,750,088 	16 	2631
+H_Gut_Meta03	58,208,120 	16 	3147
+P_Gut_Meta01	74,493,232 	16 	8363
+MOCK10	90,434,864 	6 	1741
+![image](https://user-images.githubusercontent.com/13197453/171098399-6b7eecda-3771-4ae0-a1ba-483212dcaf6e.png)
 
 
 Contributing:
