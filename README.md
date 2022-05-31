@@ -399,17 +399,13 @@ Output files:
 	10 directories, 14 files
 ```   
 
-2.Time consumption record:   
+2. Running Log:   
 
 ![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
     
-Sample	MEM max(KB)	CPU max(thread)	TIME Usage(min)
-H_Gut_Meta01	52,612,608 	16 	5145
-H_Gut_Meta02	57,750,088 	16 	2631
-H_Gut_Meta03	58,208,120 	16 	3147
-P_Gut_Meta01	74,493,232 	16 	8363
-MOCK10	90,434,864 	6 	1741
-![image](https://user-images.githubusercontent.com/13197453/171098399-6b7eecda-3771-4ae0-a1ba-483212dcaf6e.png)
+3. Memory and time consumption
+
+![image](https://user-images.githubusercontent.com/13197453/171098503-342779a3-92ab-46f6-9bdd-e5dec0cf1c98.png)
 
 
 Contributing:
