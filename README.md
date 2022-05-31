@@ -5,10 +5,7 @@ Description:
 ---
 **MetaTrass** is abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy to assembly high-quality metagenomes from the sequencing data.
 
-Publication:
----
 
-First Look:  [bioRxiv Preprint](https://www.biorxiv.org/content/10.1101/2021.09.13.459686v1)
 
 Change Log:
 ---
@@ -19,33 +16,64 @@ Change Log:
 Dependencies:
 ---
 
-+ Python: Version >3.0.0
+System requirement:
 
-+ C++ libraries: C++11 standard library
++ Python3 (version >3.0.0)
 
-+ Third-party software:  [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git),
-[Kraken2](https://github.com/DerrickWood/kraken2), 
-[Seqtk](https://github.com/lh3/seqtk.git), 
-[stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline) and 
-[Quast](http://quast.sourceforge.net/quast.html)
++ GCC (version >3.8.0)
+
+Third-party software: 
++ [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git)
++ [Kraken2](https://github.com/DerrickWood/kraken2)
++ [Seqtk](https://github.com/lh3/seqtk.git)
++ [stlfr2supernova](https://github.com/BGI-Qingdao/stlfr2supernova_pipeline)  
++ [Quast](http://quast.sourceforge.net/quast.html)
 
 How to install:
 ---
 1. MetaTrass can be installed via git channel:
-
-        # First-time installation
-        git clone https://github.com/BGI-Qingdao/MetaTrass.git
-
-        # for upgrade
-        git add *
-	
-        # recompile TABrefiner with c++11 
-        cd /path/to/MetaTrass/tools/ && g++ -std=c++11 TABrefiner.cpp -o TABrefiner 
-
+```
+git clone https://github.com/BGI-Qingdao/MetaTrass.git
+cd  ./MetaTrass/tools/  && g++ -std=c++11 TABrefiner.cpp -o TABrefiner
+```     
 
 2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
 
-Configuring the references and table before complementation:
+Fast usage by demo dateset
+---
+
+Get the final assemblies by demo dataset  :
+```
+python="/path-to-your/python3"
+
+# download the UHGG kraken dataset 
+wget -r -np -nH -erobots=off http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/ 
+# configuring the references database
+$python ./MetaTrass/tool/fa_split_by_taxid.py -reffna ./kraken2-db/library/library*.fna -outdir ./uhgg_kraken2-fa/
+$python ./MetaTrass/tool/ref_genome_size.py -refdir ./uhgg_kraken2-fa/
+# Assembly all species
+rawfq1=./MetaTrass/Test/dir1_cleandata/split_reads.1.fq.gz.clean.gz
+rawfq2=./MetaTrass/Test/dir1_cleandata/split_reads.2.fq.gz.clean.gz
+
+output=$outdir/Demo
+mkdir -p $output
+
+Trass="./MetaTrass/Trass.py"
+ref_db="./uhgg_kraken2-db/"
+ref_fa="./uhgg_kraken2-fa/"
+ref_gz="./uhgg_kraken2-fa/ref_genome_size.txt"
+
+$python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow no
+
+$python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz \
+                  -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz \
+		   -thread 10 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
+		   
+$python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
+```
+
+
+Usage 0.1:  Configuring the references database:
 ---
 1. **The reference database** for kraken2 include a folder that holds the database. 
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
@@ -79,7 +107,7 @@ Configuring the references and table before complementation:
 
 2. **The reference genome** for refining the contigs should be kept with the reference database.
      * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file.
-       You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to covert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
+       You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to convert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
        
      	```
 		python3 /path/to/MetaTrass/tool/fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
@@ -110,10 +138,9 @@ Configuring the references and table before complementation:
         	python3 /path/to/MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
 
 
-
-Usages and Parameters:
+Usages 0.2: Assembly all species.
 ---
-
+We provide flexible commands and detailed usage for users.  
 Usages:
 
 	
@@ -125,16 +152,19 @@ Usages:
 	                 Assembly Single-Species
 	    =================================================
 	    Combination modules:
-	       GC              ->  Get stLFR Cleandata
+	       GC              ->  Get stLFR Cleandata. 
+	                           GC is the combination of SplitBarcode and GetCleandata commands.
 	       TB              ->  Taxonomic Reads And Co-Barcoding Reads Refining (TABrefiner)
+	       			   TB is the combination of Kraken2Taxon, TXACBrefiner and ReadID2Fastq commands.
 	       AP              ->  Single-species Assembly and Contigs Purifying
+	                           AP is the combination of MetaAssembly and ContigPurify commands
 	
-	    Independent modules:
-	       SplitBarcode    ->  Covert barcode sequences to digital code
+	    Independent command :
+	       SplitBarcode    ->  Convert barcode sequences to digital code
 	       GetCleandata    ->  Cleandata filtered by SOAPfilter
 	       Kraken2Taxon    ->  Taxonomic total reads under references database by Kraken
 	       TXACBrefiner    ->  Refining read id by using Taxonomic information and superior coBarcoding set
-	       ReadID2Fastq    ->  Covert the refined read id from total fastq to each speices
+	       ReadID2Fastq    ->  Convert the refined read id from total fastq to each speices
 	       MetaAssembly    ->  Co-barcoding genome assembly by using SUPERNOVA
  	       ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
 
@@ -153,9 +183,10 @@ Usages:
 	
 
 
-Parameters explaination:
+Usage for each combination module:
 
-1. 	* **G**etting **C**leanData 
+* 1. **G**etting **C**leanData 
+	
 	```	
 	> python Trass.py GC -h
 	usage: Trass.py GC [-h] -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 [-thread THREAD] -outdir OUTDIR [-runnow RUNNOW]
@@ -172,7 +203,8 @@ Parameters explaination:
 
 	```
 	
-2.	* **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
+* 2. **T**axonomic Reads **A**nd Co-**B**arcoding Reads **Refining**  (TABrefiner)
+	
 	```	
 	> python Trass.py TB -h
 	usage: Trass.py TB [-h] -cleanfq1 CLEANFQ1 -cleanfq2 CLEANFQ2 [-thread THREAD] [-parallel PARALLEL] -sample SAMPLE -ref_db REF_DB -genome_size GENOME_SIZE [-max_depth 		MAX_DEPTH] [-min_depth MIN_DEPTH] [-pe_length PE_LENGTH] -outdir OUTDIR [-runnow RUNNOW]
@@ -197,7 +229,8 @@ Parameters explaination:
   
 	```
 
- 3.	* Single-species **A**ssembly and Contigs **P**urifying  
+* 3. Single-species **A**ssembly and Contigs **P**urifying  
+	
 	```
 	> python Trass.py AP -h
 	usage: Trass.py AP [-h] [-maprate MAPRATE] [-memory MEMORY] [-maxreads MAXREADS] [-pairdepth PAIRDEPTH] [-PCT PCT] [-IDY IDY] -ref_fa REF_FA [-thread THREAD]
@@ -223,6 +256,7 @@ Parameters explaination:
 
 	```
 
+
 Input Sequencing files:
 ---
 1. **For stLFR sequencing data**
@@ -242,12 +276,12 @@ Input Sequencing files:
 2. **For 10X Chromium sequencing data**	
      * 1. Rawdata:
      
-       If you have the 10X Chromium data, please Covert the 10X data to stLFR format.
+       If you have the 10X Chromium data, please convert the 10X data to stLFR format.
      		
      * 2. Cleandata: like publication dataset.  
      	Using Athena MOCK20 sequencing data ([ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d)) as an examples. 
 	
-        **_Coverting_ 10X data**
+        **_Converting_ 10X data**
 	
 		- Read1 of 10X reads: **SRR6760785_1.fastq.gz** 
 		
@@ -330,36 +364,7 @@ Input Sequencing files:
 		gzip -dc  SRR6760785_1.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/1\n",$1,$3); } else {printf("%s#0_0_0/1\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_1.stlfr.fastq.gz &
 		gzip -dc  SRR6760785_2.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/2\n",$1,$3); } else {printf("%s#0_0_0/2\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_2.stlfr.fastq.gz &
 		```  
-How to run:
----
 
-1. Command line guidence: 
-
-
-
-
-2. 
-
-    * Please refer to the  MetaTrass/bin/run.sh
-    	```
-		rawfq1=$1
-		rawfq2=$2
-		sample=$3
-		outdir=$4
-		mkdir -p $outdir 
-
-		output=$outdir/$sample
-		mkdir -p $output
-
-		python="/path/to/python3"
-		Trass="/path/to/MetaTrass/Trass.py"
-		ref_db="/path/to/uhgg_kraken2-db/"
-		ref_fa="/path/to/uhgg_kraken2-fa/"
-		ref_gz="/path/to//MetaTrass/config/all_single_species_genome_size.uhgg.txt"
-		echo $python $Trass GC -rawfq1 $rawfq1 -rawfq2 $rawfq2 -outdir $output -runnow yes
-		echo $python $Trass TB -cleanfq1 $output/dir1_cleandata/split_reads.1.fq.gz.clean.gz -cleanfq2 $output/dir1_cleandata/split_reads.2.fq.gz.clean.gz -thread 30 -sample $sample -ref_db $ref_db -genome_size $ref_gz -outdir $output -runnow yes
-		echo $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runnow yes 
-2. Demo test
 
 Output files:
 ---
@@ -394,14 +399,18 @@ Output files:
 	10 directories, 14 files
 ```   
 
-2.Time consumption record:   
-    ![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
+2. Running Log:   
+
+![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
     
+3. Memory and time consumption
+
+![image](https://user-images.githubusercontent.com/13197453/171098503-342779a3-92ab-46f6-9bdd-e5dec0cf1c98.png)
 
 
 Contributing:
 ---
-* Author: [Yanwei Qi](https://github.com/QYanwei), [Lidong Guo](https://github.com/cchd0001).
+* Author Contact: dengli1@genomics.cn; qiyanwei1@genomics.cn; guolidong@genomics.cn;
 
 License:
 ---
@@ -410,3 +419,8 @@ License:
 Issue:
 ---
 * Please submit issues on the [github page for MetaTrass](https://github.com/BGI-Qingdao/MetaTrass/issues).
+
+Publication:
+---
+
+First Look:  [bioRxiv Preprint](https://www.biorxiv.org/content/10.1101/2021.09.13.459686v1)
