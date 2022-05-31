@@ -20,7 +20,7 @@ System requirement:
 
 + Python3 (version >3.0.0)
 
-+ GCC (version >3.8.0)
++ GCC (version >4.8.1)
 
 Third-party software: 
 + [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git)
