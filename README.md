@@ -391,7 +391,7 @@ MetaTrass embeded the Supernova as the assembly tool, which would gain the longe
 
 2. barcode with high interspeices shared: 
 
-Some co-barconding or linked-reads data may have various degree strain crash rate, which means barcode shared with several speices. Such as MOCK data, which sequencing high depth with little number species. We devoloped a strict remove those reads in those shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner easily, keeping the both version of TABrefiner will be better to solve special dataset.
+Some co-barconding or linked-reads data may have various degree strain crash rate, which means barcode shared with several speices. Such as MOCK data, which sequencing high depth with little number species. We devoloped a strict remove those reads in those shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner, using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keeping the both versions of TABrefiner.
 
 
 Output files:
