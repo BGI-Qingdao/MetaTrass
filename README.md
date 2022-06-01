@@ -20,7 +20,7 @@ System requirement:
 
 + Python3 (version >3.0.0)
 
-+ GCC (version >3.8.0)
++ GCC (version >4.8.1)
 
 Third-party software: 
 + [stLFR_barcode_split](https://github.com/BGI-Qingdao/stLFR_barcode_split.git)
@@ -365,10 +365,39 @@ Input Sequencing files:
 		gzip -dc  SRR6760785_2.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/2\n",$1,$3); } else {printf("%s#0_0_0/2\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_2.stlfr.fastq.gz &
 		```  
 
+MetaTrass parameters and notices:
+---
+* Required parameter:
+1. -rawdata input: 
+2. -cleandata input: Paired-end data
+3. -outdir: the output path
+4. -thread: a) in TB option, please set the maxium threads. b)in AP option, please make the value of thread * parallel equal to the maxuim threads.
+5. -runnow: decide you whether run the command line right now or not.
+6. -ref_db: assigning the prepared kraken2 reference database you concerned microbiome system.
+7. -genome_size: all single-species genome size table followed by reference of your microbiome.
+8. -parallel: determining the number of species to assembly in once time, coordinate with the number of thread to make the decision.
+
+* Control parameter:
+1. -min_depth: filtering extreme low depth species, if you want to skip.
+2. -max_depth: limiting the reads number of species by barcode unit when over the thershold depth.
+3. -PCT: the purifying step required, Threshold of contig lnegth(0-1) 
+4. -IDY: the purifying step required, Threshold of IDY (80 - 100)
+
+
+* Notices
+1. extrem-high depth species: 
+
+MetaTrass embeded the Supernova as the assembly tool, which would gain the longer continuity of genome while used the more assembly time. Sometimes it will meet the ultra-high depth species which fail to assembly because Supernova has a strict monitoring mechanism of input coverage. In particular, may other linked-reads assemblers, such as SPAdes, can be used as re-assembly such species, which would be a compensation measures.
+
+2. barcode with high interspeices shared: 
+
+Some co-barconding or linked-reads data may have various degree strain crash rate, which means barcode shared with several speices. Such as MOCK data, which sequencing high depth with little number species. We devoloped a strict remove those reads in those shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner, using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keeping the both versions of TABrefiner.
+
 
 Output files:
 ---
-1. Examples of output folder structure:
+Examples of output folder structure:
+
 ```
 	.
 	├── [4.0K]  all_command_shell 
@@ -399,13 +428,16 @@ Output files:
 	10 directories, 14 files
 ```   
 
-2. Running Log:   
-
-![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
     
-3. Memory and time consumption
+MetaTrass performance
+---
 
-![image](https://user-images.githubusercontent.com/13197453/171098503-342779a3-92ab-46f6-9bdd-e5dec0cf1c98.png)
+|Sample	|Base number (Gb)|Peak RAM usage (Gb)|CPU max (thread)|Time (min)|
+| :----- | ----: | :----- | ----: | :----- |
+|H_Gut_Meta01|34.48|50.2|16|5,145 |
+|H_Gut_Meta02|35.33|55.1|16|2,631 |
+|H_Gut_Meta03|37.88|55.5|16|3,147 |
+|P_Gut_Meta01|97.20|71.0|16|8,363 |
 
 
 Contributing:
