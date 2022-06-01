@@ -365,10 +365,33 @@ Input Sequencing files:
 		gzip -dc  SRR6760785_2.fastq.gz |awk -F ' |_' '{ if(NR%4==1){ if(NF==4){printf("%s#%s/2\n",$1,$3); } else {printf("%s#0_0_0/2\n",$1);}} else if (NR%4==2 || NR%4==0) {print $0;} else{print "+";} } ' |gzip - > SRR6760785_2.stlfr.fastq.gz &
 		```  
 
+MetaTrass parameters and notices:
+---
+* Basic options
+1. -rawdata input: 
+2. -cleandata input:
+3. -outdir: path
+4. -thread
+5. -runnow:
+6. -ref_db:
+7. -genome_size:
+8. -parallel: 
+
+* Control options
+1. -min_depth:
+2. -max_depth:
+3. -PCT:
+4. -IDY:
+
+* Notices
+1. extrem depth species:
+
+3. barcode with high interspeices shared:
 
 Output files:
 ---
-1. Examples of output folder structure:
+Examples of output folder structure:
+
 ```
 	.
 	├── [4.0K]  all_command_shell 
@@ -399,11 +422,9 @@ Output files:
 	10 directories, 14 files
 ```   
 
-2. Running Log:   
-
-![image](https://user-images.githubusercontent.com/13197453/131279652-20f3cad2-d1c5-4cfd-8ad5-1de839306fcc.png)
     
-3. Memory and time consumption
+MetaTrass performance
+---
 
 |Sample	|Base number (Gb)|Peak RAM usage (Gb)|CPU max (thread)|Time (min)|
 | :----- | ----: | :----- | ----: | :----- |
