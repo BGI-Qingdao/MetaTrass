@@ -367,26 +367,32 @@ Input Sequencing files:
 
 MetaTrass parameters and notices:
 ---
-* Basic options
+* Required parameter:
 1. -rawdata input: 
-2. -cleandata input:
-3. -outdir: path
-4. -thread
-5. -runnow:
-6. -ref_db:
-7. -genome_size:
-8. -parallel: 
+2. -cleandata input: Paired-end data
+3. -outdir: the output path
+4. -thread: a) in TB option, please set the maxium threads. b)in AP option, please make the value of thread * parallel equal to the maxuim threads.
+5. -runnow: decide you whether run the command line right now or not.
+6. -ref_db: assigning the prepared kraken2 reference database you concerned microbiome system.
+7. -genome_size: all single-species genome size table followed by reference of your microbiome.
+8. -parallel: determining the number of species to assembly in once time, coordinate with the number of thread to make the decision.
 
-* Control options
-1. -min_depth:
-2. -max_depth:
-3. -PCT:
-4. -IDY:
+* Control parameter:
+1. -min_depth: filtering extreme low depth species, if you want to skip.
+2. -max_depth: limiting the reads number of species by barcode unit when over the thershold depth.
+3. -PCT: the purifying step required, Threshold of contig lnegth(0-1) 
+4. -IDY: the purifying step required, Threshold of IDY (80 - 100)
+
 
 * Notices
-1. extrem depth species:
+1. extrem-high depth species: 
 
-3. barcode with high interspeices shared:
+MetaTrass embeded the Supernova as the assembly tool, which would gain the longer continuity of genome while used the more assembly time. Sometimes it will meet the ultra-high depth species which fail to assembly because Supernova has a strict monitoring mechanism of input coverage. In particular, may other linked-reads assemblers, such as SPAdes, can be used as rerun assemblying in such species, it would be a compensation measures.
+
+2. barcode with high interspeices shared: 
+
+Some co-barconding or linked-reads data may have various degree strain crash rate, which means barcode shared with several speices. Such as MOCK data, which sequencing high depth with little number species. We devoloped a strict remove those reads in those shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner easily, keeping the both version of TABrefiner will be better to solve special dataset.
+
 
 Output files:
 ---
