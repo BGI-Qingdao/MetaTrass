@@ -368,9 +368,9 @@ Input Sequencing files:
 MetaTrass parameters and notices:
 ---
 * Required parameter:
-1. -rawdata input: 
-2. -cleandata input: Paired-end data
-3. -outdir: the output path
+1. -rawdata input: raw stLFR sequencing data without split the barcode.
+2. -cleandata input: Paired-end cleandata, should be split the barcode or convert to stLFR format.
+3. -outdir: the output path to storage your results.
 4. -thread: a) in TB option, please set the maxium threads. b)in AP option, please make the value of thread * parallel equal to the maxuim threads.
 5. -runnow: decide you whether run the command line right now or not.
 6. -ref_db: assigning the prepared kraken2 reference database you concerned microbiome system.
