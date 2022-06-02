@@ -3,7 +3,7 @@
 
 Description:
 ---
-**MetaTrass** is the abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. MetaTrass is based on high-quality references with a taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy to assemble high-quality metagenomes from the sequencing data.
+**MetaTrass** is the abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. MetaTrass is based on high-quality references with a taxonomic tree and long-range information encoded within co-barcoding short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false-negative effects of genome taxonomy to assemble high-quality metagenomes.
 
 
 
@@ -37,21 +37,21 @@ git clone https://github.com/BGI-Qingdao/MetaTrass.git
 cd  ./MetaTrass/tools/  && g++ -std=c++11 TABrefiner.cpp -o TABrefiner
 ```     
 
-2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify the full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
+2. You can either add MetaTrass's 3rd party dependencies to your system path or put the full path to alias into the folder `MetaTrass/tools/` which can be found by MetaTrass easily. 
 
-Fast usage by demo dataset
+Quick start with a demo dataset
 ---
 
-Get the final assemblies by demo dataset  :
+Get the final assemblies for the demo dataset  :
 ```
 python="/path-to-your/python3"
 
 # download the UHGG kraken dataset 
 wget -r -np -nH -erobots=off http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/ 
-# configuring the references database
+# configure the reference database
 $python ./MetaTrass/tool/fa_split_by_taxid.py -reffna ./kraken2-db/library/library*.fna -outdir ./uhgg_kraken2-fa/
 $python ./MetaTrass/tool/ref_genome_size.py -refdir ./uhgg_kraken2-fa/
-# Assembly all species
+# assemble all species
 rawfq1=./MetaTrass/Test/dir1_cleandata/split_reads.1.fq.gz.clean.gz
 rawfq2=./MetaTrass/Test/dir1_cleandata/split_reads.2.fq.gz.clean.gz
 
@@ -73,7 +73,7 @@ $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runno
 ```
 
 
-Usage 0.1:  Configuring the references database:
+Usage 0.1:  Configure the reference database:
 ---
 1. **The reference database** for kraken2 includes a folder that holds the database. 
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
@@ -103,20 +103,20 @@ Usage 0.1:  Configuring the references database:
 
      * Or for **Customized Microbiome** grouping:  
        Please check the NCBI official species taxonomic ID to add it to the NCBI taxonomy.  
-       To build a reliable construction of the species tree, please note that the reference genomes for MetaTrass should be non-redundant genomes of all single species. :warning:
+       To build a reliable species tree, please use non-redundant genomes for the references. :warning:
 
-2. **The reference genome** for refining the contigs should be kept with the reference database.
-     * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file.
-       You can use the script (MetaTrass/tool/fa_split_by_taxid.py) to convert the uhgg_kraken2-db/library/library.fna to single species fasta file. 
+2. **The reference genome** for refining the contigs. Should be kept with the reference database.
+     * Split library.fna which can be found in uhgg_kraken2-db/library/ (see above) to single species fasta file.
+       You can use the script (MetaTrass/tool/fa_split_by_taxid.py). 
        
      	```
 		python3 /path/to/MetaTrass/tool/fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
 		```
      
-     * If you already have the single species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa. 
+     * If you have already the single species fasta file, then please use taxid_genomic.fa as the filename, such as 1104_genomic.fa. 
 	
 3. **The reference genome size** information table :warning:
-      * Get each single species genome size as the configure file with two columns, example table below:
+      * Get each single species genome size as the configure file with two columns. For example :
 	
 		|taxid	 | genome size(bp)|
 		| :----- | ----: |
@@ -133,7 +133,7 @@ Usage 0.1:  Configuring the references database:
 
       * Please note that the genome size table file has no header line. :warning: :warning: :warning:
       * Please refer to the tables in MetaTrass/Config/all_single_species_genome_size.uhgg.txt. 
-      * You can use the script (MetaTrass/tool/ref_genome_size.py) to get all species genome size information and generate the above table. 
+      * You can use the script (MetaTrass/tool/ref_genome_size.py) to get species genome size information and generate the above table. 
       
         	python3 /path/to/MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
 
@@ -161,12 +161,12 @@ Usages:
 	
 	    Independent command :
 	       SplitBarcode    ->  Convert barcode sequences to digital code
-	       GetCleandata    ->  Cleandata filtered by SOAPfilter
-	       Kraken2Taxon    ->  Taxonomic total reads under references database by Kraken
-	       TXACBrefiner    ->  Refining read id by using Taxonomic information and superior coBarcoding set
-	       ReadID2Fastq    ->  Convert the refined read id from total fastq to each speices
-	       MetaAssembly    ->  Co-barcoding genome assembly by using SUPERNOVA
- 	       ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
+	       GetCleandata    ->  Clean data filtered by SOAPfilter
+	       Kraken2Taxon    ->  Total taxonomic reads using references database by Kraken
+	       TXACBrefiner    ->  Refining read id using yaxonomic information and superior co-barcoding set
+	       ReadID2Fastq    ->  Convert the refined read id from total fastq file to each speices
+	       MetaAssembly    ->  Co-barcoding genome assembly using SUPERNOVA
+ 	       ContigPurify    ->  Purify the initial assembly sequences to generate final MAGs based on the references
 
  	   # for command specific help info
 	       python3 Trass.py GC -h
@@ -262,7 +262,7 @@ Input Sequencing files:
 1. **For stLFR sequencing data**
      * 1. Raw data 
      
-       If you use raw data, please split the barcode first. And then, get the clean data.
+       If you are using raw data, please split the barcode first to get clean data.
        We offer the _MetaTrass GC_ function to gain clean data
        ```
        python3 /path/to/MetaTrass/Trass.py GC -rawfq1 rawfq.1.fq.gz -rawfq2 rawfq.2.fq.gz -outdir /path/to/output/ -runnow yes 
@@ -271,14 +271,14 @@ Input Sequencing files:
 	
      * 2. Clean data 
      
-       If you have the resolved clean data, please run directly the MetaTrass's TB and AP steps.
+       If you have clean data, please directly run the MetaTrass's TB and AP steps.
 	
 2. **For 10X Chromium sequencing data**	
      * 1. Raw data:
      
-       If you have the 10X Chromium data, please convert the 10X data to stLFR format.
+       If you have 10X Chromium data, please convert them to stLFR format.
      		
-     * 2. Clean data: like publication dataset.  
+     * 2. Clean data: like publicated dataset.  
      	Using Athena MOCK20 sequencing data ([ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d)) as an examples. 
 	
         **_Converting_ 10X data**
@@ -387,14 +387,14 @@ MetaTrass parameters and notices:
 * Notices
 1. extreme-high depth species: 
 
-MetaTrass embedded the Supernova as the assembly tool, which would gain a longer continuity of genome but take longer assembly time. Sometimes it will meet the ultra-high depth species which fail to assemble because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using linked-reads' assemblers, such as cloudSPAdes, to re-assemble such species, which would be an alternative method.
+MetaTrass embedded Supernova as the assembly tool, which gains a longer continuity of genome but takes a longer assembly time compared to other tools. If meet the ultra-high depth species, it will fail to assemble because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using other linked-reads' assemblers, such as cloudSPAdes, to re-assemble these species.
 
 2. barcode with high interspecies shared: 
 
-Some co-barcoding or linked-reads data may crash, which means barcodes are shared by several species. We developed a tool to remove those reads with shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner, using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keep both versions of TABrefiner.
+Some co-barcoding or linked-reads data may crash, which means barcodes are shared by several species. We developed a tool to remove those reads with shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner. Using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keep both versions of TABrefiner.
 
-3. others similar to co-barcoding data:
-If you have other linked-reads data, please convert them to stLFR format. Since the number of long fragments with the same barcode in linked-reads is greater than that of stLFR reads, more false-positive reads are introduced into the co-barcoding refined read sets, leading to the unsuccessfully assembling of several species by Supernova. We recommend using other co-barcoding assemblers, such as CloudSPAdes, to re-assemble such species.
+3. others co-barcoding data:
+If you have linked-reads data, please convert them to stLFR format. Since the number of long fragments with the same barcode in linked-reads is greater than that of stLFR reads, more false-positive reads are introduced into the co-barcoding refined read sets, leading to the unsuccessfully assembling of several species by Supernova. We recommend using other co-barcoding assemblers, such as CloudSPAdes, to re-assemble these species.
 
 Output files:
 ---
