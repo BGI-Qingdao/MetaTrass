@@ -387,13 +387,14 @@ MetaTrass parameters and notices:
 * Notices
 1. extrem-high depth species: 
 
-MetaTrass embeded the Supernova as the assembly tool, which would gain the longer continuity of genome while used the more assembly time. Sometimes it will meet the ultra-high depth species which fail to assembly because Supernova has a strict monitoring mechanism of input coverage. Since the number of long fragments with the same barcode in linked-reads is more than that of stLFR reads, more false-positive reads introduced into the co-barcoding refined read sets lead to unsuccessfully assembling of several species by Supernova. In particular, may other linked-reads assemblers, such as SPAdes, can be used as re-assembly such species, which would be a compensation measures.
-
+MetaTrass embeded the Supernova as the assembly tool, which would gain the longer continuity of genome while used the more assembly time. Sometimes it will meet the ultra-high depth species which fail to assembly because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using linked-reads' assemblers, such as cloudSPAdes, to re-ssembly such species, which would be a alternative measures.
 
 2. barcode with high interspeices shared: 
 
 Some co-barconding or linked-reads data may have various degree strain crash rate, which means barcode shared with several speices. Such as MOCK data, which sequencing high depth with little number species. We devoloped a strict remove those reads in those shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner, using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keeping the both versions of TABrefiner.
 
+3. others similar to co-barcoding data:
+If you have other linked-reads data, plase convert to stLFR format. Since the number of long fragments with the same barcode in linked-reads is more than that of stLFR reads, more false-positive reads introduced into the co-barcoding refined read sets lead to unsuccessfully assembling of several species by Supernova. We also recommend using linked-reads' assemblers, such as SPAdes, to re-ssembly such species, which would be a compensation measures.
 
 Output files:
 ---
