@@ -3,7 +3,7 @@
 
 Description:
 ---
-**MetaTrass** is abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. MetaTrass is based on high-quality referencess with taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy to assembly high-quality metagenomes from the sequencing data.
+**MetaTrass** is the abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. MetaTrass is based on high-quality references with a taxonomic tree and long-range information encoded within co-barcoded short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false negative effects of genome taxonomy to assemble high-quality metagenomes from the sequencing data.
 
 
 
@@ -31,15 +31,15 @@ Third-party software:
 
 How to install:
 ---
-1. MetaTrass can be installed via git channel:
+1. MetaTrass can be installed via the git channel:
 ```
 git clone https://github.com/BGI-Qingdao/MetaTrass.git
 cd  ./MetaTrass/tools/  && g++ -std=c++11 TABrefiner.cpp -o TABrefiner
 ```     
 
-2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
+2. You can either add MetaTrass's 3rd party dependencies to your system path or put specify the full path to alias into the folder `MetaTrass/tools/` which can be found MetaTrass easily. 
 
-Fast usage by demo dateset
+Fast usage by demo dataset
 ---
 
 Get the final assemblies by demo dataset  :
@@ -75,10 +75,10 @@ $python $Trass AP -outdir $output -ref_fa $ref_fa -thread 10 -parallel 10 -runno
 
 Usage 0.1:  Configuring the references database:
 ---
-1. **The reference database** for kraken2 include a folder that holds the database. 
+1. **The reference database** for kraken2 includes a folder that holds the database. 
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
      * For **Human Gut**:  
-       We recommend the UHGG taxonomy database which can be download from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).  
+       We recommend the UHGG taxonomy database which can be downloaded from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).  
        **uhgg_kraken2-db/**  
 	```
 				├── [472K]  database100mers.kmer_distrib  
@@ -102,8 +102,8 @@ Usage 0.1:  Configuring the references database:
        You can download the reference database from [Mock Community](https://lomanlab.github.io/mockcommunity/mc_databases.html)
 
      * Or for **Customized Microbiome** grouping:  
-       Please check the NCBI official species taxonomic ID to add into the NCBI taxonomy.  
-       To build a realiable construction of the species tree, please remind that the reference genomes for MetaTrass should be non-redundant genome of all single-speices. :warning:
+       Please check the NCBI official species taxonomic ID to add it to the NCBI taxonomy.  
+       To build a reliable construction of the species tree, please note that the reference genomes for MetaTrass should be non-redundant genomes of all single-species. :warning:
 
 2. **The reference genome** for refining the contigs should be kept with the reference database.
      * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file.
@@ -113,10 +113,10 @@ Usage 0.1:  Configuring the references database:
 		python3 /path/to/MetaTrass/tool/fa_split_by_taxid.py -reffna /path/to/kraken2-db/library/library*.fna -outdir /path/to/single-genome-fa/ 
 		```
      
-     * If you already have the single-species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa. 
+     * If you already have the single species, please ensure the filename format with taxid_genomic.fa, such as 1104_genomic.fa. 
 	
 3. **The reference genome size** information table :warning:
-      * Get each of single species genome size as the configure file with two column, example table below:
+      * Get each single species genome size as the configure file with two columns, example table below:
 	
 		|taxid	 | genome size(bp)|
 		| :----- | ----: |
@@ -131,14 +131,14 @@ Usage 0.1:  Configuring the references database:
 		|1011|2149385|
 		|1013|2260187|
 
-      * Please note that the genome size table file without any header line. :warning: :warning: :warning:
-      * Please refering the tables in MetaTrass/Config/all_single_species_genome_size.uhgg.txt. 
-      * You can use the script (MetaTrass/tool/ref_genome_size.py) to get all species genome size information and generate the above mentioned table. 
+      * Please note that the genome size table file has no header line. :warning: :warning: :warning:
+      * Please refer to the tables in MetaTrass/Config/all_single_species_genome_size.uhgg.txt. 
+      * You can use the script (MetaTrass/tool/ref_genome_size.py) to get all species genome size information and generate the above table. 
       
         	python3 /path/to/MetaTrass/tool/ref_genome_size.py -refdir /path/to/single-genome-fa/ 
 
 
-Usages 0.2: Assembly all species.
+Usages 0.2: Assemble all species.
 ---
 We provide flexible commands and detailed usage for users.  
 Usages:
@@ -155,7 +155,7 @@ Usages:
 	       GC              ->  Get stLFR Cleandata. 
 	                           GC is the combination of SplitBarcode and GetCleandata commands.
 	       TB              ->  Taxonomic Reads And Co-Barcoding Reads Refining (TABrefiner)
-	       			   TB is the combination of Kraken2Taxon, TXACBrefiner and ReadID2Fastq commands.
+	       			   TB is the combination of Kraken2Taxon, TXACBrefiner, and ReadID2Fastq commands.
 	       AP              ->  Single-species Assembly and Contigs Purifying
 	                           AP is the combination of MetaAssembly and ContigPurify commands
 	
@@ -191,7 +191,7 @@ Usage for each combination module:
 	> python Trass.py GC -h
 	usage: Trass.py GC [-h] -rawfq1 RAWFQ1 -rawfq2 RAWFQ2 [-thread THREAD] -outdir OUTDIR [-runnow RUNNOW]
 
-	Get stLFR Cleandata
+	Get stLFR Clean data
 
 	optional arguments:
 	  -h, --help      show this help message and exit
@@ -209,7 +209,7 @@ Usage for each combination module:
 	> python Trass.py TB -h
 	usage: Trass.py TB [-h] -cleanfq1 CLEANFQ1 -cleanfq2 CLEANFQ2 [-thread THREAD] [-parallel PARALLEL] -sample SAMPLE -ref_db REF_DB -genome_size GENOME_SIZE [-max_depth 		MAX_DEPTH] [-min_depth MIN_DEPTH] [-pe_length PE_LENGTH] -outdir OUTDIR [-runnow RUNNOW]
 
-	Taxnomic and Barcoding
+	Taxonomic and Barcoding
 
 	optional arguments:
 	  -h, --help            show this help message and exit
@@ -260,25 +260,25 @@ Usage for each combination module:
 Input Sequencing files:
 ---
 1. **For stLFR sequencing data**
-     * 1. Rawdata 
+     * 1. Raw data 
      
-       If you use rawdata, please split the barcode first. And then, get the cleandata.
-       We offer the _MetaTrass GC_ fuction to gain cleandata
+       If you use raw data, please split the barcode first. And then, get the clean data.
+       We offer the _MetaTrass GC_ function to gain clean data
        ```
        python3 /path/to/MetaTrass/Trass.py GC -rawfq1 rawfq.1.fq.gz -rawfq2 rawfq.2.fq.gz -outdir /path/to/output/ -runnow yes 
        
        ```
 	
-     * 2. Cleandata 
+     * 2. Clean data 
      
-       If you have the resovled cleandata, please run directly the MetaTrass's TB and AP steps.
+       If you have the resolved clean data, please run directly the MetaTrass's TB and AP steps.
 	
 2. **For 10X Chromium sequencing data**	
-     * 1. Rawdata:
+     * 1. Raw data:
      
        If you have the 10X Chromium data, please convert the 10X data to stLFR format.
      		
-     * 2. Cleandata: like publication dataset.  
+     * 2. Clean data: like publication dataset.  
      	Using Athena MOCK20 sequencing data ([ATCC MOCK20 10X data](https://www.ncbi.nlm.nih.gov/sra/SRX3727063%5baccn%5d)) as an examples. 
 	
         **_Converting_ 10X data**
@@ -368,33 +368,33 @@ Input Sequencing files:
 MetaTrass parameters and notices:
 ---
 * Required parameter:
-1. -rawdata input: raw stLFR sequencing data without split the barcode.
-2. -cleandata input: Paired-end cleandata, should be split the barcode or convert to stLFR format.
-3. -outdir: the output path to storage your results.
-4. -thread: a) in TB option, please set the maxium threads. b)in AP option, please make the value of thread * parallel equal to the maxuim threads.
-5. -runnow: decide you whether run the command line right now or not.
-6. -ref_db: assigning the prepared kraken2 reference database you concerned microbiome system.
+1. -rawdata input: raw stLFR sequencing data without splitting the barcode.
+2. -cleandata input: Paired-end clean data, should split the barcode from sequences or convert to stLFR format.
+3. -outdir: the output path to storage of your results.
+4. -thread: a) in TB option, please set the maximum threads. b)in AP option, please make the value of thread * parallel equal to the maximum threads.
+5. -runnow: decide whether run the command line right now or not.
+6. -ref_db: assigning the prepared kraken2 reference database.
 7. -genome_size: all single-species genome size table followed by reference of your microbiome.
-8. -parallel: determining the number of species to assembly in once time, coordinate with the number of thread to make the decision.
+8. -parallel: determining the number of species to assemble at one time, coordinate with the number of threads to make the decision.
 
 * Control parameter:
 1. -min_depth: filtering extreme low depth species, if you want to skip.
-2. -max_depth: limiting the reads number of species by barcode unit when over the thershold depth.
-3. -PCT: the purifying step required, Threshold of contig lnegth(0-1) 
-4. -IDY: the purifying step required, Threshold of IDY (80 - 100)
+2. -max_depth: limiting the reads number of species by barcode unit when over the threshold depth.
+3. -PCT: the purifying step required, threshold of contig length (0-1) 
+4. -IDY: the purifying step required, threshold of IDY (80 - 100)
 
 
 * Notices
-1. extrem-high depth species: 
+1. extreme-high depth species: 
 
-MetaTrass embeded the Supernova as the assembly tool, which would gain the longer continuity of genome while used the more assembly time. Sometimes it will meet the ultra-high depth species which fail to assembly because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using linked-reads' assemblers, such as cloudSPAdes, to re-ssembly such species, which would be a alternative measures.
+MetaTrass embedded the Supernova as the assembly tool, which would gain the longer continuity of genome but take longer assembly time. Sometimes it will meet the ultra-high depth species which fail to assemble because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using linked-reads' assemblers, such as cloudSPAdes, to re-assemble such species, which would be a alternative method.
 
-2. barcode with high interspeices shared: 
+2. barcode with high interspecies shared: 
 
-Some co-barconding or linked-reads data may have various degree strain crash rate, which means barcode shared with several speices. Such as MOCK data, which sequencing high depth with little number species. We devoloped a strict remove those reads in those shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner, using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keeping the both versions of TABrefiner.
+Some co-barcoding or linked-reads data may crash, which means barcodes are shared by several speices. We developed a tool to remove those reads with shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner, using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keep both versions of TABrefiner.
 
 3. others similar to co-barcoding data:
-If you have other linked-reads data, plase convert to stLFR format. Since the number of long fragments with the same barcode in linked-reads is more than that of stLFR reads, more false-positive reads introduced into the co-barcoding refined read sets lead to unsuccessfully assembling of several species by Supernova. We also recommend using linked-reads' assemblers, such as SPAdes, to re-ssembly such species, which would be a compensation measures.
+If you have other linked-reads data, please convert them to stLFR format. Since the number of long fragments with the same barcode in linked-reads is greater than that of stLFR reads, more false-positive reads are introduced into the co-barcoding refined read sets, leading to the unsuccessfully assembling of several species by Supernova. We recommend to use other linked-reads' assemblers, such as CloudSPAdes, to re-assemble such species.
 
 Output files:
 ---
