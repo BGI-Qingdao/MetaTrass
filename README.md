@@ -103,7 +103,7 @@ Usage 0.1:  Configuring the references database:
 
      * Or for **Customized Microbiome** grouping:  
        Please check the NCBI official species taxonomic ID to add it to the NCBI taxonomy.  
-       To build a reliable construction of the species tree, please note that the reference genomes for MetaTrass should be non-redundant genomes of all single-species. :warning:
+       To build a reliable construction of the species tree, please note that the reference genomes for MetaTrass should be non-redundant genomes of all single species. :warning:
 
 2. **The reference genome** for refining the contigs should be kept with the reference database.
      * Split library.fna which can find in uhgg_kraken2-db/library/ (see above) to each single species fasta file.
@@ -370,7 +370,7 @@ MetaTrass parameters and notices:
 * Required parameter:
 1. -rawdata input: raw stLFR sequencing data without splitting the barcode.
 2. -cleandata input: Paired-end clean data, should split the barcode from sequences or convert to stLFR format.
-3. -outdir: the output path to storage of your results.
+3. -outdir: the output path to the storage of your results.
 4. -thread: a) in TB option, please set the maximum threads. b)in AP option, please make the value of thread * parallel equal to the maximum threads.
 5. -runnow: decide whether run the command line right now or not.
 6. -ref_db: assigning the prepared kraken2 reference database.
@@ -387,14 +387,14 @@ MetaTrass parameters and notices:
 * Notices
 1. extreme-high depth species: 
 
-MetaTrass embedded the Supernova as the assembly tool, which would gain the longer continuity of genome but take longer assembly time. Sometimes it will meet the ultra-high depth species which fail to assemble because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using linked-reads' assemblers, such as cloudSPAdes, to re-assemble such species, which would be a alternative method.
+MetaTrass embedded the Supernova as the assembly tool, which would gain a longer continuity of genome but take longer assembly time. Sometimes it will meet the ultra-high depth species which fail to assemble because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using linked-reads' assemblers, such as cloudSPAdes, to re-assemble such species, which would be an alternative method.
 
 2. barcode with high interspecies shared: 
 
-Some co-barcoding or linked-reads data may crash, which means barcodes are shared by several speices. We developed a tool to remove those reads with shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner, using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keep both versions of TABrefiner.
+Some co-barcoding or linked-reads data may crash, which means barcodes are shared by several species. We developed a tool to remove those reads with shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner, using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keep both versions of TABrefiner.
 
 3. others similar to co-barcoding data:
-If you have other linked-reads data, please convert them to stLFR format. Since the number of long fragments with the same barcode in linked-reads is greater than that of stLFR reads, more false-positive reads are introduced into the co-barcoding refined read sets, leading to the unsuccessfully assembling of several species by Supernova. We recommend to use other linked-reads' assemblers, such as CloudSPAdes, to re-assemble such species.
+If you have other linked-reads data, please convert them to stLFR format. Since the number of long fragments with the same barcode in linked-reads is greater than that of stLFR reads, more false-positive reads are introduced into the co-barcoding refined read sets, leading to the unsuccessfully assembling of several species by Supernova. We recommend using other co-barcoding assemblers, such as CloudSPAdes, to re-assemble such species.
 
 Output files:
 ---
