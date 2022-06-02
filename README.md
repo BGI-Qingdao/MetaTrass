@@ -79,7 +79,7 @@ Usage 0.1:  Configure the reference database:
    Databases are pre-built, including the required hash.k2d, opts.k2d, and taxo.k2d files.
      * For **Human Gut**:  
        We recommend the UHGG taxonomy database which can be downloaded from [MGnify Genomes](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/uhgg_kraken2-db/).  
-       **uhgg_kraken2-db/**  
+       **uhgg_kraken2-db/**  catalog
 	```
 				├── [472K]  database100mers.kmer_distrib  
 				├── [441K]  database150mers.kmer_distrib  
@@ -402,7 +402,7 @@ Examples of output folder structure:
 
 ```
 	.
-	├── [4.0K]  all_command_shell 
+	├── [4.0K]  all_command_shell/ 
 	│   ├── [ 911]  run.log 
 	│   ├── [ 419]  stp1.1.splitbarcode.sh 
 	│   ├── [ 435]  stp1.2.getcleandata.sh 
@@ -411,21 +411,21 @@ Examples of output folder structure:
 	│   ├── [155K]  stp2.3.ReadID2Fastq.sh 
 	│   ├── [155K]  stp3.1.MetaAssembly.sh 
 	│   └── [101K]  stp3.2.ContigPurify.sh 
-	├── [4.0K]  dir1_cleandata 
+	├── [4.0K]  dir1_cleandata/ 
 	│   ├── [ 106]  barcode_freq.txt 
 	│   ├── [  98]  lane.lst 
 	│   ├── [ 118]  split_reads.1.fq.gz.clean.gz 
 	│   ├── [ 118]  split_reads.2.fq.gz.clean.gz  
 	│   ├── [ 109]  split_read_stat.log  
 	│   └── [  98]  stat.txt  
-	├── [4.0K]  dir2_taxonomy
-	│   ├── [ 20K]  ID2FQ
-	│   ├── [4.0K]  kraken
-	│   └── [ 20K]  SSRlist
-	└── [4.0K]  dir3_assembly
-	    ├── [4.0K]  purify
-	    ├── [4.0K]  quast
-	    └── [4.0K]  supernova
+	├── [4.0K]  dir2_taxonomy/
+	│   ├── [ 20K]  ID2FQ/
+	│   ├── [4.0K]  kraken/
+	│   └── [ 20K]  SSRlist/
+	└── [4.0K]  dir3_assembly/
+	    ├── [4.0K]  purify/
+	    ├── [4.0K]  quast/
+	    └── [4.0K]  supernova/
 
 	10 directories, 14 files
 ```   
