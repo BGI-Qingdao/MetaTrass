@@ -387,7 +387,8 @@ MetaTrass parameters and notices:
 * Notices
 1. extrem-high depth species: 
 
-MetaTrass embeded the Supernova as the assembly tool, which would gain the longer continuity of genome while used the more assembly time. Sometimes it will meet the ultra-high depth species which fail to assembly because Supernova has a strict monitoring mechanism of input coverage. In particular, may other linked-reads assemblers, such as SPAdes, can be used as re-assembly such species, which would be a compensation measures.
+MetaTrass embeded the Supernova as the assembly tool, which would gain the longer continuity of genome while used the more assembly time. Sometimes it will meet the ultra-high depth species which fail to assembly because Supernova has a strict monitoring mechanism of input coverage. Since the number of long fragments with the same barcode in linked-reads is more than that of stLFR reads, more false-positive reads introduced into the co-barcoding refined read sets lead to unsuccessfully assembling of several species by Supernova. In particular, may other linked-reads assemblers, such as SPAdes, can be used as re-assembly such species, which would be a compensation measures.
+
 
 2. barcode with high interspeices shared: 
 
