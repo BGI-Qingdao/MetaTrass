@@ -394,6 +394,7 @@ MetaTrass embedded Supernova as the assembly tool, which gains a longer continui
 Some co-barcoding or linked-reads data may crash, which means barcodes are shared by several species. We developed a tool to remove those reads with shared barcodes, named TABrefiner_NOS. You can alias the MetaTrass/tools/TABrefiner_NOS to MetaTrass/tools/TABrefiner. Using the command "ln -s TABrefiner_NOS TABrefiner" is easy to replace. Please keep both versions of TABrefiner.
 
 3. others co-barcoding data:
+
 If you have linked-reads data, please convert them to stLFR format. Since the number of long fragments with the same barcode in linked-reads is greater than that of stLFR reads, more false-positive reads are introduced into the co-barcoding refined read sets, leading to the unsuccessfully assembling of several species by Supernova. We recommend using other co-barcoding assemblers, such as CloudSPAdes, to re-assemble these species.
 
 Output files:
