@@ -176,8 +176,8 @@ std::string  Print_300X(const Species & one
               , bool x300){
     std::string last_barcode = "0_0_0";
     std::string tag;
-    if( x300 ) tag = std::string("300X.id_"); 
-    else       tag = std::string("10X.id_");
+    if( x300 ) tag = std::to_string(config.max_depth)+std::string("X.id_"); 
+    else       tag = std::to_string(config.min_depth)+std::string("X.id_");
     std::string file_name = tag+std::to_string(one.tax_id);
     if(all_read)
         file_name +=".allread.txt" ;
@@ -206,10 +206,10 @@ std::string  Print_300X(const Species & one
     }
     // then print valid barcode
     for(const auto & tup : barcode_infos ) {
-        long long total_read , ar_read ;
+        long long barcode_reads , kraken_hit_reads ;
         std::string barcode ;
-        std::tie( ar_read ,total_read, barcode ) = tup ;
-        if( (float)total_read / (float)ar_read <config.ldensity ) {
+        std::tie( kraken_hit_reads ,barcode_reads, barcode ) = tup ;
+        if( (float)kraken_hit_reads/ (float)barcode_reads<config.ldensity ) {
              continue ;
         }
         auto & barcode_item = barcodes.at(barcode);
@@ -223,9 +223,9 @@ std::string  Print_300X(const Species & one
         }
 	last_barcode = barcode;
         if(all_read)
-            printed_num += ar_read ;
+            printed_num += kraken_hit_reads ;
         else
-            printed_num += total_read ;
+            printed_num += barcode_reads ;
         if( printed_num > read_num )
             break;
     }
@@ -250,11 +250,11 @@ void Print_species_info(long long id
     long long ar_zero = zeros.size();
     oft<<"0_0_0\t"<<ar_zero<<" "<<all_zero<<" "<<float(ar_zero)/float(all_zero)<<" "<<"0_0_0"<<'\n';
     for(const auto & tup : barcode_infos ) {
-        long long total_read , ar_read ;
+        long long barcode_reads,kraken_hit_reads;
         std::string barcode ;
-        std::tie( ar_read ,total_read, barcode ) = tup ;
-        oft<<barcode<<" "<<ar_read<<" "<<total_read<<" ";
-        oft<<float(ar_read)/float(total_read)<<" "<<barcode;
+        std::tie( kraken_hit_reads,barcode_reads, barcode ) = tup ;
+        oft<<barcode<<" "<<kraken_hit_reads<<" "<<barcode_reads<<" ";
+        oft<<float(kraken_hit_reads)/float(barcode_reads)<<" "<<barcode;
 	if( barcode == last_AB ) oft<<" last_AB";
 	if( barcode == last_AR ) oft<<" last_AR";
         oft<<'\n';
@@ -271,6 +271,7 @@ void Deal_major_species(){
         for(const std::string &  b : one_item.barcodes ) {
             if( b == "0_0_0" || b == "0_0" ) continue ;
             const auto & barcode_item = barcodes.at(b);
+            //                       kraken-hit-reads                                                 barcode-reads
             barcode_infos.push_back(std::make_tuple(barcode_item.assigned_reads.at(one_item.tax_id) ,(long long)(barcode_item.reads.size()) , b));
         }
         std::sort( barcode_infos.rbegin() ,  barcode_infos.rend() );
@@ -301,14 +302,14 @@ void Deal_left() {
 }
 
 void  printUsage(){
-    std::cerr<<"TABrefiner <-g genome info file> <-k kraken result> [-r read_length default 100] [-m max output reads depth default 300 ]  [-n min output reads depth default 10 ] [-l marker_reads/barcode_reads threashold ]"<<std::endl;
+    std::cerr<<"TABrefiner <-g genome info file> <-k kraken result> [-r read_length default 100] [-m max output reads depth default 300 ]  [-n min output reads depth default 10 ] [-l kraken_hit_reads/barcode_reads threashold default 0 ]"<<std::endl;
     std::cerr<<std::endl;
 }
 
 int main(int argc , char ** argv ) {
     config.max_depth = 300;
     config.min_depth = 10 ;
-    config.ldensity = 0.1 ;
+    config.ldensity = 0 ;
     config.read_length=100;
     static struct option long_options[] = {
         {"genome_info",required_argument, NULL, 'g'},

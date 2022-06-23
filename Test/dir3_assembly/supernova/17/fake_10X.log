@@ -1,0 +1,5 @@
+Merge stLFR reads into 10X format !
+ read1 :  /zfsqd1/ST_OCEAN/USRS/qiyanwei/project2/4.MetaTrass/7.Demo//Demo/dir2_taxonomy/ID2FQ/5X.id_17.allbarcode.txt_list_1.fq.gz 
+. read2 : /zfsqd1/ST_OCEAN/USRS/qiyanwei/project2/4.MetaTrass/7.Demo//Demo/dir2_taxonomy/ID2FQ/5X.id_17.allbarcode.txt_list_2.fq.gz 
+ map file : merge.txt
+Total 216465 pair reads and used 194965 pairs.

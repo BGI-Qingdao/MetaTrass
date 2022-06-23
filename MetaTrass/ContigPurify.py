@@ -63,7 +63,7 @@ def ContigPurify(args):
 				reference = refdir + '/' + taxid + '_genomic.fa'
 				if float(depth) >= float(min_depth):
 					if os.path.exists(rawContig):
-						taxid_quast_dir = outdir + 'dir3_assembly/quast/' + taxid
+						taxid_quast_dir = outdir + '/dir3_assembly/quast/' + taxid
 						create_folder(taxid_quast_dir)
 	
 						task1 = quast_bin(rawContig, reference, parallel, taxid_quast_dir, IDY)

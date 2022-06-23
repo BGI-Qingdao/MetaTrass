@@ -1,0 +1,6 @@
+barcode_freq in barcode_clean_freq.txt
+whitelist  in /zfsqd1/ST_OCEAN/USRS/qiyanwei/software/api/MetaTrass/tools/supernova//supernova-cs/2.1.1/tenkit/lib/python/tenkit/barcodes/4M-with-alts-february-2016.txt
+output merge in merge.txt
+smallest barcode freq is 2
+the stLFR barcode : 10x barcode map ratio is 8:1Total 200000000 in whilte list of 10X is loaded !!!
+Total 216465 pairs and used 194965 pairs  

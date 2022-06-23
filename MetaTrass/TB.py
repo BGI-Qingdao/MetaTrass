@@ -28,10 +28,10 @@ optional arguments:
 ==========================================================================================================================
 '''
 
-def TB(args, Kraken2Taxon, ReadID2Fastq, TXACBrefiner):
+def TB(args, Kraken2Taxon, TXACBrefiner, ReadID2Fastq):
 	Kraken2Taxon(args)
-	ReadID2Fastq(args)
 	TXACBrefiner(args)
+	ReadID2Fastq(args)
 
 if __name__ == '__main__':
 
@@ -41,16 +41,18 @@ if __name__ == '__main__':
 	parser.add_argument('-cleanfq1',                     required=True,  type=str,                               help='Paired-end data: cleanfq1 fastq.gz')
 	parser.add_argument('-cleanfq2',                     required=True,  type=str,                               help='Paired-end data: cleanfq2 fastq.gz')
 	parser.add_argument('-thread',                       required=False, type=str,  default = '20',              help='Kraken parameter')
+	parser.add_argument('-parallel',                     required=False, type=str,  default = '20',              help='The number of parallel species')
 	parser.add_argument('-sample',                       required=True,  type=str,                               help='Output FileName Prefix')
 	parser.add_argument('-ref_db',                       required=True,  type=str,                               help='Taxonomy references database' )
 	parser.add_argument('-genome_size',                  required=True,  type=str,                               help='Paired-end data: raw 2 fastq.gz')
-	parser.add_argument('-max_depth',                    required=False, type=str,  default = '300',             help='Species Maxima-Depth Required Assembly')
-	parser.add_argument('-min_depth',                    required=False, type=str,  default = '10',              help='Species Minima-Depth Required Assembly')
+	parser.add_argument('-max_depth',                    required=False, type=str,  default = '300',             help='Species Maximum-Depth Required Assembly')
+	parser.add_argument('-min_depth',                    required=False, type=str,  default = '10',              help='Species Minimum-Depth Required Assembly')
+	parser.add_argument('-pe_length',                    required=False, type=str,  default = '100',             help='PE read length of sequencing data')
 	parser.add_argument('-outdir',                       required=True,  type=str,                               help='Output folder')
 	parser.add_argument('-runnow',                       required=False, type=str,  default = 'False',           help='Run this script immediately')
 	
 	args = vars(parser.parse_args())
-	TB(args, Kraken2Taxon, ReadID2Fastq, TXACBrefiner)
+	TB(args, Kraken2Taxon, TXACBrefiner, ReadID2Fastq)
 
 
 

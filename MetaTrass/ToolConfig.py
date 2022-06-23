@@ -13,7 +13,7 @@ config_main_path = '/'.join(pwd_config_file.split('/')[:-2])
 config_dict = {
                'MetaTrass'            : '%s'                       % config_main_path,
 
-               'python'               : 'python3',
+               'python'               : '%s/python3'               % config_tool_path,
                'perl'                 : 'perl',
 
                # third-party tools 
