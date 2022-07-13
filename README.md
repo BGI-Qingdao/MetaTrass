@@ -3,7 +3,12 @@
 
 Description:
 ---
-**MetaTrass** is the abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. MetaTrass is based on high-quality references with a taxonomic tree and long-range information encoded within co-barcoding short-read sequences. The comprehensive use of co-barcoding information and references in our approach can reduce the false-negative effects of genome taxonomy to assemble high-quality metagenomes.
+**MetaTrass** is the abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. 
+
+MetaTrass is the first metagenome assembly tool implemented by binning-first-assembly-later strategy and it is freely available at https://github.com/BGI-Qingdao/MetaTrass.
+MetaTrass integrates the cobarcoding and the reference genome information to achieve high capability of generating high-quality genomes at species level for the human gut microbial commuities.
+MetaTrass uses the cobarcoding correlation between short length reads to reduce false positives in conventional taxonomic binning and improve the contiguity of draft assemblies.
+![image](https://user-images.githubusercontent.com/13197453/178639806-42782df0-74bd-491d-b036-7fa1c5f6ede9.png)
 
 
 
