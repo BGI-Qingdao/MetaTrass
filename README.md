@@ -464,4 +464,6 @@ Issue:
 Publication:
 ---
 
-First Look:  [bioRxiv Preprint](https://www.biorxiv.org/content/10.1101/2021.09.13.459686v1)
+Open Access: [iMeta](https://onlinelibrary.wiley.com/doi/full/10.1002/imt2.46)
+
+Preprint:  [bioRxiv](https://www.biorxiv.org/content/10.1101/2021.09.13.459686v1)
