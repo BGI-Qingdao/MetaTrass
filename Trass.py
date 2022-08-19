@@ -41,36 +41,39 @@ def version():
 def print_main_help():
 
     help_message = ''' 
-            ...:::=== MetaTrass v%s ===:::...
+            ...:::=== MetaTrass v1.20.0 ===:::...
     =================================================
-               Metagenomic Taxonomic Reads 
+               Metagenomic Taxonomic Reads
                  Assembly Single-Species
-    ================================================= 
+    =================================================
     Combination modules:
-       GC              ->  Get stLFR Cleandata
-       TB              ->  Taxonomic Reads And Co-Barcoding Reads Refining (TABrefiner) 
+       GC              ->  Get stLFR Cleandata. 
+                           GC is the combination of SplitBarcode and GetCleandata commands.
+       TB              ->  Taxonomic Reads And Co-Barcoding Reads Refining (TABrefiner)
+       			   TB is the combination of Kraken2Taxon, TXACBrefiner, and ReadID2Fastq commands.
        AP              ->  Single-species Assembly and Contigs Purifying
+                           AP is the combination of MetaAssembly and ContigPurify commands
 
-    Independent modules:
-       SplitBarcode    ->  Covert barcode sequences to digital code
-       GetCleandata    ->  Cleandata filtered by SOAPfilter
-       Kraken2Taxon    ->  Taxonomic total reads under references database by Kraken
-       TXACBrefiner    ->  Refining read id by using Taxonomic information and superior coBarcoding set
-       ReadID2Fastq    ->  Covert the refined read id from total fastq to each speices
-       MetaAssembly    ->  Co-barcoding genome assembly by using SUPERNOVA
-       ContigPurify    ->  Purifying the initial assembly sequences to the final MAG based on the references
+    Independent command :
+       SplitBarcode    ->  Convert barcode sequences to digital code
+       GetCleandata    ->  Clean data filtered by SOAPfilter
+       Kraken2Taxon    ->  Total taxonomic reads using references database by Kraken
+       TXACBrefiner    ->  Refining read id using yaxonomic information and superior co-barcoding set
+       ReadID2Fastq    ->  Convert the refined read id from total fastq file to each speices
+       MetaAssembly    ->  Co-barcoding genome assembly using SUPERNOVA
+       ContigPurify    ->  Purify the initial assembly sequences to generate final MAGs based on the references
 
-    # for command specific help info
+   # for command specific help info
        python3 Trass.py GC -h
        python3 Trass.py TB -h
        python3 Trass.py AP -h
 
        python3 Trass.py SplitBarcode -h
-       python3 Trass.py GetCleandata -h 
-       python3 Trass.py Kraken2Taxon -h 
-       python3 Trass.py TXACBrefiner -h 
-       python3 Trass.py ReadID2Fastq -h 
-       python3 Trass.py MetaAssembly -h 
+       python3 Trass.py GetCleandata -h
+       python3 Trass.py Kraken2Taxon -h
+       python3 Trass.py TXACBrefiner -h
+       python3 Trass.py ReadID2Fastq -h
+       python3 Trass.py MetaAssembly -h
        python3 Trass.py ContigPurify -h
     ''' % version()
 
