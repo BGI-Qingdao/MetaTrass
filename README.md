@@ -18,7 +18,7 @@ Publication:
 [MetaTrass: A high‐quality metagenome assembler of the human gut microbiome by cobarcoding sequencing](https://onlinelibrary.wiley.com/doi/full/10.1002/imt2.46)
 
 Yanwei Qi, Shengqiang Gu, Yue Zhang, Lidong Guo, Mengyang Xu, Xiaofang Cheng, Ou Wang, Ying Sun, Jianwei Chen, Xiaodong Fang, Xin Liu, Li Deng, and Guangyi Fan. 2022. MetaTrass: a high-quality metagenome assembler of the human gut microbiome by cobarcoding sequencing reads. iMeta e46. 
-https://doi.org/ 10.1002/imt2.46
+https://doi.org/10.1002/imt2.46
 
 
 Change Log:
