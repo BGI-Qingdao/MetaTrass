@@ -13,6 +13,17 @@ MetaTrass uses the cobarcoding correlation between short length reads to reduce 
 
 ![Graphical abstract](images/imt2.46.jpg)
 
+Publication:
+---
+
+[MetaTrass: A high‐quality metagenome assembler of the human gut microbiome by cobarcoding sequencing](https://onlinelibrary.wiley.com/doi/full/10.1002/imt2.46)
+
+Citation: 
+
+Yanwei Qi, Shengqiang Gu, Yue Zhang, Lidong Guo, Mengyang Xu, Xiaofang Cheng, Ou Wang, Ying Sun, Jianwei Chen, Xiaodong Fang, Xin Liu, Li Deng, and Guangyi Fan. 2022. MetaTrass: a high-quality metagenome assembler of the human gut microbiome by cobarcoding sequencing reads. iMeta e46. 
+https://doi.org/ 10.1002/imt2.46
+
+
 Change Log:
 ---
 * v1.2.0 (2021-08-03) - Finished a version test!
@@ -461,9 +472,4 @@ Issue:
 ---
 * Please submit issues on the [github page for MetaTrass](https://github.com/BGI-Qingdao/MetaTrass/issues).
 
-Publication:
----
 
-Open Access: [iMeta](https://onlinelibrary.wiley.com/doi/full/10.1002/imt2.46)
-
-Preprint:  [bioRxiv](https://www.biorxiv.org/content/10.1101/2021.09.13.459686v1)
