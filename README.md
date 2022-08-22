@@ -11,6 +11,7 @@ MetaTrass integrates the cobarcoding and the reference genome information to ach
 
 MetaTrass uses the cobarcoding correlation between short length reads to reduce false positives in conventional taxonomic binning and improve the contiguity of draft assemblies.
 
+Graphical abstract![image](https://user-images.githubusercontent.com/13197453/185831662-20e9367e-a03a-4178-ba51-1ac6d4affa69.png)
 
 
 Change Log:
