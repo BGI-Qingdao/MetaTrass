@@ -3,7 +3,7 @@
 
 Description:
 ---
-**MetaTrass** is the abbreviation to **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. 
+**MetaTrass** is the abbreviation from **Meta**genomics **T**axonomic **R**eads For **A**ssembly **S**ingle **S**pecies. 
 
 MetaTrass is the first metagenome assembly tool implemented by binning-first-assembly-later strategy and it is freely available at https://github.com/BGI-Qingdao/MetaTrass.
 
