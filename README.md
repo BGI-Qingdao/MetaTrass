@@ -394,10 +394,10 @@ MetaTrass parameters and notices:
 8. -parallel: determining the number of species to assemble at one time, coordinate with the number of threads to make the decision.
 
 * Control parameter:
-1. -min_depth: filtering extreme low depth species, if you want to skip.
-2. -max_depth: limiting the reads number of species by barcode unit when over the threshold depth.
-3. -PCT: the purifying step required, threshold of contig length (0-1) 
-4. -IDY: the purifying step required, threshold of IDY (80 - 100)
+1. -min_depth: filtering extreme low depth species, if you want to skip (default: 10).
+2. -max_depth: limiting the reads number of species by barcode unit when over the threshold depth (default: 300).
+3. -PCT: the purifying step required, threshold of contig length (default: 0.5, range: 0-1).
+4. -IDY: the purifying step required, threshold of IDY (default: 1, range: 80 - 100).
 
 
 * Notices
