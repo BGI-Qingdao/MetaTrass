@@ -29,6 +29,10 @@ Change Log:
 * v1.1.0 (2021-07-09) - Fixed a few bugs
 * v1.0.0 (2021-04-13) - Initial release
 
+Branch release:
+---
+* v1.0.0 (2022-10-26) - a branch realeased![MetaTrass_lite](https://github.com/QYanwei/MetaTrass_lite)
+
 Dependencies:
 ---
 
@@ -403,7 +407,7 @@ MetaTrass parameters and notices:
 * Notices
 1. extreme-high depth species: 
 
-MetaTrass embedded Supernova as the assembly tool, which gains a longer continuity of genome but takes a longer assembly time compared to other tools. If meet the ultra-high depth species, it will fail to assemble because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using other linked-reads' assemblers, such as cloudSPAdes, to re-assemble these species.
+MetaTrass embedded Supernova as the assembly tool, which gains a longer continuity of genome but takes a longer assembly time compared to other tools. If meet the ultra-high depth species, it will fail to assemble because Supernova has a strict monitoring mechanism of input coverage. In particular, we recommend using other linked-reads' assemblers, such as cloudSPAdes, to re-assemble these species or you can use [MetaTrass_lite](https://github.com/QYanwei/MetaTrass_lite)..
 
 2. barcode with high interspecies shared: 
 
@@ -411,7 +415,7 @@ Some co-barcoding or linked-reads data may crash, which means barcodes are share
 
 3. others co-barcoding data:
 
-If you have linked-reads data, please convert them to stLFR format. Since the number of long fragments with the same barcode in linked-reads is greater than that of stLFR reads, more false-positive reads are introduced into the co-barcoding refined read sets, leading to the unsuccessfully assembling of several species by Supernova. We recommend using other co-barcoding assemblers, such as CloudSPAdes, to re-assemble these species.
+If you have linked-reads data, please convert them to stLFR format. Since the number of long fragments with the same barcode in linked-reads is greater than that of stLFR reads, more false-positive reads are introduced into the co-barcoding refined read sets, leading to the unsuccessfully assembling of several species by Supernova. We recommend using other co-barcoding assemblers, such as CloudSPAdes, to re-assemble these species or you can use [MetaTrass_lite](https://github.com/QYanwei/MetaTrass_lite)..
 
 Output files:
 ---
