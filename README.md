@@ -25,6 +25,7 @@ https://doi.org/10.1002/imt2.46
 
 Change Log:
 ---
+* v1.3.0 (2021-07-01) - upload a demo test data!
 * v1.2.0 (2021-08-03) - Finished a version test!
 * v1.1.0 (2021-07-09) - Fixed a few bugs
 * v1.0.0 (2021-04-13) - Initial release
