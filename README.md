@@ -31,7 +31,7 @@ Change Log:
 
 Branch release:
 ---
-* v1.0.0 (2022-10-26) - a branch realeased![MetaTrass_lite](https://github.com/QYanwei/MetaTrass_lite)
+* v1.0.0 (2022-10-26) - a branch realeased! [MetaTrass_lite](https://github.com/QYanwei/MetaTrass_lite)
 
 Dependencies:
 ---
