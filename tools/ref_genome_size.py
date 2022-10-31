@@ -42,6 +42,6 @@ for filename in os.listdir(args['refdir']):
 with open(args['refdir']+'ref_genome_size2.txt', 'w') as f:
 	for tid, fadir in filefold.items():
 		ref_len = str(callRefLength(fadir))
-		f.write(' '.join([taxid, ref_len, fadir, '\n']))
+		f.write(' '.join([tid, ref_len, fadir, '\n']))
 	f.closed()
 print(f.closed)
