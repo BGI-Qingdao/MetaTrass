@@ -41,7 +41,7 @@ def version():
 def print_main_help():
 
     help_message = ''' 
-            ...:::=== MetaTrass v1.20.0 ===:::...
+            ...:::=== MetaTrass v%s ===:::...
     =================================================
                Metagenomic Taxonomic Reads
                  Assembly Single-Species
