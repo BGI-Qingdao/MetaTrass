@@ -1,1 +1,1 @@
-quast/quast.py
+../../MetaTrass_Resource/software/quast/quast.py

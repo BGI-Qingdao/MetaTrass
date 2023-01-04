@@ -136,10 +136,10 @@ void OrganiseIds() {
         if( species.find(read.tax_id) == species.end() ) continue ;
         barcodes[read.barcode].incr_taxid(read.tax_id);
         species[read.tax_id].reads.push_back(read.item_id);
-	// species only store valid barcode. 
+        // species only store valid barcode.
         if( read.barcode == "0_0_0" || read.barcode == "0_0" )
             AddNoBarcodeTax(read.tax_id,read.item_id);
-        else 
+        else
             species[read.tax_id].barcodes.insert(read.barcode);
     }
 }
@@ -169,14 +169,14 @@ void PrintSpeciesDepth() {
 //
 //
 //@return : last barcode
-// 
-std::string  Print_300X(const Species & one 
-              ,const std::vector<std::tuple<long long,long long,std::string>> & barcode_infos 
+//
+std::string  Print_300X(const Species & one
+              ,const std::vector<std::tuple<long long,long long,std::string>> & barcode_infos
               , bool all_read
               , bool x300){
     std::string last_barcode = "0_0_0";
     std::string tag;
-    if( x300 ) tag = std::to_string(config.max_depth)+std::string("X.id_"); 
+    if( x300 ) tag = std::to_string(config.max_depth)+std::string("X.id_");
     else       tag = std::to_string(config.min_depth)+std::string("X.id_");
     std::string file_name = tag+std::to_string(one.tax_id);
     if(all_read)
@@ -201,7 +201,7 @@ std::string  Print_300X(const Species & one
         auto & read = reads_cache.at(rid);
         caches.push_back(read.read_name);
         printed_num ++ ;
-        if( printed_num >= z_max) 
+        if( printed_num >= z_max)
             break;
     }
     // then print valid barcode
@@ -221,7 +221,7 @@ std::string  Print_300X(const Species & one
                 read.used=true;
             }
         }
-	last_barcode = barcode;
+        last_barcode = barcode;
         if(all_read)
             printed_num += kraken_hit_reads ;
         else
@@ -235,7 +235,7 @@ std::string  Print_300X(const Species & one
     return last_barcode;
 }
 
-void Print_species_info(long long id 
+void Print_species_info(long long id
                  , const std::vector<std::tuple<long long ,long long,std::string>> & barcode_infos
                  , const std::string last_AB
                  , const std::string last_AR
@@ -255,8 +255,8 @@ void Print_species_info(long long id
         std::tie( kraken_hit_reads,barcode_reads, barcode ) = tup ;
         oft<<barcode<<" "<<kraken_hit_reads<<" "<<barcode_reads<<" ";
         oft<<float(kraken_hit_reads)/float(barcode_reads)<<" "<<barcode;
-	if( barcode == last_AB ) oft<<" last_AB";
-	if( barcode == last_AR ) oft<<" last_AR";
+        if( barcode == last_AB ) oft<<" last_AB";
+        if( barcode == last_AR ) oft<<" last_AR";
         oft<<'\n';
     }
 }
@@ -333,13 +333,13 @@ int main(int argc , char ** argv ) {
                 config.kraken_file = std::string(optarg);
                 break;
             case 'm':
-                config.max_depth=atoi(optarg);               
+                config.max_depth=atoi(optarg);
                 break;
             case 'l':
-                config.ldensity=atof(optarg);               
+                config.ldensity=atof(optarg);
                 break;
             case 'n':
-                config.min_depth=atoi(optarg);               
+                config.min_depth=atoi(optarg);
                 break;
             case 'r':
                 config.read_length=atoi(optarg);
@@ -369,4 +369,3 @@ int main(int argc , char ** argv ) {
 
     return 0;
 }
-

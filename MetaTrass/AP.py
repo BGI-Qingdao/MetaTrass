@@ -39,7 +39,7 @@ if __name__ == '__main__':
 	# add argument for TB
 	parser.add_argument('-maprate',                      required=False, type=str,   default='8',                help='mapping ratio (default=8)')
 	parser.add_argument('-thread',                       required=False, type=str,   default='6',                help='number of threads use(default = 6)')
-	parser.add_argument('-memory',                       required=False, type=str,   default='150',              help='number of memory use(GB,default = 150)',)
+	parser.add_argument('-memory',                       required=False, type=str,   default='30',              help='number of memory use(GB,default = 150)',)
 	parser.add_argument('-maxreads',                     required=False, type=str,   default='2140000000',       help='maximumreads for supernova(default = 2140000000)')
 	parser.add_argument('-pairdepth',                    required=False, type=str,   default='2',                help='filter less X pair barcode reads(default = 2)')
 	parser.add_argument('-outdir',                       required=True,  type=str,                               help='output folder') 

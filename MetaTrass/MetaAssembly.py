@@ -101,7 +101,7 @@ if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-thread',      required=False, type=str,  default='5',                 help='The number of assembly thread of each species ')
 	parser.add_argument('-parallel',    required=False, type=str,  default='6',                 help='The number of parallel assembly of single species')
-	parser.add_argument('-memory',      required=False, type=str,  default='150',        		help='number of memory use(GB,default = 150)')
+	parser.add_argument('-memory',      required=False, type=str,  default='30',        		help='number of memory use(GB,default = 30)')
 	parser.add_argument('-maprate',     required=False, type=str,  default='8',          		help='mapping ratio (default=8)')
 	parser.add_argument('-maxreads',    required=False, type=str,  default='2140000000', 		help='maximumreads for supernova(default = 2140000000)')
 	parser.add_argument('-pairdepth',   required=False, type=str,  default='2',          		help='filter less X pair barcode reads(default = 2)')

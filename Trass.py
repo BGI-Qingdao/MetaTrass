@@ -34,18 +34,22 @@ from MetaTrass import MetaAssembly
 from MetaTrass import ContigPurify
 
 def version():
-    version_file = open('%s/VERSION' % ToolConfig.config_file_path)
+    version_file = open('%s/VERSION' % ToolConfig.config_main_path)
     return version_file.readline().strip()
 
-
 def print_main_help():
-
-    help_message = ''' 
-            ...:::=== MetaTrass v%s ===:::...
-    =================================================
-               Metagenomic Taxonomic Reads
-                 Assembly Single-Species
-    =================================================
+    help_message = """
+     __  __      _       _____                  
+    |  \/  | ___| |_ __ |_   _| __ __ _ ___ ___ 
+    | |\/| |/ _ \ __/ _` || || '__/ _` / __/ __|
+    | |  | |  __/ || (_| || || | | (_| \__ \___
+    |_|  |_|\___|\__\__,_||_||_|  \__,_|___/___/ V%s    
+                                            
+         ...:::=== MetaTrass for stLFR meta assembler  ===:::...
+    =================================================================
+                       Metagenomic Taxonomic Reads
+                         Assembly Single-Species
+    =================================================================
     Combination modules:
        GC              ->  Get stLFR Cleandata. 
                            GC is the combination of SplitBarcode and GetCleandata commands.
@@ -63,7 +67,7 @@ def print_main_help():
        MetaAssembly    ->  Co-barcoding genome assembly using SUPERNOVA
        ContigPurify    ->  Purify the initial assembly sequences to generate final MAGs based on the references
 
-   # for command specific help info
+   Command specific help info :
        python3 Trass.py GC -h
        python3 Trass.py TB -h
        python3 Trass.py AP -h
@@ -75,8 +79,8 @@ def print_main_help():
        python3 Trass.py ReadID2Fastq -h
        python3 Trass.py MetaAssembly -h
        python3 Trass.py ContigPurify -h
-    ''' % version()
 
+    """ % version()
     print(help_message)
 
 if __name__ == '__main__':
@@ -87,8 +91,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     # subparsers = parser.add_subparsers(help="--", dest='subparser_name')
     subparsers = parser.add_subparsers(help='sub-command help', dest='subparser_name')
-    
-
 
     GC_parser           =    subparsers.add_parser('GC',              description='Get stLFR Cleandata',                            epilog='Example: MetaTrass GC -h')
     TB_parser           =    subparsers.add_parser('TB',              description='Taxnomic and Barcoding',                         epilog='Example: MetaTrass TB -h')
@@ -186,7 +188,7 @@ if __name__ == '__main__':
     MetaAssembly_parser.add_argument('-maprate',            required=False, type=str,  default='8',                 help='mapping ratio (default=8)')
     MetaAssembly_parser.add_argument('-thread',             required=False, type=str,  default='5',                 help='The number of assembly thread of each species ')
     MetaAssembly_parser.add_argument('-parallel',           required=False, type=str,  default='6',                 help='The number of parallel assembly of single species')
-    MetaAssembly_parser.add_argument('-memory',             required=False, type=str,  default='150',               help='number of memory use(GB,default = 150)',)
+    MetaAssembly_parser.add_argument('-memory',             required=False, type=str,  default='30',               help='number of memory use(GB,default = 150)',)
     MetaAssembly_parser.add_argument('-maxreads',           required=False, type=str,  default='2140000000',        help='maximumreads for supernova(default = 2140000000)')
     MetaAssembly_parser.add_argument('-pairdepth',          required=False, type=str,  default='2',                 help='filter less X pair barcode reads(default = 2)')
     MetaAssembly_parser.add_argument('-max_depth',          required=False, type=str,  default='300',               help='Species Maximum-Depth Required Assembly')
@@ -210,8 +212,8 @@ if __name__ == '__main__':
 #    args = None
     if (len(sys.argv) == 1) or (sys.argv[1] == '-h') or (sys.argv[1] == '-help') or (sys.argv[1] == '--help'):
         print_main_help()
+        version()
         sys.exit(0)     
-
     else:
         args = vars(parser.parse_args())
     print(args)
@@ -246,6 +248,5 @@ if __name__ == '__main__':
 
     if args['subparser_name'] == 'ContigPurify':
         ContigPurify.ContigPurify(args)
-
 
 

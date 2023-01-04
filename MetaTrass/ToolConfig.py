@@ -23,7 +23,7 @@ config_dict = {
                'TABrefiner'           : '%s/TABrefiner'            % config_tool_path,
                'seqtk'                : '%s/seqtk'                 % config_tool_path,
                'supernova'            : '%s/supernova/'            % config_tool_path,
-               'quast'                : '%s/quast/quast.py'        % config_tool_path,
+               'quast'                : '%s/quast.py'        % config_tool_path,
 
                # modules
                'sflfr2supernova'      : '%s/stlfr2supernova/stlfr2supernova.py'       % config_tool_path,
